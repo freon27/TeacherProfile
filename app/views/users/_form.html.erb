@@ -1,8 +1,17 @@
 <%= form.error_messages %>
 <div class="text_field">
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+</div>
+<div class="text_field">
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+</div>
+<div class="text_field">
   <%= form.label :email %>
   <%= form.text_field :email %>
 </div>
+<% if edit_password then %>
 <div class="password_field">
   <%= form.label :password %>
   <%= form.password_field :password %>
@@ -11,3 +20,7 @@
   <%= form.label :password_confirmation, "Confirm password" %>
   <%= form.password_field :password_confirmation %>
 </div>
+<% else %>
+<%= form.hidden_field :password %>
+<%= form.hidden_field :password_confirmation %>
+<% end %>

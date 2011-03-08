@@ -1,0 +1,14 @@
+<h2>Dashboard</h2>
+
+<h3>Welcome <%= current_user.first_name %></h3>
+
+<% if @profiles.length == 0 %>
+  <p>Lets create your first teaching profile!</p>
+<% end %>
+<%= button_to 'Create', new_profiles_path %>
+
+<ul id="profiles">
+<% @profiles.each do | profile | %>
+  <li><%= profile.name %></li>
+<% end %>
+</ul>

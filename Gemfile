@@ -15,7 +15,7 @@ gem "paperclip"
 
 gem "formtastic"
 
-gem "clearance", "~> 0.10.1"
+gem "clearance", "~> 0.10.2"
 
 #rance", "~> 0.10.1"
 # Use unicorn as the web server
@@ -41,6 +41,7 @@ gem "clearance", "~> 0.10.1"
 group :development do
   gem 'rspec-rails', '2.3.0'
   gem 'faker', '0.3.1'
+  gem 'webrat', '0.7.1'
 end
 
 group :test do
@@ -48,7 +49,13 @@ group :test do
   gem 'webrat', '0.7.1'
   gem 'factory_girl_rails'
   gem 'ZenTest'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'autotest-notification'
   gem 'timecop'
   gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'spork'
 end
+

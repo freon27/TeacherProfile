@@ -5,6 +5,14 @@ describe User do
     before(:each) do
       @user = Factory(:user)
     end
+    it "should not be valid without a first name" do
+      @user.first_name = nil
+      @user.should_not be_valid
+    end
+    it "should not be valid without a last name" do
+      @user.last_name = nil
+      @user.should_not be_valid
+    end
     it "should not be valid without an email address" do
       @user.email = nil
       @user.should_not be_valid
@@ -35,7 +43,7 @@ describe User do
       @user.password_confirmation = @user.password
       @user.should_not be_valid
     end
-  it "should not be valid if password does not contain at least 1 uppercase characters" do
+    it "should not be valid if password does not contain at least 1 uppercase characters" do
       @user.password = 'oneone'
       @user.password_confirmation = @user.password
       @user.should_not be_valid

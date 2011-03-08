@@ -1,6 +1,9 @@
-<h1>Editing user</h1>
+<h1>Editing your account</h1>
 
-<%= render 'form' %>
+<%= form_for @user do |form| %>
+  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => false } %>
+  <%= form.submit 'Save' %>
+<% end %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

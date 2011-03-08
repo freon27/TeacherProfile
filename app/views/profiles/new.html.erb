@@ -1,0 +1,6 @@
+<h2>Create Profile</h2>
+
+<%= form_for @profile do |form| %>
+  <%= render :partial => '/profiles/form', :object => form %>
+  <%= form.submit 'Sign up' %>
+<% end %>

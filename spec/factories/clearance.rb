@@ -3,9 +3,11 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :user do |user|
-  user.email                 { Factory.next :email }
-  user.password              { "Password1" }
-  user.password_confirmation { |instance| instance.password }
+  user.first_name             { "First" }
+  user.last_name              { "Last" }
+  user.email                  { Factory.next :email }
+  user.password               { "Password1" }
+  user.password_confirmation  { |instance| instance.password }
 end
 
 Factory.define :email_confirmed_user, :parent => :user do |user|

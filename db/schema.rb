@@ -10,7 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220165432) do
+ActiveRecord::Schema.define(:version => 20110304123254) do
+
+  create_table "main_pages", :force => true do |t|
+    t.integer  "profile_id"
+    t.text     "introduction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "published"
+  end
+
+  create_table "philosophy_pages", :force => true do |t|
+    t.boolean  "published"
+    t.text     "philosophy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "profile_id"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "published",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  create_table "subject_areas", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -22,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20110220165432) do
     t.string   "salt",                  :limit => 128
     t.string   "confirmation_token",    :limit => 128
     t.string   "remember_token",        :limit => 128
+    t.string   "last_name"
+    t.string   "first_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
