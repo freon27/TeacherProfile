@@ -30,6 +30,14 @@ When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   end
 end
 
+Then /^I should see a?n? "([^"]*)" button/ do |name|
+  page.should have_selector("input[type=submit][value=#{ name }]")
+end
+
+Then /^I should not see a?n? "([^"]*)" button/ do |name|
+  page.should_not have_selector("input[type=submit][value=#{ name }]")
+end
+
 When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   with_scope(selector) do
     click_link(link)

@@ -17,6 +17,12 @@ describe Profile do
       @profile.name = nil
       @profile.should_not be_valid
     end
+    it "should not be valid if the user already has 3 accounts" do
+      profile2 = Factory(:profile, :name => 'profile B', :user => @profile.user)
+      profile3 = Factory(:profile, :name => 'profile C', :user => @profile.user)
+      profile4 = Factory.build(:profile, :name => 'profile D', :user => @profile.user)
+      profile4.should_not be_valid
+    end
   end
   describe "methods" do
     describe "publish" do

@@ -25,7 +25,7 @@ class UsersController < Clearance::UsersController
   end
 
   def dashboard
-    @user = User.find(params[:id])
+    @user = current_user
     @profiles = @user.profiles
   end
 

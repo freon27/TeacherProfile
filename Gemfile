@@ -57,5 +57,6 @@ group :test do
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'spork'
+  gem 'launchy'
 end
 

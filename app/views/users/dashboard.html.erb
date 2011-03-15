@@ -5,10 +5,16 @@
 <% if @profiles.length == 0 %>
   <p>Lets create your first teaching profile!</p>
 <% end %>
-<%= button_to 'Create', new_profiles_path %>
 
-<ul id="profiles">
+<table id="profiles">
 <% @profiles.each do | profile | %>
-  <li><%= profile.name %></li>
+  <tr>
+    <td><%= profile.name %></td>
+    <td><%= button_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get' %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
+
+<% if @profiles.length < Profile::LIMIT %>
+<%= button_to 'Create', new_profile_path, :method => 'get' %>
+<% end %>

@@ -51,6 +51,7 @@ GEM
     clearance (0.10.3.1)
       diesel (~> 0.1.4)
       rails (~> 3.0.0)
+    configuration (1.2.0)
     cucumber (0.10.0)
       builder (>= 2.1.2)
       diff-lcs (~> 1.1.2)
@@ -82,6 +83,9 @@ GEM
     i18n (0.5.0)
     json (1.4.6)
     json_pure (1.5.1)
+    launchy (0.4.0)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -165,6 +169,7 @@ DEPENDENCIES
   factory_girl_rails
   faker (= 0.3.1)
   formtastic
+  launchy
   paperclip
   rails (= 3.0.3)
   rspec (= 2.3.0)

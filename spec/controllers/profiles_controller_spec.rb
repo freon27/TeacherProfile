@@ -41,9 +41,9 @@ describe ProfilesController do
           assigns(:profile).should be_a(Profile)
         end
   
-        it "redirects to the created profile" do
+        it "redirects to the the user dashboard" do
           post :create, :profile => @valid_params
-          response.should redirect_to(profiles_path(assigns[:profile]))
+          response.should redirect_to(dashboard_user_path(@user))
         end
       end
   
@@ -61,12 +61,17 @@ describe ProfilesController do
       end  
     end
     
-    describe "if they own the profile" do
+    describe "GET edit" do
+      describe "if they own the profile" do
+        it "assigns the requested profile as @profile" do
+          get :edit, :id => @example_profile.id
+          assigns(:profile).should == @example_profile
+        end
+      end  
       
-    end
-    
-    describe "if they do not own the profile" do
+      describe "if they do not own the profile" do
       
+      end  
     end
   end
 

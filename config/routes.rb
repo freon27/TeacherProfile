@@ -10,7 +10,13 @@ Teacherprofile::Application.routes.draw do
   
   resource :session, :controller => 'sessions'
 
-  resource :profiles
+  resources :users, :controller => 'clearance/users', :only => [:new, :create] do
+    resource :password,
+      :controller => 'passwords',
+      :only       => [:create, :edit, :update]
+  end
+
+  resources :profiles
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
