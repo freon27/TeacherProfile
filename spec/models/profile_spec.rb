@@ -54,5 +54,8 @@ describe Profile do
     it "should have a philosophy page" do
       @profile.philosophy_page.should be_a(PhilosophyPage)
     end
+    it "should have an experience page" do
+      @profile.experience_page.should be_a(ExperiencePage)
+    end
   end
 end

@@ -1,0 +1,14 @@
+<ul id="profile-sidebar">
+  <li>
+    <%= link_to 'Profile Details', edit_profile_path(profile.id) %>
+  </li>
+  <li>
+    <%= link_to 'Introduction', edit_main_page_path(profile.main_page.id) %>
+  </li>
+  <li>
+    <%= link_to 'Teaching Philosophy', edit_philosophy_page_path(profile.philosophy_page.id) %>
+  </li>
+  <li>
+    <%= link_to 'Experience', edit_experience_page_path(profile.experience_page.id) %>
+  </li>
+</ul>

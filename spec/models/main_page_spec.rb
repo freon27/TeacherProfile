@@ -6,9 +6,12 @@ describe MainPage do
   end
   describe "creation" do
     
-    it "should not be valid without introduction text" do
+    it "should not be valid without introduction text if published" do
       @mp.introduction = nil
+      @mp.published = true
       @mp.should_not be_valid
+      @mp.published = false
+      @mp.should be_valid
     end
     it "should not be valid without an associated profile" do
       @mp.profile = nil

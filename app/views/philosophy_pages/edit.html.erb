@@ -1,0 +1,8 @@
+<%= render :partial => 'profiles/page_links', :locals => { :profile => @philosophy_page.profile }  %>
+
+<h2>Edit Philosophy Page</h2>
+
+<%= form_for @philosophy_page do |form| %>
+  <%= render :partial => 'form', :object => form %>
+  <%= form.submit 'Save' %>
+<% end %>

@@ -1,2 +1,9 @@
-<h1>MainPages#edit</h1>
-<p>Find me in app/views/main_pages/edit.html.erb</p>
+
+<%= render :partial => 'profiles/page_links', :locals => { :profile => @main_page.profile }  %>
+
+<h2>Edit Main Page</h2>
+
+<%= form_for @main_page do |form| %>
+  <%= render :partial => 'form', :object => form %>
+  <%= form.submit 'Save' %>
+<% end %>

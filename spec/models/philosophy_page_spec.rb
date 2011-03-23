@@ -6,9 +6,12 @@ describe PhilosophyPage do
   end
   describe "creation" do
     
-    it "should not be valid without philosophy text" do
+    it "should not be valid without philosophy text if published" do
       @pp.philosophy = nil
+      @pp.published = true
       @pp.should_not be_valid
+      @pp.published = false
+      @pp.should be_valid
     end
     it "should not be valid without an associated profile" do
       @pp.profile = nil

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe MainPagesController do
+describe PhilosophyPagesController do
 
   before(:each) do
-    @mp = Factory(:main_page)
+    @pp = Factory(:philosophy_page)
   end
   
   describe "for signed in users" do
@@ -13,21 +13,21 @@ describe MainPagesController do
       end 
       describe "GET 'show'" do
         it "should redirect to the sign in page" do
-          get 'show', :id => @mp.id
+          get 'show', :id => @pp.id
           response.should redirect_to(sign_in_path)
         end
       end
     
       describe "GET 'edit'" do
         it "should redirect to the sign in page" do
-          get 'edit', :id => @mp.id
+          get 'edit', :id => @pp.id
           response.should redirect_to(sign_in_path)
         end
       end
     
       describe "PUT 'update'" do
         it "should redirect to the sign in page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
           response.should redirect_to(sign_in_path)
         end
       end
@@ -35,88 +35,88 @@ describe MainPagesController do
     
     describe "if user is owner" do
       before(:each) do
-        sign_in_as(@mp.profile.user)
+        sign_in_as(@pp.profile.user)
       end      
       describe "GET 'show'" do
         it "should be successful" do
-          get 'show', :id => @mp.id
+          get 'show', :id => @pp.id
           response.should be_success
         end
         
-        it "should assign the requested page as @main_page" do
-          get 'show', :id => @mp.id
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          get 'show', :id => @pp.id
+          assigns(:philosophy_page).should == @pp
         end
       end
     
       describe "GET 'edit'" do
         it "should be successful" do
-          get 'edit', :id => @mp.id
+          get 'edit', :id => @pp.id
           response.should be_success
         end
     
-        it "should assign the requested page as @main_page" do
-          get 'edit', :id => @mp.id
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          get 'edit', :id => @pp.id
+          assigns(:philosophy_page).should == @pp
         end
       end
     
       describe "PUT 'update'" do
 
         it "should redirect to the edit page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          response.should redirect_to(edit_main_page_path(@mp))
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          response.should redirect_to(edit_philosophy_page_path(@pp))
         end
         
         it "should update the page attributes" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          @mp.reload.introduction.should == 'New Text'
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          @pp.reload.philosophy.should == 'New Text'
         end
         
-        it "should assign the requested page as @main_page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          assigns(:philosophy_page).should == @pp
         end
       end
       describe "GET 'show'" do
         it "should be successful" do
-          get 'show', :id => @mp.id
+          get 'show', :id => @pp.id
           response.should be_success
         end
         
-        it "should assign the requested page as @main_page" do
-          get 'show', :id => @mp.id
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          get 'show', :id => @pp.id
+          assigns(:philosophy_page).should == @pp
         end
       end
     
       describe "GET 'edit'" do
         it "should be successful" do
-          get 'edit', :id => @mp.id
+          get 'edit', :id => @pp.id
           response.should be_success
         end
     
-        it "should assign the requested page as @main_page" do
-          get 'edit', :id => @mp.id
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          get 'edit', :id => @pp.id
+          assigns(:philosophy_page).should == @pp
         end
       end
     
       describe "PUT 'update'" do
 
         it "should redirect to the edit page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          response.should redirect_to(edit_main_page_path(@mp))
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          response.should redirect_to(edit_philosophy_page_path(@pp))
         end
         
         it "should update the page attributes" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          @mp.reload.introduction.should == 'New Text'
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          @pp.reload.philosophy.should == 'New Text'
         end
         
-        it "should assign the requested page as @main_page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          assigns(:main_page).should == @mp
+        it "should assign the requested page as @philosophy_page" do
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          assigns(:philosophy_page).should == @pp
         end
       end
     end
@@ -124,21 +124,21 @@ describe MainPagesController do
   describe "for non-signed in users" do
       describe "GET 'show'" do
         it "should redirect to the sign in page" do
-          get 'show', :id => @mp.id
+          get 'show', :id => @pp.id
           response.should redirect_to(sign_in_path)
         end
       end
     
       describe "GET 'edit'" do
         it "should redirect to the sign in page" do
-          get 'edit', :id => @mp.id
+          get 'edit', :id => @pp.id
           response.should redirect_to(sign_in_path)
         end
       end
     
       describe "PUT 'update'" do
         it "should redirect to the sign in page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
+          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
           response.should redirect_to(sign_in_path)
         end
       end  

@@ -1,0 +1,20 @@
+<%= render :partial => 'profiles/page_links', :locals => { :profile => @experience_page.profile }  %>
+
+<h2>Edit Experience Page</h2>
+
+<% if @positions.length == 0 %>
+No positions listed
+<% else %>
+<% for position in @positions %>
+<%= position.location %>
+<% end %>
+
+<% end %>
+
+<%= button_to 'Add Position', new_experience_page_position_path(@experience_page.id), :method => 'get' %>
+
+
+<%= form_for @experience_page do |form| %>
+  <%= render :partial => 'form', :object => form %>
+  <%= form.submit 'Save' %>
+<% end %>
