@@ -2,7 +2,7 @@ class PositionsController < ApplicationController
 
   before_filter :authenticate
   before_filter :user_owns_experience_page
-  before_filter :user_owns_profile, :except => [:new, :create]
+  #before_filter :user_owns_profile, :except => [:new, :create]
   
   def show 
     @position = Position.find(params[:id])

@@ -24,18 +24,18 @@ When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
+  with_scope(selector) do
+    click_button(button)
+  end
+end
+
 Then /^I should see a?n? "([^"]*)" button/ do |name|
   page.should have_selector("input[type=submit][value=#{ name }]")
 end
 
 Then /^I should not see a?n? "([^"]*)" button/ do |name|
   page.should_not have_selector("input[type=submit][value=#{ name }]")
-end
-  
-When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
-  with_scope(selector) do
-    click_button(button)
-  end
 end
 
 When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
@@ -224,15 +224,4 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
-end
-
-# capybara step definition for a quick and dirty date select
-# For example:
-# When I select "May 7, 2010" as the post "published_on" date
-
-When /^I select "([^"]*)" as the (.+) "([^"]*)" date$/ do |date, model, selector|
-  date = Date.parse(date)
-  select(date.year.to_s, :from => "#{model}[#{selector}(1i)]")
-  select(date.strftime("%B"), :from => "#{model}[#{selector}(2i)]")
-  select(date.day.to_s, :from => "#{model}[#{selector}(3i)]")
 end

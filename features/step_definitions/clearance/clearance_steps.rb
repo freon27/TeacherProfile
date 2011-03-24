@@ -18,10 +18,7 @@ Given /^(?:I am|I have|I) signed up (?:as|with) "(.*)\/(.*)"$/ do |email, passwo
   Factory(:user,
           :email                 => email,
           :password              => password,
-          :password_confirmation => password,
-          :first_name            => 'Fake',
-          :last_name             => 'User',
-          )
+          :password_confirmation => password)
 end
 
 Given /^a user "([^"]*)" exists without a salt, remember token, or password$/ do |email|
