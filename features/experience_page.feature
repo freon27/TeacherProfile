@@ -20,3 +20,8 @@ Feature: Experience Page
     Then I should see "No positions listed"
     When I press "Add Position"
     And I fill in "Location" with "School A"
+    And I fill in "Position type" with "School A"
+    And I select "March 19th, 2005" as the "Date from" date
+    And I fill in "Description" with "My first sample placement"
+    And I press "Create Position"
+    Then I should see "Created"
