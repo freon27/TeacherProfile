@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320181910) do
+ActiveRecord::Schema.define(:version => 20110329201219) do
 
   create_table "experience_pages", :force => true do |t|
     t.boolean  "published"
@@ -63,12 +63,30 @@ ActiveRecord::Schema.define(:version => 20110320181910) do
     t.string   "name"
   end
 
+  create_table "qualifications", :force => true do |t|
+    t.string   "location"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.integer  "experience_page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subject_areas", :force => true do |t|
     t.integer  "profile_id"
     t.string   "name"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
+    t.integer  "qualification_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "grade"
+    t.string   "level"
   end
 
   create_table "users", :force => true do |t|

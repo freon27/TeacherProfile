@@ -1,6 +1,7 @@
 class ExperiencePage < ActiveRecord::Base
   belongs_to :profile
   has_many :positions
+  has_many :qualifications
   
   validates_presence_of :profile
   validates_inclusion_of :published, :in => [true, false]

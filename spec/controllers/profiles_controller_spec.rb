@@ -30,7 +30,7 @@ describe ProfilesController do
           }
         end
         
-        it "creates a new user" do
+        it "creates a new profile" do
           lambda {
             post :create, :profile => @valid_params
           }.should change(Profile, :count).by(1)
@@ -70,12 +70,69 @@ describe ProfilesController do
       end  
       
       describe "if they do not own the profile" do
-      
+        before(:each) do
+          @another_profile = Factory(:profile)
+        end
+
+        describe "GET 'edit'" do
+          it "should redirect to the sign in page" do
+            get 'edit', :id => @another_profile
+            response.should redirect_to(sign_in_path)
+          end
+        end
+
+        pending "PUT 'update'" do
+          it "should redirect to the sign in page" do
+            put 'update', :id => @another_profile
+            response.should redirect_to(sign_in_path)
+          end
+        end
+
+        pending "DELETE" do
+          it "should redirect to the sign in page" do
+            delete 'destroy', :id => @another_profile
+            response.should redirect_to(sign_in_path)
+          end
+        end
       end  
     end
   end
 
   describe "for non-signed in users" do
     
+    describe "GET 'edit'" do
+      it "should redirect to the sign in page" do
+        get 'edit', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+
+    describe "GET 'new'" do
+      it "should redirect to the sign in page" do
+        get 'new', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+
+    describe "POST 'create'" do
+      it "should redirect to the sign in page" do
+        post 'create', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+    
+    pending "PUT 'update'" do
+      it "should redirect to the sign in page" do
+        put 'update', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+
+    pending "DELETE" do
+      it "should redirect to the sign in page" do
+        delete 'destroy', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
   end
 end

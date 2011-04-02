@@ -7,10 +7,12 @@ describe PositionsController do
   end
   
   describe "for signed in users" do
-    describe "when user is not owner" do
+    
+    describe "when user is not owner of the profile" do
       before(:each) do
         sign_in_as(Factory(:user))
-      end 
+      end
+      
       describe "GET 'show'" do
         it "should redirect to the sign in page" do
           get 'show', :id => @pos.id, :experience_page_id => @pos.experience_page
@@ -25,20 +27,35 @@ describe PositionsController do
         end
       end
 
-      pending "GET 'new'" do
+      describe "GET 'new'" do
         it "should redirect to the sign in page" do
           get 'new', :experience_page_id => @pos.experience_page
           response.should redirect_to(sign_in_path)
         end
       end
-    
-      pending "PUT 'update'" do
+
+      describe "POST 'create'" do
         it "should redirect to the sign in page" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
+          get 'new', :experience_page_id => @pos.experience_page, :position => @pos.attributes
           response.should redirect_to(sign_in_path)
         end
       end
-    end
+      
+      describe "PUT 'update'" do
+        it "should redirect to the sign in page" do
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(sign_in_path)
+        end
+      end
+
+      describe "DELETE" do
+        it "should redirect to the sign in page" do
+          delete 'destroy', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(sign_in_path)
+        end
+      end 
+      
+    end 
     
     describe "if user is owner" do
       before(:each) do
@@ -69,23 +86,24 @@ describe PositionsController do
         
       end
     
-      pending "PUT 'update'" do
+      describe "PUT 'update'" do
 
         it "should redirect to the edit page" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
-          response.should redirect_to(edit_experience_page_path(@pos))
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(edit_experience_page_path(@pos.experience_page))
         end
         
         it "should update the page attributes" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
-          @pos.reload.introduction.should == 'New Text'
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          @pos.reload.description.should == 'New Text'
         end
         
         it "should assign the requested position as @position" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
           assigns(:position).should == @pos
         end
       end
+      
       describe "GET 'show'" do
         it "should be successful" do
           get 'show', :id => @pos.id, :experience_page_id => @pos.experience_page
@@ -110,25 +128,63 @@ describe PositionsController do
         end
       end
     
-      pending "PUT 'update'" do
-
+      describe "GET 'new'" do
+        it "should be successful" do
+          get 'new', :experience_page_id => @pos.experience_page
+          response.should be_success
+        end
+    
+        it "should assign the request user as @position" do
+          get 'new', :experience_page_id => @pos.experience_page
+          assigns(:position).should be_a(Position)
+        end
+      end
+      
+      describe "POST 'create'" do
+        it "should be successful" do
+          post 'create', :experience_page_id => @pos.experience_page, :position => @pos.attributes.delete(:experience_page_id)
+          response.should be_success
+        end
+    
+        it "should assign the request user as @position" do
+          post 'create', :experience_page_id => @pos.experience_page, :position => @pos.attributes
+          assigns(:position).should be_a(Position)
+        end
+      end
+      
+      describe "PUT 'update'" do
         it "should redirect to the edit page" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
-          response.should redirect_to(edit_experience_page_path(@pos))
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(edit_experience_page_path(@pos.experience_page))
         end
         
         it "should update the page attributes" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
-          @pos.reload.introduction.should == 'New Text'
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          @pos.reload.description.should == 'New Text'
         end
         
         it "should assign the requested position as @position" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
           assigns(:position).should == @pos
         end
       end
+      
+      describe "DELETE" do
+        it "should destroy the requested position" do
+          lambda do
+            delete 'destroy', :experience_page_id => @pos.experience_page, :id => @pos.id
+          end.should change(Position, :count).by(-1)
+        end
+        
+        it "should redirect to the edit experience page view" do  
+          delete 'destroy', :experience_page_id => @pos.experience_page, :id => @pos.id
+          response.should redirect_to(edit_experience_page_path(@pos.experience_page))
+        end
+        
+      end
     end
   end
+  
   describe "for non-signed in users" do
       describe "GET 'show'" do
         it "should redirect to the sign in page" do
@@ -144,12 +200,33 @@ describe PositionsController do
         end
       end
     
-      pending "PUT 'update'" do
+      describe "PUT 'update'" do
         it "should redirect to the sign in page" do
-          put 'update', :id => @pos.id, :position => { :introduction => 'New Text' }
+          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
           response.should redirect_to(sign_in_path)
         end
-      end  
+      end
+
+      describe "GET 'new'" do
+        it "should redirect to the sign in page" do
+          put 'new', :experience_page_id => @pos.experience_page
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
+      describe "POST 'create'" do
+        it "should redirect to the sign in page" do
+          post 'create', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
+      describe "DELETE" do
+        it "should redirect to the sign in page" do
+          delete 'destroy', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
+          response.should redirect_to(sign_in_path)
+        end
+      end
   end
 end
 

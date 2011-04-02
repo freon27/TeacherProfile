@@ -49,3 +49,17 @@ Factory.define :experience_page_with_position, :parent => :experience_page do |p
     p.positions = [Factory(:position, :experience_page => p)]
   end
 end
+
+Factory.define :qualification do |qual|
+  qual.location       'Fake High School, Nowhere'
+  qual.date_from      Date.today - 365
+  qual.date_to        Date.today - 180
+  qual.association    :experience_page
+end
+
+Factory.define :subject do |subj|
+  subj.name           'Science'
+  subj.level          'GCSE'
+  subj.grade          'F'
+  subj.association    :qualification
+end

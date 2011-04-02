@@ -2,16 +2,68 @@
 
 <h2>Edit Experience Page</h2>
 
+<h3>Positions / Experience</h3>
+<p>This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.</p>
+
 <% if @positions.length == 0 %>
-No positions listed
+<p>You don't currently have any previous experience listed.  Why not add a position now?</p>
 <% else %>
+<table id="position-list">
 <% for position in @positions %>
-<%= position.location %>
+	<tr>
+		<td><%= position.location %></td>
+		<td><%= position.date_from %></td>
+		<td><%= position.date_to || '-' %></td>
+		<td><%= link_to 'Edit', edit_experience_page_position_path(@experience_page.id, position.id), :method => 'get' %></td>
+		<td><%= link_to 'Delete', experience_page_position_path(@experience_page.id, position.id), :confirm => "Delete this position?", :method => 'delete' %></td>
+	</tr>
+<% end %>
+</table>
 <% end %>
 
+<%= link_to 'Add Position', new_experience_page_position_path(@experience_page.id), :method => 'get' %>
+
+<h3>Qualifications</h3>
+<p>This is where you can list the qualifications you currently hold or are working towards.</p>
+
+
+<% if @qualifications.length == 0 %>
+<p>You have not currently listed any places you've studied.  Why not add some now?</p>
+<% else %>
+<h4>Places you've studied</h4>
+<ul id="qualification-list">
+<% for qualification in @qualifications %>
+	<li>
+		<%= qualification.location %>
+		<%= qualification.date_from %>
+		<%= qualification.date_to || '-' %>
+		<%= link_to 'Edit', edit_experience_page_qualification_path(@experience_page.id, qualification.id), :method => 'get' %>
+		<%= link_to 'Delete', experience_page_qualification_path(@experience_page.id, qualification.id), 
+			:confirm => "Delete this qualification?", :method => 'delete' %>
+
+			<% if 0 && qualification.subjects %>
+			<ul>
+			<% for subject in qualification.subjects %>	
+			<li>
+				<%= subject.name %>
+				<%= subject.level %>
+				<%= subject.grade || 'Awaiting' %>
+				<%= link_to 'Edit', edit_qualification_subject_path(qualification.id, subject.id), :method => 'get' %>
+				<%= link_to 'Delete', qualification_subject_path(qualification.id, subject.id), :method => 'delete', 
+					:confirm => "Delete this qualification?" %>
+			</li>
+			<% end %>
+			</ul>
+			<%= link_to 'Add a course/subject', new_qualification_subject_path(qualification.id), :method => 'get' %>
+		<% end %>
+
+	</li>
+<% end %>
+</ul>
 <% end %>
 
-<%= button_to 'Add Position', new_experience_page_position_path(@experience_page.id), :method => 'get' %>
+<%= link_to 'Add a new place', new_experience_page_qualification_path(@experience_page.id), :method => 'get' %>
+
 
 
 <%= form_for @experience_page do |form| %>

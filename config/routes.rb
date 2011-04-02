@@ -4,8 +4,11 @@ Teacherprofile::Application.routes.draw do
   resources :philosophy_pages, :only => [:show, :edit, :update]
   resources :experience_pages, :only => [:show, :edit, :update] do
     resources :positions
+    resources :qualifications
   end
-  
+  resources :qualifications do
+    resources :subjects
+  end
   
   
   resources :users do

@@ -10,6 +10,7 @@ class ExperiencePagesController < ApplicationController
   def edit
     @experience_page = ExperiencePage.find(params[:id])
     @positions = @experience_page.positions
+    @qualifications = @experience_page.qualifications
   end
 
   def update
