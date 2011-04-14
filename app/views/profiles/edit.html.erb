@@ -1,8 +1,13 @@
 <%= render :partial => 'profiles/page_links', :locals => { :profile => @profile }  %>
 
-<h2>Edit Profile</h2>
+<section class="span-18">
+	<h2 class=" banner round-top">Edit Profile</h2>
+	<div class="content round-bottom">
+		<p>This is where you can set up the basic details of your profile and control whether it's published.</p>
 
-<%= form_for @profile do |form| %>
-  <%= render :partial => '/profiles/form', :object => form %>
-  <%= form.submit 'Save' %>
-<% end %>
+		<%= semantic_form_for @profile do |form| %>
+		  <%= render :partial => '/profiles/form', :object => form %>
+		  <%= form.submit 'Save', :class => 'button positive' %>
+		<% end %>
+  </div>
+</section>

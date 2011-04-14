@@ -1,9 +1,9 @@
-<%= form.error_messages %>
+
 <%= form.inputs do -%>
     <%= form.input :location, :hint => 'The name of the school/workplace the position was held at'  %>
     <%= form.input :position_type%>
-    <%= form.input :date_from %>
-    <%= form.input :date_to %>
+    <%= form.input :date_from, :as => :date_picker %>
+    <%= form.input :date_to, :as => :date_picker %>
     <%= form.input :description %>
     <%= form.submit %>
 <% end %>

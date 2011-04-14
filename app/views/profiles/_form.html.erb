@@ -1,5 +1,4 @@
-<%= form.error_messages %>
-<div class="text_field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
+<% form.inputs do %>
+<%= form.input :name, :label => 'Profile Name', :hint => 'The name for your profile.  Only you will see this.' %>
+<%= form.input :url_suffix, :label => 'Profile URL', :required => false, :hint => 'The suffix to the URL you will hand out to prospective employer. e.g. http://teachingprofile.com/profiles/yourtexthere'  %>
+<% end %>

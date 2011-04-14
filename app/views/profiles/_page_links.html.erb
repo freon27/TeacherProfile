@@ -1,14 +1,17 @@
-<ul id="profile-sidebar">
-  <li>
-    <%= link_to 'Profile Details', edit_profile_path(profile.id) %>
-  </li>
-  <li>
-    <%= link_to 'Introduction', edit_main_page_path(profile.main_page.id) %>
-  </li>
-  <li>
-    <%= link_to 'Teaching Philosophy', edit_philosophy_page_path(profile.philosophy_page.id) %>
-  </li>
-  <li>
-    <%= link_to 'Experience', edit_experience_page_path(profile.experience_page.id) %>
-  </li>
-</ul>
+<nav class="span-6" id="profile-sidebar">
+	<h3><%= profile.name %></h3>
+	<ul>
+  	<li <% if params[:controller] == 'profiles' %>class="sidebar-selected round-left"<% end %>>
+	    <%= link_to 'Profile Details', edit_profile_path(profile.id) %>
+	  </li>
+	  <li <% if params[:controller] == 'main_pages' %>class="sidebar-selected round-left"<% end %>>
+	    <%= link_to 'Introduction', edit_main_page_path(profile.main_page.id) %>
+	  </li>
+	  <li <% if params[:controller] == 'philosophy_pages' %>class="sidebar-selected round-left"<% end %>>
+	    <%= link_to 'Teaching Philosophy', edit_philosophy_page_path(profile.philosophy_page.id) %>
+	  </li>
+	  <li <% if params[:controller] == 'experience_pages' %>class="sidebar-selected round-left"<% end %>>
+	    <%= link_to 'Experience', edit_experience_page_path(profile.experience_page.id) %>
+	  </li>
+	</ul>
+</nav>

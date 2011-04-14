@@ -26,7 +26,8 @@ describe ProfilesController do
   
         before do
           @valid_params = {
-            'name'  => @example_profile.name
+            'name'  => @example_profile.name,
+            'url_suffix' => 'testprofile'
           }
         end
         
@@ -69,32 +70,45 @@ describe ProfilesController do
         end
       end  
       
-      describe "if they do not own the profile" do
+      pending "if they do not own the profile" do
         before(:each) do
           @another_profile = Factory(:profile)
         end
-
-        describe "GET 'edit'" do
-          it "should redirect to the sign in page" do
-            get 'edit', :id => @another_profile
-            response.should redirect_to(sign_in_path)
-          end
-        end
-
-        pending "PUT 'update'" do
-          it "should redirect to the sign in page" do
-            put 'update', :id => @another_profile
-            response.should redirect_to(sign_in_path)
-          end
-        end
-
-        pending "DELETE" do
-          it "should redirect to the sign in page" do
-            delete 'destroy', :id => @another_profile
-            response.should redirect_to(sign_in_path)
-          end
-        end
       end  
+    end
+    
+    describe "PUT 'update'" do
+
+      describe "if they own the profile" do
+        it "should update the profile with the suggested information" do
+          put 'update', :id => @another_profile, :profile => { name => 'new name' }
+          assigns(:profile).should == 'new name'
+        end
+      end
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          put 'update', :id => @another_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end
+    end
+
+    describe "DELETE" do
+      describe "if they own the profile" do
+        it "should delete the requested profile" do
+          delete 'destroy', :id => @example_profile
+          
+        end
+      end
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          @another_profile = Factory(:profile)
+          delete 'destroy', :id => @another_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end
     end
   end
 

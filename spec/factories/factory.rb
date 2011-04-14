@@ -3,6 +3,7 @@ Factory.define :profile do |prof|
   prof.name         'Profile A'
   prof.published    false
   prof.association  :user
+  prof.sequence(:url_suffix) {|n| "myprofile#{n}" }
 end
 
 Factory.define :main_page do |mp|
@@ -63,3 +64,4 @@ Factory.define :subject do |subj|
   subj.grade          'F'
   subj.association    :qualification
 end
+

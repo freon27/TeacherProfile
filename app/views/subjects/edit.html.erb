@@ -1,3 +1,12 @@
-<%= semantic_form_for([@qualification, @subject]) do |form| %>
-  <%= render :partial => 'form', :object => form %>
-<% end %>
+
+<%= render :partial => 'profiles/page_links', :locals => { :profile => @qualification.experience_page.profile }  %>
+
+<section class="span-18 round-top">
+	<h2 class=" banner round-top">Edit Subject</h2>
+	<div class="content round-bottom">
+
+		<%= semantic_form_for([@qualification, @subject]) do |form| %>
+		  <%= render :partial => 'form', :object => form %>
+		<% end %>
+	</div>
+</section>

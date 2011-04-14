@@ -1,8 +1,12 @@
 <%= render :partial => 'profiles/page_links', :locals => { :profile => @philosophy_page.profile }  %>
 
-<h2>Edit Philosophy Page</h2>
-
-<%= form_for @philosophy_page do |form| %>
-  <%= render :partial => 'form', :object => form %>
-  <%= form.submit 'Save' %>
-<% end %>
+<section class="span-18 round-top">
+	<h2 class=" banner round-top">Edit Philosophy Page</h2>
+	<div class="content round-bottom">
+		<p>This is where you should explain your teaching philosophy.</p>
+		<%= semantic_form_for @philosophy_page do |form| %>
+		  <%= render :partial => 'form', :object => form %>
+		  <%= form.submit 'Save' %>
+		<% end %>
+	</div>
+</section>

@@ -1,3 +1,10 @@
-<%= semantic_form_for([@experience_page, @position]) do |form| %>
-  <%= render :partial => 'form', :object => form %>
-<% end %>
+<%= render :partial => 'profiles/page_links', :locals => { :profile => @experience_page.profile }  %>
+
+<section class="span-18 round-top">
+	<h2 class=" banner round-top">Edit Position</h2>
+	<div class="content round-bottom">
+		<%= semantic_form_for([@experience_page, @position]) do |form| %>
+		  <%= render :partial => 'form', :object => form %>
+		<% end %>
+	</div>
+</section>

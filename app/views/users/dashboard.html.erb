@@ -1,7 +1,5 @@
 <h2>Dashboard</h2>
 
-<h3>Welcome <%= current_user.first_name %></h3>
-
 <% if @profiles.length == 0 %>
   <p>Lets create your first teaching profile!</p>
 <% end %>
@@ -11,6 +9,7 @@
   <tr>
     <td><%= profile.name %></td>
     <td><%= button_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get' %></td>
+		<td><%= button_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?' %></td>
   </tr>
 <% end %>
 </table>

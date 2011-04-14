@@ -1,6 +1,11 @@
-<h2>Sign up</h2>
+<%= render :partial => '/users/page_links' %>
 
-<%= form_for @user do |form| %>
-  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => true } %>
-  <%= form.submit 'Sign up' %>
-<% end %>
+<section class="span-18 round-top">
+	<h2 class=" banner round-top">Sign Up</h2>
+	<div class="content round-bottom">
+		<%= form_for @user do |form| %>
+		  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => true } %>
+		  <%= form.submit 'Sign up' %>
+		<% end %>
+  </div>
+</section>

@@ -1,10 +1,12 @@
-<h1>Editing your account</h1>
+<%= render :partial => '/users/page_links' %>
 
-<%= form_for @user do |form| %>
-  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => false } %>
-  <%= form.submit 'Save' %>
-<% end %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
-<%= link_to 'Change Password', edit_user_password_path(current_user) %>
+<section class="span-18 round-top">
+	<h2 class=" banner round-top">Editing your account</h2>
+	<div class="content round-bottom">
+		
+		<%= form_for @user do |form| %>
+		  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => false } %>
+		  <%= form.submit 'Save' %>
+		<% end %>
+  </div>
+</section>

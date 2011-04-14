@@ -13,6 +13,8 @@ gem "RedCloth", :require => "redcloth"
 
 gem "paperclip"
 
+gem 'jquery-rails', '>= 0.2.6'
+
 gem "formtastic"
 
 gem "clearance", "~> 0.10.2"

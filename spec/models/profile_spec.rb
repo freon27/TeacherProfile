@@ -23,6 +23,17 @@ describe Profile do
       profile4 = Factory.build(:profile, :name => 'profile D', :user => @profile.user)
       profile4.should_not be_valid
     end
+    
+    it "should not be valid without a url" do
+      @profile.url = nil
+      @profile.should_not be_valid
+    end
+    
+    it "should require that url is unique" do
+      profile2 = Factory.build(:profile, :url => @profile.url) 
+      profile2.should_not be_valid
+    end
+    
   end
   describe "methods" do
     describe "publish" do

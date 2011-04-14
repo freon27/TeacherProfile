@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110329201219) do
+ActiveRecord::Schema.define(:version => 20110402150334) do
 
   create_table "experience_pages", :force => true do |t|
     t.boolean  "published"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110329201219) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "url_suffix"
   end
 
   create_table "qualifications", :force => true do |t|

@@ -1,6 +1,12 @@
-<h2>Create Profile</h2>
 
-<%= form_for @profile do |form| %>
+
+<section class="span-18">
+	<h2 class=" banner round-top">Create Profile</h2>
+	<div class="content round-bottom">
+
+<%= semantic_form_for @profile do |form| %>
   <%= render :partial => '/profiles/form', :object => form %>
   <%= form.submit 'Create' %>
 <% end %>
+
+</section>

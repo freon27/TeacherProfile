@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   before_filter :authenticate
-  before_filter :correct_user, :except => [:new, :create]
+  before_filter :correct_user, :except => [:new, :create, :edit, :update]
   
   def new
     @profile = Profile.new
@@ -18,6 +18,21 @@ class ProfilesController < ApplicationController
   
   def edit
     @profile = Profile.find(params[:id])
+  end
+  
+  def update
+    @profile = Profile.find(params[:id])
+    if @profile.update_attributes(params[:profile])
+      redirect_to( dashboard_user_path(current_user), :notice => 'Saved.')
+    else
+      render :action => "edit"
+    end
+  end
+  
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
+    redirect_to( dashboard_user_path(current_user), :notice => 'Deleted.')
   end
   
   private
