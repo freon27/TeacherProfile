@@ -12,6 +12,10 @@ div.container {
 	margin-bottom: 20px;
 }
 
+div#main {
+	background-color: red;
+}
+
 nav {
 	height: inherit !important;
 }
@@ -247,20 +251,29 @@ li.qualification-container {
 	padding: 20px;
 }
 
+div.subject {
+    border: 1px solid #BBB;
+  	-moz-box-shadow: 5px 5px 5px #EEE;
+  	-webkit-box-shadow: 5px 5px 5px  #EEE;
+  	box-shadow: 5px 5px 5px #EEE;
+}
+
+div.subject header{
+	background-color: #6a8aa2;
+	color: white;
+}
+
 table.experience-table th {
-	font-size: 125%;
-	border-bottom: 1px solid #b0ae90;
+	font-size: 115%;
 	padding: 0.5em;
 	font-weight: bold;
-	color: white;
-	text-shadow: #999  1px 1px 2px;
-	background-color: #6a8aa2;
+	color: #6a8aa2;
 }
 
 table.experience-table td {
 	border-top: 2px solid white;
 	padding: 0.5em;
-	background-color: #e4edf4;
+	/*background-color: #e4edf4;*/
 }
 
 table.experience-table, table.experience-table tr:first-child td:first-child {
@@ -287,21 +300,35 @@ table.rounded-corners tr:last-child td:last-child {
 }
 
 header.qualification nav {
-	float: right;
+	/*float: right;*/
+	padding: 0 7px;
 }
 
 header.qualification nav ul li {
-	padding-right: 0 !important;
+	padding-right: 0;
 }
 
-header.qualification h3 {
-	margin-bottom: 0.4em;
+header.qualification {
+	padding: 5px;
 }
 
-h3.location {
-	/*background: #FFF url(/images/house.png) no-repeat;
-	padding-left: 24px;*/
-	color: #6A8AA2;
+li.qualification-container {
+	padding: 0;
+	margin-top: 36px;
+}
+
+
+header.qualification h4 {
+	color: white;
+	padding-left: 12px;
+}
+
+header.qualification a {
+	color: white;
+}
+
+div.qualification-inner {
+	padding: 12px;
 }
 
 

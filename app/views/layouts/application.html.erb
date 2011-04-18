@@ -17,7 +17,7 @@
 </head>
 <body>
   <div class="container">
-		<header class="main">
+		<header class="main span-32 last">
 			<%= image_tag("logo.png", :alt => "Teacher Profile", :id => 'logo', :class => "round") %>
 			<nav>
 				<ul>
@@ -36,7 +36,7 @@
 	      <div id="flash_<%= key %>"><%=h value %></div>
 	    <% end %>
 	  </div> 
-	  <%= yield %>
+	  		<%= yield %>
 	</div>
 </body>
 </html>

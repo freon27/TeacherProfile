@@ -1,14 +1,14 @@
 <%= render :partial => 'profiles/page_links', :locals => { :profile => @experience_page.profile }  %>
 
-
+<div class="span-22 last" >
 <section class="span-22 last round-top">
 	<h2 class=" banner round-top">Positions / Experience</h2>
-	<div class="content round-bottom">
+	<div class="content round-bottom last">
 		
 			<p>This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.</p>
 
 			<% if @positions.length == 0 %>
-			<p>You don't currently have any previous experience listed.  Why not add a position now?</p>
+			<p><em>You don't currently have any previous experience listed.  Why not add a position now?</em></p>
 			<% else %>
 			<table class="experience-table rounded-corners">
 				<tr>
@@ -48,57 +48,61 @@
 			<ul class="clean-list">
 			<% for qualification in @qualifications %>
 				<li class="qualification-container round">
-					<header class="qualification">
-						<h3 class="location span-14">
-							<%= qualification.location %> - 
-							<em>
-								<%= qualification.date_from.strftime("%B %Y") %> to
-								<%= (qualification.date_to and qualification.date_to.strftime("%B %Y")) || 'Present' %>
-							</em>
-						</h3>
-						<nav class="span-4 last">
-							<ul>
-								<li><%= link_to 'Edit', edit_experience_page_qualification_path(@experience_page.id, qualification.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></li>
-								<li><%= link_to 'Delete', experience_page_qualification_path(@experience_page.id, qualification.id), 
-								:confirm => "Delete this qualification?", :method => 'delete', :class => 'ss_sprite ss_delete' %></li>					
-							</ul>
-						</nav>
-					</header>
+					<div class="subject round">
+						<header class="qualification round-top">
+							<h4 class="location span-14 round">
+								<%= qualification.location %> - 
+								<em>
+									<%= qualification.date_from.strftime("%B %Y") %> to
+									<%= (qualification.date_to and qualification.date_to.strftime("%B %Y")) || 'Present' %>
+								</em>
+							</h4>
+							<nav class="span-4 last">
+								<ul>
+									<li><%= link_to 'Edit', edit_experience_page_qualification_path(@experience_page.id, qualification.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></li>
+									<li><%= link_to 'Delete', experience_page_qualification_path(@experience_page.id, qualification.id), 
+									:confirm => "Delete this qualification?", :method => 'delete', :class => 'ss_sprite ss_delete' %></li>					
+								</ul>
+							</nav>
+							<div style="clear: both !important"></div>
+						</header>
 						
 
-					<div class="subject">
-						<table class="experience-table  rounded-corners">
-							<tr class="round-top">
-				 				<th>Subject</th>
-								<th class="centered">Level</th>
-								<th class="centered">Grade</th>
-								<th></th>
-								<th></th>
-							</tr>
-						<% if qualification.subjects.length > 0 %>
-							<% for subject in qualification.subjects %>	
+						<div class="qualification-inner">
+							<table class="experience-table  rounded-corners">
+								<tr class="round-top">
+					 				<th>Subject</th>
+									<th class="centered">Level</th>
+									<th class="centered">Grade</th>
+									<th></th>
+									<th></th>
+								</tr>
+							<% if qualification.subjects.length > 0 %>
+								<% for subject in qualification.subjects %>	
+								<tr>
+									<td><%= subject.name %></td>
+									<td class="centered"><%= subject.level %></td>
+									<td class="centered"><%= subject.grade || 'Awaiting' %></td>
+									<td><%= link_to 'Edit', edit_qualification_subject_path(qualification.id, subject.id), :method => 'get' %></td>
+									<td><%= link_to 'Delete', qualification_subject_path(qualification.id, subject.id), :method => 'delete', 
+										:confirm => "Delete this qualification?" %></td>
+								</tr>
+								<% end %>
+							<% else %>
 							<tr>
-								<td><%= subject.name %></td>
-								<td class="centered"><%= subject.level %></td>
-								<td class="centered"><%= subject.grade || 'Awaiting' %></td>
-								<td><%= link_to 'Edit', edit_qualification_subject_path(qualification.id, subject.id), :method => 'get' %></td>
-								<td><%= link_to 'Delete', qualification_subject_path(qualification.id, subject.id), :method => 'delete', 
-									:confirm => "Delete this qualification?" %></td>
-							</tr>
-							<% end %>
-						<% else %>
-						<tr>
-							<td colspan="5">No subjects listed</td>
-						</tr>					
+								<td colspan="5">No subjects listed</td>
+							</tr>					
 							
-						<% end %>
-						</table>
-						<%= link_to 'Add a course/subject', new_qualification_subject_path(qualification.id), :method => 'get', :class => 'ss_sprite ss_add' %>
+							<% end %>
+							</table>
+							<%= link_to 'Add a course/subject', new_qualification_subject_path(qualification.id), :method => 'get', :class => 'ss_sprite ss_add' %>
 						</div>
+					</div>
 				</li>
 			<% end %>
 			</ul>
 			<% end %>
 
 		</section>
+		</div>
   </div>
