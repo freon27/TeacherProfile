@@ -80,11 +80,11 @@ Feature: Experience Page
 	  When I press "Edit"
 	  Then I should see "Experience" within "#profile-sidebar"
 	  When I follow "Experience"
-	  When I press "Add Qualification"
+	  When I follow "Add a new place"
 	  And I fill in "Location" with "School B"
 	  And I select "March 19th, 2006" as the qualification "date_from" date
 		And I select "March 19th, 2008" as the qualification "date_to" date    
-	  And I press "Create Qualification"
+	  And I press "Add a course/subject"
 	  Then I should see "Created"
 		And I should see "School B" within "table[id=qualification-list]"
 		And I should see an "Edit" button

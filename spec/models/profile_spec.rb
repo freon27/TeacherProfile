@@ -25,12 +25,12 @@ describe Profile do
     end
     
     it "should not be valid without a url" do
-      @profile.url = nil
+      @profile.url_suffix = nil
       @profile.should_not be_valid
     end
     
     it "should require that url is unique" do
-      profile2 = Factory.build(:profile, :url => @profile.url) 
+      profile2 = Factory.build(:profile, :url_suffix => @profile.url_suffix) 
       profile2.should_not be_valid
     end
     

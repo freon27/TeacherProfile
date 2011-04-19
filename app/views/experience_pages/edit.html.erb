@@ -41,6 +41,7 @@
 
 			<% if @qualifications.length == 0 %>
 			<p>You have not currently listed any places you've studied.  Why not add some now?</p>
+			<%= link_to 'Add a new place', new_experience_page_qualification_path(@experience_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
 			<% else %>
 			<h3>Places you've studied</h3>
 			

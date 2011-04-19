@@ -29,7 +29,4 @@ Feature: Edit Account
     And I fill in "Last name" with ""
     And I fill in "Email" with ""
     And I press "Save"
-    Then I should see "First name can't be blank"
-    And I should see "Last name can't be blank"
-    And I should see "Email can't be blank"
-    And I should see "Email is invalid"
+    Then I should see "can't be blank"

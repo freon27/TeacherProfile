@@ -7,7 +7,7 @@ Feature: Change password
   Scenario: Valid details
     Given I am signed up as "email@person.com/Password1"
     When I sign in as "email@person.com/Password1"
-    When I follow "Edit Account"
+    When I follow "Account"
     Then I should see "Change Password"
     When I follow "Change Password"
     And I fill in "Choose password" with "NewPassword1"
@@ -18,7 +18,7 @@ Feature: Change password
   Scenario: Mismatched/invalid passwords
     Given I am signed up as "email@person.com/Password1"
     When I sign in as "email@person.com/Password1"
-    When I follow "Edit Account"
+    When I follow "Account"
     Then I should see "Change Password"
     When I follow "Change Password"
     And I fill in "Choose password" with "dsfsdf"

@@ -1,25 +1,13 @@
-<%= form.error_messages %>
-<div class="text_field">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
-</div>
-<div class="text_field">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
-</div>
-<div class="text_field">
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-</div>
+<%= form.inputs do %>
+  <%= form.input :first_name %>
+  <%= form.input :last_name %>
+	<%= form.input :email %>
+<% end %>
 <% if edit_password then %>
-<div class="password_field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
-<div class="password_field">
-  <%= form.label :password_confirmation, "Confirm password" %>
-  <%= form.password_field :password_confirmation %>
-</div>
+<%= form.inputs do %>
+  <%= form.input :password %>
+  <%= form.input :password_confirmation, :hint => 'Passwords must be between 6 and 15 characters long.  They must contain both upper and lower case characters and at least one numerical character.' %>
+<% end %>
 <% else %>
 <%= form.hidden_field :password %>
 <%= form.hidden_field :password_confirmation %>

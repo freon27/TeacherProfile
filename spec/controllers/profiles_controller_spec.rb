@@ -81,7 +81,7 @@ describe ProfilesController do
 
       describe "if they own the profile" do
         it "should update the profile with the suggested information" do
-          put 'update', :id => @another_profile, :profile => { name => 'new name' }
+          put 'update', :id => @another_profile, :profile => { :name => 'new name' }
           assigns(:profile).should == 'new name'
         end
       end
