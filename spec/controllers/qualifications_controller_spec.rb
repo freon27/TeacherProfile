@@ -84,6 +84,16 @@ describe QualificationsController do
           assigns(:qualification).should == @qual
         end
         
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
+          assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        
+        it "should the profile as @profile" do
+          get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
+          assigns(:profile).should == @qual.experience_page.profile
+        end
+        
       end
     
       describe "PUT 'update'" do
@@ -103,30 +113,7 @@ describe QualificationsController do
           assigns(:qualification).should == @qual
         end
       end
-      
-      describe "GET 'show'" do
-        it "should be successful" do
-          get 'show', :id => @qual.id, :experience_page_id => @qual.experience_page
-          response.should be_success
-        end
-        
-        it "should assign the requested qualification as @qualification" do
-          get 'show', :id => @qual.id, :experience_page_id => @qual.experience_page
-          assigns(:qualification).should == @qual
-        end
-      end
     
-      describe "GET 'edit'" do
-        it "should be successful" do
-          get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
-          response.should be_success
-        end
-    
-        it "should assign the request user as @qualification" do
-          get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
-          assigns(:qualification).should == @qual
-        end
-      end
     
       describe "GET 'new'" do
         it "should be successful" do
@@ -151,24 +138,7 @@ describe QualificationsController do
           assigns(:qualification).should be_a(Qualification)
         end
       end
-      
-      describe "PUT 'update'" do
-        it "should redirect to the edit page" do
-          put 'update', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
-          response.should redirect_to(edit_experience_page_path(@qual.experience_page))
-        end
-        
-        it "should update the page attributes" do
-          put 'update', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
-          @qual.reload.location.should == 'New Text'
-        end
-        
-        it "should assign the requested qualification as @qualification" do
-          put 'update', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
-          assigns(:qualification).should == @qual
-        end
-      end
-      
+            
       describe "DELETE" do
         it "should destroy the requested qualification" do
           lambda do

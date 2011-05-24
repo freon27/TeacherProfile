@@ -9,10 +9,10 @@ Feature: Dashboard
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     Then I should see "Lets create your first teaching profile!"
-    And I should see a "Create" button
-    When I press "Create"
+    When I follow "Create profile"
     Then I should see "Create Profile"
     When I fill in "Name" with "Profile A"
+		When I fill in "Profile URL" with "profilea"
     And press "Create"
     Then I should see "Profile A" within "td"
     
@@ -40,6 +40,5 @@ Feature: Dashboard
     | Profile B  | email: email@person.com  |
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
-    Then I should see an "Edit" button
-    When I press "Edit"
+    When I follow "Edit"
     Then I should see "Edit Profile"

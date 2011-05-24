@@ -2,13 +2,13 @@
 	<h3>Welcome</h3>
 	<ul>
 		<% if ! signed_in? %>
-  	<li <% if params[:controller] == 'clearance/sessions' && params[:action] == 'new' %>class="sidebar-selected round-left"<% end %>>
+  	<li <% if params[:controller] == 'sessions' && params[:action] == 'new' %>class="sidebar-selected round-left"<% end %>>
 	    <%= link_to 'Sign In', sign_in_path %>
 	  </li>
-	  <li class="impact <% if params[:controller] == 'clearance/passwords' && params[:action] == 'new' %>sidebar-selected round-left"<% end %>"">
+	  <li class="impact <% if params[:controller] == 'passwords' && params[:action] == 'new' %>sidebar-selected round-left"<% end %>"">
 	    <%= link_to 'Forgotten Password', new_password_path(current_user)  %>
 	  </li>
-	  <li <% if params[:controller] == 'clearance/users' && params[:action] == 'new' %>class="sidebar-selected round-left"<% end %>>
+	  <li <% if params[:controller] == 'users' && params[:action] == 'new' %>class="sidebar-selected round-left"<% end %>>
 	    <%= link_to 'Sign Up', sign_up_path %>
 	  </li>
 	  <% else %>
@@ -20,4 +20,4 @@
 		</li>
 	  <% end %>
 	</ul>
-</nav>
+</nav> 

@@ -1,19 +1,24 @@
-<h2>Dashboard</h2>
 
-<% if @profiles.length == 0 %>
-  <p>Lets create your first teaching profile!</p>
-<% end %>
+<section class="span-22 last round-top">
+	<h2 class=" banner round-top">Hi <%= current_user.first_name %></h2>
+	<div class="content round-bottom">
+	
+	<% if @profiles.length == 0 %>
+	  <p>Lets create your first teaching profile!</p>
+	<% end %>
 
-<table id="profiles">
-<% @profiles.each do | profile | %>
-  <tr>
-    <td><%= profile.name %></td>
-    <td><%= button_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get' %></td>
-		<td><%= button_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?' %></td>
-  </tr>
-<% end %>
-</table>
+	<table id="profiles">
+	<% @profiles.each do | profile | %>
+	  <tr>
+	    <td><%= profile.name %></td>
+	    <td><%= link_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
+			<td><%= link_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?', :class => 'ss_sprite ss_delete' %></td>
+	  </tr>
+	<% end %>
+	</table>
 
-<% if @profiles.length < Profile::LIMIT %>
-<%= button_to 'Create', new_profile_path, :method => 'get' %>
-<% end %>
+	<% if @profiles.length < Profile::LIMIT %>
+	<%= link_to 'Create profile', new_profile_path, :method => 'get', :class => 'ss_sprite ss_add' %>
+	<% end %>
+	</div>
+</section>

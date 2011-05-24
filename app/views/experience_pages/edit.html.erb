@@ -1,10 +1,14 @@
-<%= render :partial => 'profiles/page_links', :locals => { :profile => @experience_page.profile }  %>
 
 <div class="span-22 last" >
 <section class="span-22 last round-top">
 	<h2 class=" banner round-top">Positions / Experience</h2>
 	<div class="content round-bottom last">
-		
+		<%= semantic_form_for @experience_page do |form| %>
+			<%= form.inputs do %>
+				<%= form.input :publish_positions, :label => 'Include your work experience in your profile?' %>
+				<%= form.submit %>
+			<% end %>
+		<% end %>
 			<p>This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.</p>
 
 			<% if @positions.length == 0 %>
@@ -35,7 +39,14 @@
 		<section class="span-22 last round-top">
 			<h2 class=" banner round-top">Qualifications</h2>
 			<div class="content round-bottom">
-		
+			
+				<%= semantic_form_for @experience_page do |form| %>
+					<%= form.inputs do %>
+						<%= form.input :publish_qualifications, :label => 'Include your qualifications in your profile?' %>
+						<%= form.submit %>
+					<% end %>
+				<% end %>
+				
 			<p>This is where you can list the qualifications you currently hold or are working towards.</p>
 
 

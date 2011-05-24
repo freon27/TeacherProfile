@@ -9,16 +9,16 @@ describe ExperiencePage do
       @ep.profile = nil
       @ep.should_not be_valid
     end
-    it "should not be valid without a published attribute" do
-      @ep.published = nil
+    it "should not be valid without a publish_positions attribute" do
+      @ep.publish_positions = nil
+      @ep.should_not be_valid
+    end
+    it "should not be valid without a publish_qualifications attribute" do
+      @ep.publish_qualifications = nil
       @ep.should_not be_valid
     end
   end
   describe "methods" do
-    it "should have a published? method" do
-      @ep.published = true
-      @ep.published?.should be_true
-    end
     it "should have a positions method" do
       @ep.respond_to?(:positions).should == true
     end

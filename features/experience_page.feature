@@ -16,59 +16,53 @@ Feature: Experience Page
   Scenario: Creating a position with valid data
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
-    Then I should see an "Edit" button
-    When I press "Edit"
+    When I follow "Edit"
     Then I should see "Experience" within "#profile-sidebar"
     When I follow "Experience"
-    Then I should see "No positions listed"
-    When I press "Add Position"
+    Then I should see "You don't currently have any previous experience listed."
+    When I follow "Add Position"
     And I fill in "Location" with "School A"
     And I fill in "Position type" with "School A"
-    And I select "March 19th, 2006" as the position "date_from" date
-		And I select "March 19th, 2008" as the position "date_to" date    
+    And I fill in "Date from" with "19/03/2006"  
 		And I fill in "Description" with "My first sample placement"
     And I press "Create Position"
     Then I should see "Created"
-		And I should see "School A" within "table[id=position-list]"
+		And I should see "School A" within "table.experience-table"
 
   Scenario: Creating a position with invalid data
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
-    Then I should see an "Edit" button
-    When I press "Edit"
+    When I follow "Edit"
     Then I should see "Experience" within "#profile-sidebar"
     When I follow "Experience"
-    Then I should see "No positions listed"
-    When I press "Add Position"
+    Then I should see "You don't currently have any previous experience listed."
+    When I follow "Add Position"
     And I fill in "Location" with "School A"
     And I press "Create Position"
-    Then I should see error messages
+    Then I should see "can't be blank"
 	
 	
 	
   Scenario: Editing a position
 		When I go to the sign in page
 	  And I sign in as "email@person.com/Password1"
-	  Then I should see an "Edit" button
-	  When I press "Edit"
+	  When I follow "Edit"
 	  Then I should see "Experience" within "#profile-sidebar"
 	  When I follow "Experience"
-	  When I press "Add Position"
+	  When I follow "Add Position"
 	  And I fill in "Location" with "School A"
 	  And I fill in "Position type" with "School A"
-	  And I select "March 19th, 2006" as the position "date_from" date
-		And I select "March 19th, 2008" as the position "date_to" date    
+    And I fill in "Date from" with "19/03/2006"
+    And I fill in "Date to" with "19/03/2008"  
 		And I fill in "Description" with "My first sample placement"
 	  And I press "Create Position"
 	  Then I should see "Created"
-		And I should see "School A" within "table[id=position-list]"
-		And I should see an "Edit" button
-		When I press "Edit"
+		And I should see "School A" within "table.experience-table"
+		When I follow "Edit" within "table.experience-table"
 		And I fill in "Position type" with "Full time"
 		When I press "Update Position" 
 		Then I should see "Saved"
-		And I should see a "Delete" button
-		When I press "Delete" within "table[id=position-list]"
+		When I follow "Delete" within "table.experience-table"
 		Then I should see "Deleted"
 		And I should not see "School A"
 		
@@ -76,23 +70,43 @@ Feature: Experience Page
   Scenario: Editing a qualification
 		When I go to the sign in page
 	  And I sign in as "email@person.com/Password1"
-	  Then I should see an "Edit" button
-	  When I press "Edit"
+	  When I follow "Edit"
 	  Then I should see "Experience" within "#profile-sidebar"
-	  When I follow "Experience"
-	  When I follow "Add a new place"
+	  When I follow "Experience"	
+	  And I follow "Add a new place"
 	  And I fill in "Location" with "School B"
-	  And I select "March 19th, 2006" as the qualification "date_from" date
-		And I select "March 19th, 2008" as the qualification "date_to" date    
-	  And I press "Add a course/subject"
+    And I fill in "Date from" with "19/03/2006"
+    And I fill in "Date to" with "19/03/2008"  
+	  And I press "Create Qualification"
 	  Then I should see "Created"
-		And I should see "School B" within "table[id=qualification-list]"
-		And I should see an "Edit" button
-		When I press "Edit" within "table[id=qualification-list]"
+		And I should see "School B" within "li.qualification-container"
+		When I follow "Edit" within "header.qualification"
 		And I fill in "Location" with "School B, Somewhere"
 		When I press "Update Qualification" 
 		Then I should see "Saved"
-		And I should see a "Delete" button
-		When I press "Delete" within "table[id=qualification-list]"
+		When I follow "Delete" within "li.qualification-container"
 		Then I should see "Deleted"
-		And I should not see "School B, somewhere"
+		And I should not see "School B"
+		
+	Scenario: Creating a subject
+		When I go to the sign in page
+	  And I sign in as "email@person.com/Password1"
+	  When I follow "Edit"
+	  Then I should see "Experience" within "#profile-sidebar"
+	  When I follow "Experience"	
+	  And I follow "Add a new place"
+	  And I fill in "Location" with "School B"
+	  And I fill in "Date from" with "19/03/2006"
+	  And I fill in "Date to" with "19/03/2008"  
+	  And I press "Create Qualification"
+	  Then I should see "Created"
+		When I follow "Add a course/subject"
+		Then I should see "New Subject"
+		When I fill in "Subject" with "English"
+		And  I fill in "Level" with "GCSE"
+		And I fill in "Grade" with "A*"
+		And I press "Create Subject"
+		Then I should see "Created"
+		And I should see "English" within "table.experience-table"
+		And I should see "GCSE" within "table.experience-table"
+		And I should see "A*" within "table.experience-table"

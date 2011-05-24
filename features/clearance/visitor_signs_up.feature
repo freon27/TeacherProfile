@@ -10,7 +10,7 @@ Feature: Sign up
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with ""
     And I press "Sign up"
-    Then I should see error messages
+    Then I should see "can't be blank"
 
   Scenario: Visitor signs up with valid data
     When I go to the sign up page
@@ -20,4 +20,4 @@ Feature: Sign up
     And I fill in "Password" with "Password1"
     And I fill in "Password confirmation" with "Password1"
     And I press "Sign up"
-    Then I should see "Welcome"
+    Then I should see "You are now signed up"

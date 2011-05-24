@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'will_paginate', '3.0.pre2'
 
-gem "RedCloth", :require => "redcloth"
+gem "BlueCloth", :require => "bluecloth"
 
 gem "paperclip"
 
@@ -17,7 +17,7 @@ gem 'jquery-rails', '>= 0.2.6'
 
 gem "formtastic"
 
-gem "clearance", "~> 0.10.2"
+gem "clearance", "~> 0.10.3.2"
 
 #rance", "~> 0.10.1"
 # Use unicorn as the web server

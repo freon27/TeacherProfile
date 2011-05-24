@@ -3,8 +3,10 @@ require 'spec_helper'
 describe ProfilesController do
   
   before(:each) do
-    @user = Factory(:user)
     @example_profile = Factory(:profile)
+    @user = @example_profile.user
+    @another_profile = Factory(:profile)
+    request.env["HTTP_REFERER"] = '/prev/page'
   end
   
   describe "for signed in users" do
@@ -18,6 +20,7 @@ describe ProfilesController do
         assigns(:profile).should be_a(Profile)
         assigns[:profile].should be_new_record
       end
+      
     end
     
     describe "POST create" do
@@ -68,21 +71,34 @@ describe ProfilesController do
           get :edit, :id => @example_profile.id
           assigns(:profile).should == @example_profile
         end
-      end  
       
-      pending "if they do not own the profile" do
-        before(:each) do
-          @another_profile = Factory(:profile)
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get :edit, :id => @example_profile.id
+          assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        
+        it "should the profile as @profile" do
+          get :edit, :id => @example_profile.id
+          assigns(:profile).should == @example_profile
         end
       end  
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          get :edit, :id => @another_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end  
+      
+      
     end
     
     describe "PUT 'update'" do
 
       describe "if they own the profile" do
         it "should update the profile with the suggested information" do
-          put 'update', :id => @another_profile, :profile => { :name => 'new name' }
-          assigns(:profile).should == 'new name'
+          put 'update', :id => @example_profile, :profile => { :name => 'new name' }
+          assigns(:profile).name.should == 'new name'
         end
       end
       
@@ -93,12 +109,44 @@ describe ProfilesController do
         end
       end
     end
+    
+    describe "PUT 'publish'" do
+      describe "if they own the profile" do
+        it "should set the profile to published" do
+          put 'publish', :id => @example_profile
+          @example_profile.reload.published.should be_true
+        end
+      end
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          put 'publish', :id => @another_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end
+    end
+    
+    describe "PUT 'unpublish'" do
+      describe "if they own the profile" do
+        it "should set the profile to unpublished" do
+          put 'unpublish', :id => @example_profile
+          @example_profile.reload.published.should be_false
+        end
+      end
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          put 'publish', :id => @another_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end
+    end
+    
 
     describe "DELETE" do
       describe "if they own the profile" do
         it "should delete the requested profile" do
           delete 'destroy', :id => @example_profile
-          
         end
       end
       
@@ -135,14 +183,29 @@ describe ProfilesController do
       end
     end
     
-    pending "PUT 'update'" do
+    describe "PUT 'update'" do
       it "should redirect to the sign in page" do
         put 'update', :id => @example_profile
         response.should redirect_to(sign_in_path)
       end
     end
+    
+    describe "PUT 'publish'" do
+      it "should redirect to the sign in page" do
+        put 'publish', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+    
+    describe "PUT 'unpublish'" do
+      it "should redirect to the sign in page" do
+        put 'unpublish', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+    
 
-    pending "DELETE" do
+    describe "DELETE" do
       it "should redirect to the sign in page" do
         delete 'destroy', :id => @example_profile
         response.should redirect_to(sign_in_path)

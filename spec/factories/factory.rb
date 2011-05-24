@@ -41,8 +41,9 @@ Factory.define :feedback do |fb|
 end
 
 Factory.define :experience_page do |ep|
-  ep.published      false
-  ep.association    :profile
+  ep.publish_positions      false
+  ep.publish_qualifications false
+  ep.association            :profile
 end
 
 Factory.define :experience_page_with_position, :parent => :experience_page do |p|

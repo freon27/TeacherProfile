@@ -1,9 +1,9 @@
 class UsersController < Clearance::UsersController
 
+  before_filter :common_setup
   before_filter :authenticate, :except => [:new, :create]
   before_filter :correct_user, :only => [:edit, :update, :show, :dashboard]
-  # GET /users
-  # GET /users.xml
+  
   def index
     @users = User.all
 
@@ -13,11 +13,7 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -25,34 +21,14 @@ class UsersController < Clearance::UsersController
   end
 
   def dashboard
-    @user = current_user
     @profiles = @user.profiles
+    @side_bar_name = 'users/dashboard_links'
   end
 
-  # GET /users/new
-  # GET /users/new.xml
-  #def new
-  #  @user = User.new
-  #  respond_to do |format|
-  #    format.html # new.html.erb
-  #    format.xml  { render :xml => @user }
-  #  end
-  #end
-
-  # GET /users/1/edit
-  #def edit
-  #  @user = User.find(params[:id])
-  #end
-
-
-  # PUT /users/1
-  # PUT /users/1.xml
   def update
-    
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'Your account was saved successfully.') }
+        format.html { redirect_to( dashboard_user_path(current_user ), :notice => 'Your account was saved successfully.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -61,10 +37,7 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|
@@ -80,7 +53,11 @@ class UsersController < Clearance::UsersController
     end
     
     def correct_user
-      @user = User.find(params[:id])
       redirect_to(sign_in_path) unless current_user?(@user)
     end
+    
+    def common_setup
+      @user = User.find(params[:id]) if params[:id]
+      @side_bar_name = 'users/page_links'
+    end 
 end

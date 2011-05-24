@@ -10,22 +10,31 @@ Teacherprofile::Application.routes.draw do
     resources :subjects
   end
   
+  resources :passwords,
+     :controller => 'passwords',
+     :only       => [:new, :create]
   
+  
+  resource  :session,
+     :controller => 'sessions',
+     :only       => [:new, :create, :destroy]
+
   resources :users do
+    resource :password,
+      :controller => 'passwords',
+      :only       => [:create, :edit, :update]
+      
     member do
       get 'dashboard'
     end
   end
-  
-  resource :session, :controller => 'sessions'
 
-  resources :users, :controller => 'clearance/users', :only => [:new, :create] do
-    resource :password,
-      :controller => 'passwords',
-      :only       => [:create, :edit, :update]
+  resources :profiles do
+    member do
+      put 'publish'
+      put 'unpublish'
+    end
   end
-
-  resources :profiles
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -76,8 +85,10 @@ Teacherprofile::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "clearance/sessions#new"
+  root :to => "sessions#new"
   
-  match '/sign_in',  :to => 'clearance/sessions#new'
+  match '/sign_in',  :to => 'sessions#new'
+  match '/sign_up'  => 'users#new', :as => 'sign_up'
+  match 'sign_out' => 'sessions#destroy', :via => :delete, :as => 'sign_out'
   # See how all your routes lay out with "rake routes
 end

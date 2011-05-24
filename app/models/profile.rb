@@ -16,7 +16,6 @@ class Profile < ActiveRecord::Base
   has_many :subject_areas
   after_create :create_pages
 
-  
   def publish
     self.published = true
   end
@@ -41,4 +40,5 @@ class Profile < ActiveRecord::Base
       experience_page = self.build_experience_page
       experience_page.save!
     end
+    
 end

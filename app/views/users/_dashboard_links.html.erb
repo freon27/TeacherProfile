@@ -1,0 +1,10 @@
+<nav class="span-6" id="profile-sidebar">
+	<h3>Dashboard</h3>
+	<ul>
+		<% for profile in current_user.profiles %>
+  	<li>
+	    <%= link_to profile.name, edit_profile_path(profile.id) %>
+	  </li>
+		<% end %>
+	</ul>
+</nav>

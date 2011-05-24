@@ -1,5 +1,7 @@
 class PasswordsController < Clearance::PasswordsController
 
+  before_filter :common_setup
+
   def edit
     @user = current_user || @user = ::User.find_by_id_and_confirmation_token(
                    params[:user_id], params[:token])
@@ -39,4 +41,8 @@ class PasswordsController < Clearance::PasswordsController
     flash[:success] = translate(:signed_in, :default => "Password updated.")
   end
   
+  private
+    def common_setup 
+      @side_bar_name = '/users/page_links'
+    end
 end

@@ -71,6 +71,16 @@ describe SubjectsController do
           assigns(:qualification).id.should == @subject.qualification.id
         end
         
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get 'new', :qualification_id => @subject.qualification.id
+          assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        
+        it "should the profile as @profile" do
+          get 'new', :qualification_id => @subject.qualification.id
+          assigns(:profile).should == @subject.qualification.experience_page.profile
+        end
+        
       end  
           
 
@@ -106,6 +116,16 @@ describe SubjectsController do
           it "should assign the requested Qualificiation object as @qualification" do
             get 'edit', :id => @subject.id, :qualification_id => @subject.qualification.id
             assigns(:qualification).id.should == @subject.qualification.id
+          end
+          
+          it "should assign 'profiles/page_links' as @side_bar_name" do
+            get 'edit', :id => @subject.id, :qualification_id => @subject.qualification.id
+            assigns(:side_bar_name).should == 'profiles/page_links'
+          end
+
+          it "should the profile as @profile" do
+            get 'edit', :id => @subject.id, :qualification_id => @subject.qualification.id
+            assigns(:profile).should == @subject.qualification.experience_page.profile
           end
       end
 

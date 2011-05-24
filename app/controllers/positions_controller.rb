@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
 
   before_filter :authenticate
+  before_filter :common_setup
   before_filter :user_owns_experience_page
   before_filter :user_owns_position, :except => [:new, :create]
   
@@ -11,11 +12,9 @@ class PositionsController < ApplicationController
 
   def new 
     @position = Position.new
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
   end
   
   def create
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
     @position = @experience_page.positions.build(params[:position])
     if @position.save
       redirect_to( edit_experience_page_path(@experience_page), :notice => 'Created.')
@@ -25,23 +24,17 @@ class PositionsController < ApplicationController
   end
 
   def edit
-    @position = Position.find(params[:id])
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
   end
   
   def update
-    @position = Position.find(params[:id])
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
-      if @position.update_attributes(params[:position])
-        redirect_to( edit_experience_page_path(@position.experience_page), :notice => 'Saved.')
-      else
-        render :action => "edit"
-      end
+    if @position.update_attributes(params[:position])
+      redirect_to( edit_experience_page_path(@position.experience_page), :notice => 'Saved.')
+    else
+      render :action => "edit"
+    end
   end
   
   def destroy
-    @position = Position.find(params[:id])
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
     @position.destroy
     redirect_to( edit_experience_page_path(@position.experience_page), :notice => 'Deleted.')
   end
@@ -52,5 +45,12 @@ class PositionsController < ApplicationController
     end
     def user_owns_position
       redirect_to(sign_in_path) unless current_user?(Position.find(params[:id]).experience_page.profile.user)
+    end
+    
+    def common_setup 
+      @position = Position.find(params[:id]) if params[:id]
+      @experience_page = ExperiencePage.find(params[:experience_page_id]) if params[:experience_page_id]
+      @side_bar_name = 'profiles/page_links'
+      @profile = @experience_page.profile    
     end
 end

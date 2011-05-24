@@ -1,0 +1,10 @@
+<div>
+	This profile is <%= @profile.published? ? 'published' : 'unpublished' %>.  
+	<% if @profile.published? %>
+		<%= button_to 'Unpublish', unpublish_profile_path(@profile), :method => 'put' %>
+		<%= link_to 'View live profile', profile_path(@profile) %>
+	<% else %>
+		<%= button_to 'Publish', publish_profile_path(@profile), :method => 'put' %>	
+		<%= link_to 'Preview profile', profile_path(@profile) %>
+	<% end %>
+</div>

@@ -1,0 +1,152 @@
+
+body {
+/*	background: white url(/images/header_back.png) repeat-x;*/
+	overflow: scroll;
+	line-height: 24px;
+/*	background: #d0dce1;*/
+}
+
+
+h1 {
+	font-size: 42px;
+	font-family: helvetica !important;
+	color: #0086be;
+/*	text-shadow: #003f59 1px 1px;*/
+	font-weight: bold;
+}
+
+/*
+nav {
+  text-align: right;
+  background: #DDD url(/images/navbar.png) repeat-x;
+  background-color: #9CB0BF;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  height: 2em;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}*/
+
+.container {
+/*	background: white url(/images/photo-banner.png) no-repeat;*/
+}
+
+
+section {
+	border-top: solid 1px #666;
+}
+
+header {
+}
+
+.head-info {
+	background-color: white;
+	margin: 18px 0 48px 0;
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+
+.head-info h1, .head-info h2, .head-info h3, .head-info h4 {
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5 {
+	text-align: right;
+}
+
+h1, h2, h3 {
+	font-family: Georgia, serif;
+}
+
+h4, h5 {
+	
+}
+
+.head-info h1, .head-info h2, .head-info h3, .head-info h4, .head-info h5 {
+	margin-bottom: 3px;
+}
+
+.head-info h3, .head-info h5 {
+/*	color: white;*/
+	color: #555;
+	font-style: italic;
+	margin-bottom: 8px;
+/*	text-shadow: black 1px 1px;*/
+}
+
+.head-info h4 {
+	color: #777;
+}
+
+
+	
+
+th.first, td.first {
+	text-align: right;
+}
+
+nav {
+/*	background-color: red;*/
+	margin-bottom: 36px;
+}
+
+nav ul {
+	margin: 0;
+}
+
+nav ul li {
+	display: inline;
+	padding-right: 15px;
+}
+
+nav ul li a {
+	font-weight: bold;
+/*	color: #0072a1;*/
+	color: #444;
+}
+
+
+span.selected {
+	color: black;
+	font-weight: bold;
+}
+
+span.selected, nav ul li a {
+	font-size: 120%;
+}
+
+.right {
+	float: right;
+}
+
+.plain-list {
+	list-style-type: none;
+}
+
+div.position-details {
+	text-align: right;
+}
+
+div.position-details h4 {
+	font-weight: bold;
+}
+
+
+div.position-details h4 {
+	margin: 4px 0;
+	color: #555;
+}
+
+div.position-details p {
+	margin: 0;
+	color: #999;
+}
+
+
+.side-header {
+	color: #0072a1;
+}
+
+ul {
+	padding: 0;
+}

@@ -25,12 +25,33 @@ describe PositionsController do
           get 'edit', :id => @pos.id, :experience_page_id => @pos.experience_page
           response.should redirect_to(sign_in_path)
         end
+        
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get 'edit', :id => @pos.id, :experience_page_id => @pos.experience_page
+          assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        
+        it "should the profile as @profile" do
+          get 'edit', :id => @pos.id, :experience_page_id => @pos.experience_page
+          assigns(:profile).should ==  @pos.experience_page.profile
+        end
+        
       end
 
       describe "GET 'new'" do
         it "should redirect to the sign in page" do
           get 'new', :experience_page_id => @pos.experience_page
           response.should redirect_to(sign_in_path)
+        end
+        
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get 'new', :experience_page_id => @pos.experience_page
+          assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        
+        it "should the profile as @profile" do
+          get 'new', :experience_page_id => @pos.experience_page
+          assigns(:profile).should == @pos.experience_page.profile
         end
       end
 
@@ -103,30 +124,6 @@ describe PositionsController do
           assigns(:position).should == @pos
         end
       end
-      
-      describe "GET 'show'" do
-        it "should be successful" do
-          get 'show', :id => @pos.id, :experience_page_id => @pos.experience_page
-          response.should be_success
-        end
-        
-        it "should assign the requested position as @position" do
-          get 'show', :id => @pos.id, :experience_page_id => @pos.experience_page
-          assigns(:position).should == @pos
-        end
-      end
-    
-      describe "GET 'edit'" do
-        it "should be successful" do
-          get 'edit', :id => @pos.id, :experience_page_id => @pos.experience_page
-          response.should be_success
-        end
-    
-        it "should assign the request user as @position" do
-          get 'edit', :id => @pos.id, :experience_page_id => @pos.experience_page
-          assigns(:position).should == @pos
-        end
-      end
     
       describe "GET 'new'" do
         it "should be successful" do
@@ -149,23 +146,6 @@ describe PositionsController do
         it "should assign the request user as @position" do
           post 'create', :experience_page_id => @pos.experience_page, :position => @pos.attributes
           assigns(:position).should be_a(Position)
-        end
-      end
-      
-      describe "PUT 'update'" do
-        it "should redirect to the edit page" do
-          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
-          response.should redirect_to(edit_experience_page_path(@pos.experience_page))
-        end
-        
-        it "should update the page attributes" do
-          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
-          @pos.reload.description.should == 'New Text'
-        end
-        
-        it "should assign the requested position as @position" do
-          put 'update', :experience_page_id => @pos.experience_page, :id => @pos.id, :position => { :description => 'New Text' }
-          assigns(:position).should == @pos
         end
       end
       

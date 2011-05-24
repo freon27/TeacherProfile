@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.7)
+    BlueCloth (1.0.1)
     ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.3)
@@ -48,7 +48,7 @@ GEM
     celerity (0.8.8)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
-    clearance (0.10.3.1)
+    clearance (0.10.3.2)
       diesel (~> 0.1.4)
       rails (~> 3.0.0)
     configuration (1.2.0)
@@ -162,11 +162,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
+  BlueCloth
   ZenTest
   autotest-notification
   capybara
-  clearance (~> 0.10.2)
+  clearance (~> 0.10.3.2)
   cucumber-rails
   database_cleaner
   factory_girl_rails

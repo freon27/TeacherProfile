@@ -35,12 +35,14 @@
 				</ul>
 			</nav>
 		</header>
-  	<div id="flash">
+		<%= render :partial => @side_bar_name  if @side_bar_name %>
+		<div id="flash" class="span-24">
 	    <% flash.each do |key, value| -%>
 	      <div id="flash_<%= key %>"><%=h value %></div>
 	    <% end %>
 	  </div> 
-	  		<%= yield %>
+		  <%= yield %>
+			<div style="clear:both">&nbsp;</div>
 	</div>
 	
 

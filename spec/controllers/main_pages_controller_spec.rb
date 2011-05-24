@@ -47,6 +47,7 @@ describe MainPagesController do
           get 'show', :id => @mp.id
           assigns(:main_page).should == @mp
         end
+        
       end
     
       describe "GET 'edit'" do
@@ -59,47 +60,17 @@ describe MainPagesController do
           get 'edit', :id => @mp.id
           assigns(:main_page).should == @mp
         end
-      end
-    
-      describe "PUT 'update'" do
-
-        it "should redirect to the edit page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          response.should redirect_to(edit_main_page_path(@mp))
-        end
         
-        it "should update the page attributes" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          @mp.reload.introduction.should == 'New Text'
-        end
-        
-        it "should assign the requested page as @main_page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          assigns(:main_page).should == @mp
-        end
-      end
-      describe "GET 'show'" do
-        it "should be successful" do
-          get 'show', :id => @mp.id
-          response.should be_success
-        end
-        
-        it "should assign the requested page as @main_page" do
-          get 'show', :id => @mp.id
-          assigns(:main_page).should == @mp
-        end
-      end
-    
-      describe "GET 'edit'" do
-        it "should be successful" do
+        it "should assign 'profiles/page_links' as @side_bar_name" do
           get 'edit', :id => @mp.id
-          response.should be_success
+          assigns(:side_bar_name).should == 'profiles/page_links'
         end
-    
-        it "should assign the requested page as @main_page" do
+        
+        it "should the profile as @profile" do
           get 'edit', :id => @mp.id
-          assigns(:main_page).should == @mp
+          assigns(:profile).should == @mp.profile
         end
+        
       end
     
       describe "PUT 'update'" do

@@ -1,7 +1,5 @@
 
-<%= render :partial => '/users/page_links' %>
-
-<section class="span-18 round-top">
+<section class="span-22 last round-top">
 	<h2 class=" banner round-top">Sign In</h2>
 	<div class="content round-bottom">
 		<%= form_for :session, :url => session_path do |form| %>
@@ -19,8 +17,6 @@
 		<% end %>
 		<nav>
 			<%= link_to "Forgot password?", new_password_path %>
-		</nav>
-			</ul>
 		</nav>
 	</div>
 </section>

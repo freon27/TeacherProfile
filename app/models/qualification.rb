@@ -1,5 +1,5 @@
 class Qualification < ActiveRecord::Base
-  
+
   belongs_to :experience_page
   has_many :subjects
   validates_presence_of :location
@@ -13,4 +13,5 @@ class Qualification < ActiveRecord::Base
         errors.add(:base, "To date cannot be before the from date") 
       end
     end
+
 end

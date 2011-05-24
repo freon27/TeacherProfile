@@ -6,18 +6,9 @@ html, body {
 
 
 div.container {
-	background-color: white;
 	width: 100%;
 	height: 100% !important;
 	margin-bottom: 20px;
-}
-
-div#main {
-	background-color: red;
-}
-
-nav {
-	height: inherit !important;
 }
 
 
@@ -56,11 +47,11 @@ label.inline {
 	display: inline;
 }
 
-input[type=text], input[type=password], input[type=email], select {
+input[type=text], input[type=password], input[type=email], input[type=checkbox], select {
   line-height: 2.5em;
 }
 
-input[type=text], input[type=password], input[type=email], select, textarea {
+input[type=text], input[type=password], input[type=email], input[type=checkbox], select, textarea {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
   border-radius:         5px;	
@@ -184,7 +175,7 @@ header nav ul li a:hover {
 /* side bar */
 
 nav#profile-sidebar {
-	height: 100% !important;
+	height: inherit !important;
 	background: black url(/images/side-top.png) repeat-x;
 	text-align: right;
 }
@@ -221,6 +212,14 @@ nav#profile-sidebar ul li a {
 	text-align: center;
 	color: white !important;
 	padding-top: 10px;
+}
+
+#profile-sidebar h3.published {
+	background: url(/images/published_light_on.png) no-repeat right;
+}
+
+#profile-sidebar h3.unpublished {
+	background: none url(/images/published_light_off.png) no-repeat right;
 }
 
 /* content */

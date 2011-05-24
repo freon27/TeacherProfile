@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UsersController do
   
   before(:each) do
-    @user = Factory(:user)
+    @user = Factory(:user_with_profile)
   end
 
   describe "for non-signed in users" do
@@ -54,6 +54,11 @@ describe UsersController do
         get :new
         assigns(:user).should be_a(User)
         assigns[:user].should be_new_record
+      end      
+
+      it "should assign 'users/page_links' as @side_bar_name" do
+        get :new
+        assigns(:side_bar_name).should == 'users/page_links'
       end
     end
     
@@ -132,6 +137,12 @@ describe UsersController do
           get :edit, :id => @user.id
           assigns(:user).should == @user
         end
+        
+        it "should assign 'profiles/page_links' as @side_bar_name" do
+          get :edit, :id => @user.id
+          assigns(:side_bar_name).should == 'users/page_links'
+        end
+        
       end
     
       describe "PUT update" do
@@ -197,13 +208,6 @@ describe UsersController do
           response.should redirect_to(users_url)
         end
       end
-  
-      describe "GET new" do
-        it "should redirect to the sign in path" do
-          get :new
-          response.should redirect_to(root_path)
-        end
-      end
       
       describe "POST create" do
         it "should redirect to the sign in path" do
@@ -217,10 +221,15 @@ describe UsersController do
           get :dashboard, :id => @user.id
           assigns(:user).should == @user
         end
-        pending "assigns the users profiles as @profiles" do
-          
+        
+        it "assigns the user's profiles as @profiles" do
           get :dashboard, :id => @user.id
           assigns(:profiles).first.should be_a(Profile)
+        end
+        
+        it "should assign 'users/users_links' as @side_bar_name" do
+          get :dashboard, :id => @user.id
+          assigns(:side_bar_name).should == 'users/dashboard_links'
         end
       end
     end

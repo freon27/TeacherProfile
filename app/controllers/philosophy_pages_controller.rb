@@ -1,10 +1,10 @@
 class PhilosophyPagesController < ApplicationController
 
-  before_filter :authenticate
-  before_filter :correct_user
-  
+  before_filter :authenticate, :common_setup, :correct_user
+
   def show
     @philosophy_page = PhilosophyPage.find(params[:id])
+    @philosophy = BlueCloth::new(@philosophy_page.philosophy).to_html
   end
   
   def edit
@@ -24,5 +24,11 @@ class PhilosophyPagesController < ApplicationController
     def correct_user
       @page = PhilosophyPage.find(params[:id])
       redirect_to(sign_in_path) unless current_user?(@page.profile.user)
+    end
+    
+    def common_setup 
+      @philosophy_page = PhilosophyPage.find(params[:id]) if params[:id]
+      @side_bar_name = 'profiles/page_links'
+      @profile = @philosophy_page.profile    
     end
 end

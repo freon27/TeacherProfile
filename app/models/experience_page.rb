@@ -4,11 +4,13 @@ class ExperiencePage < ActiveRecord::Base
   has_many :qualifications
   
   validates_presence_of :profile
-  validates_inclusion_of :published, :in => [true, false]
+  validates_inclusion_of :publish_positions, :in => [true, false]
+  validates_inclusion_of :publish_qualifications, :in => [true, false]
   after_initialize :default_values
   
   private
     def default_values
-      self.published ||= false
+      self.publish_positions      ||= false
+      self.publish_qualifications ||= false
     end
 end
