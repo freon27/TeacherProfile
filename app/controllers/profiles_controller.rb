@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_filter :correct_user, :except => [:new, :create]
 
   def show
-    @introduction = BlueCloth::new(@profile.main_page.introduction).to_html
+    @introduction = BlueCloth::new(@profile.main_page.introduction).to_html if @profile.main_page.introduction
   end 
   
   def new
