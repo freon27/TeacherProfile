@@ -169,9 +169,9 @@ describe UsersController do
             assigns(:user).should == @user
           end
     
-          it "redirects to the user" do
+          it "redirects to the user dashboard" do
             put :update, :id => @user, :user => @valid_params
-            response.should redirect_to(user_url(@user))
+            response.should redirect_to(dashboard_user_url(@user))
           end
         end
     

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508184836) do
+ActiveRecord::Schema.define(:version => 20110614122749) do
 
   create_table "experience_pages", :force => true do |t|
     t.boolean  "publish_positions"
@@ -58,11 +58,12 @@ ActiveRecord::Schema.define(:version => 20110508184836) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
-    t.boolean  "published",  :default => false
+    t.boolean  "published",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "url_suffix"
+    t.string   "main_subject"
   end
 
   create_table "qualifications", :force => true do |t|

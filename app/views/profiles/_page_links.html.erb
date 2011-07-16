@@ -1,6 +1,7 @@
-<nav class="span-6" id="profile-sidebar">
+<nav class="span-6 last" id="profile-sidebar">
 	<% if @profile.id %>
 	<h3><%= @profile.name %></h3>
+	
 	<ul>
   	<li <% if params[:controller] == 'profiles' %>class="sidebar-selected round-left"<% end %>>
 	    <%= link_to 'Profile Details', edit_profile_path(@profile.id) %>

@@ -1,15 +1,19 @@
 
-<div class="span-22 last" >
-<section class="span-22 last round-top">
+<div class="span-15 last" >
+<section class="push-1 span-15 last round-top">
 	<h2 class=" banner round-top">Positions / Experience</h2>
 	<div class="content round-bottom last">
+		<p>
+			"This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements".
+		</p>
+
 		<%= semantic_form_for @experience_page do |form| %>
 			<%= form.inputs do %>
 				<%= form.input :publish_positions, :label => 'Include your work experience in your profile?' %>
 				<%= form.submit %>
 			<% end %>
 		<% end %>
-			<p>This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.</p>
+
 
 			<% if @positions.length == 0 %>
 			<p><em>You don't currently have any previous experience listed.  Why not add a position now?</em></p>
@@ -36,7 +40,7 @@
 
 			<%= link_to 'Add Position', new_experience_page_position_path(@experience_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
 		</section>
-		<section class="span-22 last round-top">
+		<section class="push-1 span-15 last round-top">
 			<h2 class=" banner round-top">Qualifications</h2>
 			<div class="content round-bottom">
 			
@@ -63,7 +67,7 @@
 				<li class="qualification-container round">
 					<div class="subject round">
 						<header class="qualification round-top">
-							<h4 class="location span-14 round">
+							<h4 class="location span-7 round">
 								<%= qualification.location %> - 
 								<em>
 									<%= qualification.date_from.strftime("%B %Y") %> to

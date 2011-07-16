@@ -1,4 +1,7 @@
 <%= form.inputs do %>
 <%= form.input :name, :label => 'Profile Name', :hint => 'The name for your profile.  Only you will see this.' %>
+<%= form.input :main_subject, :as => :select, :collection => Profile::SUBJECTS, :hint => 'Your primary subject' %>
 <%= form.input :url_suffix, :label => 'Profile URL', :required => false, :hint => 'The suffix to the URL you will hand out to prospective employer. e.g. http://teachingprofile.com/profiles/yourtexthere'  %>
 <% end %>
+
+

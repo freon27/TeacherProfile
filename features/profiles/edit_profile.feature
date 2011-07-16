@@ -5,12 +5,9 @@ Feature: Profile
   I want to be able to edit my profile
   
   Background:
-    Given the following user exists:
-    | email            | password   |
-    | email@person.com | Password1  |
-    And the following profiles exist:
-    | name       | user                     |
-    | Profile A  | email: email@person.com  |
+		
+    Given a user exists with email: "email@person.com", password: "Password1"
+ 		And profile exists with name: "Profile A", user: the first user
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     
@@ -22,8 +19,7 @@ Feature: Profile
 		And I press "Save"
 		Then I should see "Saved." 
 		And I should see "Profile B"
-		When I follow "Edit"
-		Then the "Profile URL" field should contain "profileb"
+		And the "Profile URL" field should contain "profileb"
 
   Scenario: Edit profile links
     When I follow "Edit"

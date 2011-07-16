@@ -6,8 +6,11 @@ class Profile < ActiveRecord::Base
   validates_inclusion_of :published, :in => [true, false]
   validates :user, :presence => true
   validates :name, :presence => true
+  
   validates :url_suffix, :presence => true, :uniqueness => true
   validate  :validate_quota
+
+  SUBJECTS = ['Primary', 'Design & Technology', 'English', 'Science']
 
   has_one :main_page
   has_one :philosophy_page

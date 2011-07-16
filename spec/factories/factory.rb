@@ -66,3 +66,10 @@ Factory.define :subject do |subj|
   subj.association    :qualification
 end
 
+Factory.define :completed_profile, :parent => :profile do |prof|
+  prof.after_build do |p|
+    prof.main_page       Factory(:main_page, :profile => p)
+    prof.experience_page Factory(:experience_page_with_position, :profile => p)
+    prof.philosophy_page Factory(:philosophy_page, :profile => p)
+  end
+end

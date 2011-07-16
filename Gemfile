@@ -13,6 +13,8 @@ gem "BlueCloth", :require => "bluecloth"
 
 gem "paperclip"
 
+gem 'pdfkit'
+
 gem 'jquery-rails', '>= 0.2.6'
 
 gem "formtastic"
@@ -60,5 +62,6 @@ group :test do
   gem 'capybara'
   gem 'spork'
   gem 'launchy'
+	gem 'pickle'
 end
 

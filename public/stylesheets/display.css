@@ -24,6 +24,24 @@ h1 {
 	font-weight: bold;
 }
 
+nav.user-bar {
+  text-align: right;
+  background: #DDD url(/images/navbar.png) repeat-x;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  height: 2em;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+
+}
+
+nav.user-bar a {
+  color: white; /*#d0d0d0;*/
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-decoration: none;
+  font-size: larger;
+}
+
 /*
 nav {
   text-align: right;
@@ -170,9 +188,13 @@ div.position-details p {
 	color: #999;
 }
 
+ul.experience-list li {
+	margin-bottom: 36px !important;
+}
 
-.side-header {
-/*	color: #008cc6;*/
+
+h2.side-header  {
+	color: #333 !important;
 	font-weight: bold;
 }
 

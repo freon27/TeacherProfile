@@ -5,14 +5,9 @@ Feature: Experience Page
   I want to be able to edit my experience page
   
   Background:
-    Given the following user exists:
-    | email            | password   |
-    | email@person.com | Password1  |
-    And the following profiles exist:
-    | name       | user                     |
-    | Profile A  | email: email@person.com  |
+    Given a user exists with email: "email@person.com", password: "Password1"	
+ 		And profile exists with name: "Profile A", user: the first user
 		
-
   Scenario: Creating a position with valid data
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"

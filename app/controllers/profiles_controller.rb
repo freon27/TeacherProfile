@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
   
   def update
     if @profile.update_attributes(params[:profile])
-      redirect_to(dashboard_user_path(current_user), :notice => 'Saved.')
+      redirect_to(:back, :notice => 'Saved.')
     else
       render :action => "edit"
     end

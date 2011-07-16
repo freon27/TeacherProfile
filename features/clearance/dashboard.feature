@@ -17,27 +17,24 @@ Feature: Dashboard
     Then I should see "Profile A" within "td"
     
   Scenario: Too many accounts
-    Given the following user exists:
-    | email            | password   |
-    | email@person.com | Password1  |
+		Given a user exists with email: "email@person.com", password: "Password1" 
     And the following profiles exist:
-    | name       | user                     |
-    | Profile A  | email: email@person.com  |
-    | Profile B  | email: email@person.com  |
-    | Profile C  | email: email@person.com  |
+    | name       | user           |
+    | Profile A  | the first user |
+    | Profile B  | the first user |
+    | Profile C  | the first user |
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     Then I should not see a "Create" button
     
 
   Scenario: Profile actions
-    Given the following user exists:
-    | email            | password   |
-    | email@person.com | Password1  |
-    And the following profiles exist:
-    | name       | user                     |
-    | Profile A  | email: email@person.com  |
-    | Profile B  | email: email@person.com  |
+		Given a user exists with email: "email@person.com", password: "Password1" 
+	  And the following profiles exist:
+	  | name       | user           |
+	  | Profile A  | the first user |
+	  | Profile B  | the first user |
+	  | Profile C  | the first user |
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     When I follow "Edit"

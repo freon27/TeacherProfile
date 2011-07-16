@@ -16,7 +16,6 @@ Feature: Edit Account
     And I fill in "Email" with "blah@blah.com"
     And I press "Save"
     Then I should see "Your account was saved successfully"
-    And I should see "blah@blah.com"
 
   Scenario: Invalid details
     Given I am signed up as "email@person.com/Password1"

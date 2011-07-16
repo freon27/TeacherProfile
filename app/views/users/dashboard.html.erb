@@ -1,5 +1,5 @@
 
-<section class="span-22 last round-top">
+<section class="push-1 span-15 last round-top">
 	<h2 class=" banner round-top">Hi <%= current_user.first_name %></h2>
 	<div class="content round-bottom">
 	
@@ -13,6 +13,8 @@
 	    <td><%= profile.name %></td>
 	    <td><%= link_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
 			<td><%= link_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?', :class => 'ss_sprite ss_delete' %></td>
+			<td>View profile</td>
+			<td>PDF</td>
 	  </tr>
 	<% end %>
 	</table>
