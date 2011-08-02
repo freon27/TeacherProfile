@@ -3,22 +3,24 @@
 <section class="push-1 span-15 last round-top">
 	<h2 class=" banner round-top">Positions / Experience</h2>
 	<div class="content round-bottom last">
-		<p>
-			"This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements".
-		</p>
-
-		<%= semantic_form_for @experience_page do |form| %>
-			<%= form.inputs do %>
-				<%= form.input :publish_positions, :label => 'Include your work experience in your profile?' %>
-				<%= form.submit %>
+		<div class="helper">
+			This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.
+			<%= semantic_form_for @experience_page, :html => { :class => 'distinct round' } do |form| %>
+				<%= form.inputs do %>
+					<%= form.input :publish_positions, :label => 'Include your work experience in your profile?' %>
+					<%= form.submit :value => 'Apply change' %>
+				<% end %>
 			<% end %>
-		<% end %>
+
+		</div>
+
+
 
 
 			<% if @positions.length == 0 %>
 			<p><em>You don't currently have any previous experience listed.  Why not add a position now?</em></p>
 			<% else %>
-			<table class="experience-table rounded-corners">
+			<table class="experience-table position-table rounded-corners">
 				<tr>
 					<th>Where</th>
 					<th>From</th>
@@ -43,16 +45,17 @@
 		<section class="push-1 span-15 last round-top">
 			<h2 class=" banner round-top">Qualifications</h2>
 			<div class="content round-bottom">
+
+
+				<div class="helper">This is where you can list the qualifications you currently hold or are working towards.
 			
 				<%= semantic_form_for @experience_page do |form| %>
 					<%= form.inputs do %>
 						<%= form.input :publish_qualifications, :label => 'Include your qualifications in your profile?' %>
-						<%= form.submit %>
+						<%= form.submit :value => 'Apply change' %>
 					<% end %>
 				<% end %>
-				
-			<p>This is where you can list the qualifications you currently hold or are working towards.</p>
-
+				</div>
 
 			<% if @qualifications.length == 0 %>
 			<p>You have not currently listed any places you've studied.  Why not add some now?</p>
@@ -86,7 +89,7 @@
 						
 
 						<div class="qualification-inner">
-							<table class="experience-table  rounded-corners">
+							<table class="experience-table">
 								<tr class="round-top">
 					 				<th>Subject</th>
 									<th class="centered">Level</th>

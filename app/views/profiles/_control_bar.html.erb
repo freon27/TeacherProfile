@@ -1,10 +1,10 @@
 <div id="control-bar" class="span-32 last">
 	<span id="status" class="push-6 published">This profile is <%= @profile.published? ? 'published' : 'unpublished' %>.
 	<% if @profile.published? %>
-		<%= button_to 'Unpublish', unpublish_profile_path(@profile), :method => 'put' %> or 
+		<%= button_to 'Unpublish it', unpublish_profile_path(@profile), :method => 'put' %> or 
 		<strong><%= link_to 'View your live profile', profile_path(@profile) %></strong>
 	<% else %>
-		<%= button_to 'Publish', publish_profile_path(@profile), :method => 'put' %> or
+		<%= button_to 'Publish it', publish_profile_path(@profile), :method => 'put' %> or
 		<strong><%= link_to 'Preview your profile', profile_path(@profile) %></strong>
 	<% end %>
 	</span>  

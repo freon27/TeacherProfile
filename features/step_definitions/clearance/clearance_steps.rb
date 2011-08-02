@@ -90,6 +90,15 @@ When /^I sign in (?:with|as) "(.*)\/(.*)"$/ do |email, password|
   And %{I press "Sign in"}
 end
 
+Given (/^#{capture_model} is signed in$/) do |name|
+  When %{I go to the sign in page}
+  user = model(name)
+  And %{I fill in "Email" with "#{ user.email }"}
+  And %{I fill in "Password" with "#{ user.password }"}
+  And %{I press "Sign in"}
+end
+
+
 When "I sign out" do
   steps %{
     When I go to the homepage

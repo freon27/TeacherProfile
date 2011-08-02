@@ -13,6 +13,19 @@ div.container {
 	background-color: white;
 }
 
+
+table tr:hover {
+	background-color: #d7e9f1;
+}
+
+table#profiles td.name {
+	font-weight: bold;
+}
+
+table#profiles td a {
+	font-weight: normal;
+}
+
 section, header {
 	background-color: white;	
 }
@@ -56,23 +69,23 @@ form abbr {
 
 label {
 	display: block;
+	font-size: larger;
 }
 
 label.inline {
 	display: inline;
 }
 
-select {
-	
-  border: 1px solid #BBB;
-  font-size: larger;
+
+textarea {
+	width: 95%;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=checkbox], select {
+input[type=text], input[type=password], input[type=email], input[type=checkbox], .customStyleSelectBox  {
   line-height: 2.5em;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=checkbox], textarea {
+input[type=text], input[type=password], input[type=email], input[type=checkbox], textarea, .customStyleSelectBox {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
   border-radius:         5px;	
@@ -84,6 +97,55 @@ input[type=text], input[type=password], input[type=email], input[type=checkbox],
   -webkit-box-shadow: inset 5px 5px 5px  #EEE;
   box-shadow: inset 5px 5px 5px #EEE;
 }
+
+
+.selectbox  {
+  margin-top: 6px;
+  color: black;
+  width: 200px;
+  background: white url(/images/select-box-arrow.png) no-repeat 96%  center;
+}
+
+/* Drop down styles*/
+div.selectbox-wrapper {
+  position:absolute;
+  width:400px;
+  background-color:white;
+  border:1px solid #ccc;
+  margin:0px;
+  margin-top:-10px;
+  padding:0px;
+  text-align:left;
+  max-height:200px;
+  overflow:auto;
+}
+
+/*Drop down list styles*/
+div.selectbox-wrapper ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+}
+/* Selected item in dropdown list*/
+div.selectbox-wrapper ul li.selected {
+  background-color: #EAF2FB;
+}
+
+/* Hover state for dropdown list */
+div.selectbox-wrapper ul li.current {
+  background-color: #CDD8E4;
+}
+
+/* Drop down list items style*/
+div.selectbox-wrapper ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:2px;
+  cursor:pointer;
+  color: black;
+}
+
 
 textarea {
 	padding-top: 6px;
@@ -238,6 +300,11 @@ nav#profile-sidebar ul li a {
 	display: block;
 }
 
+nav#profile-sidebar p {
+/*	font-style: italic;*/
+	padding: 0 12px 0 12px;
+}
+
 .sidebar-selected {
 	background: white
 }
@@ -296,18 +363,9 @@ section.nested {
 	margin: 0 0 50px 0;
 }
 
-section.nested h3 {
-/*	padding-bottom: 0.5em;
-	border-bottom: 1px solid #DDD;
-}*/
 
 section h2 {
-	margin-bottom: 0;
-}
-
-section div.content {
-	padding: 36px 56px;
-	border: 1px solid #CCC;
+	margin-bottom: 24px;
 }
 
 ul.clean-list {
@@ -419,3 +477,22 @@ div#flash {
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
+
+p.helper, div.helper {
+	background: #b8cfae url(/images/quote-left.png) no-repeat;
+	padding: 16px 52px;
+	font-size: larger;
+	color: #333;
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
+}
+
+form.distinct {
+/*	background: white url(/images/form_background.png) repeat-x;*/
+/*	color: white;*/
+	margin-bottom: 12px;
+	padding: 12px;
+}
+
+	

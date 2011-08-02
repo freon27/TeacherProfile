@@ -3,18 +3,19 @@ Factory.define :profile do |prof|
   prof.name         'Profile A'
   prof.published    false
   prof.association  :user
+  prof.main_subject 'Design & Technology'
   prof.sequence(:url_suffix) {|n| "myprofile#{n}" }
 end
 
 Factory.define :main_page do |mp|
   mp.introduction   'Welcome to my profile page.'
-  mp.published      false
+  mp.published      true
   mp.association    :profile
 end
 
 Factory.define :philosophy_page do |phil|
   phil.philosophy   'This is my philosophy'
-  phil.published    false
+  phil.published    true
   phil.association  :profile
 end
 
@@ -41,7 +42,7 @@ Factory.define :feedback do |fb|
 end
 
 Factory.define :experience_page do |ep|
-  ep.publish_positions      false
+  ep.publish_positions      true
   ep.publish_qualifications false
   ep.association            :profile
 end
@@ -68,6 +69,7 @@ end
 
 Factory.define :completed_profile, :parent => :profile do |prof|
   prof.after_build do |p|
+    puts p.inspect
     prof.main_page       Factory(:main_page, :profile => p)
     prof.experience_page Factory(:experience_page_with_position, :profile => p)
     prof.philosophy_page Factory(:philosophy_page, :profile => p)

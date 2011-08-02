@@ -161,6 +161,13 @@ describe ProfilesController do
   end
 
   describe "for non-signed in users" do
+
+    describe "GET 'show'" do
+      it "should allow access" do
+        get 'show', :id => @example_profile
+        response.should be_success
+      end
+    end
     
     describe "GET 'edit'" do
       it "should redirect to the sign in page" do

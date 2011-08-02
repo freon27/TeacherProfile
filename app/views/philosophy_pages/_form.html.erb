@@ -1,8 +1,8 @@
 <%= form.inputs do %>
-	<%= form.input :published, :label => 'Include the philosophy page in your profile?' %>
   <%= form.input :philosophy, :input_html => { :id => 'wmd-input' } %>
 	<div id="wmd-button-bar" class="wmd-panel"></div>
 	<h4>Preview</h4>
 	<div id="wmd-preview" class="wmd-panel"></div>
+	<%= form.input :published, :label => 'Include the philosophy page in your profile?' %>
 <% end %>
 

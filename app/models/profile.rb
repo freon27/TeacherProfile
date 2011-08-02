@@ -10,14 +10,14 @@ class Profile < ActiveRecord::Base
   validates :url_suffix, :presence => true, :uniqueness => true
   validate  :validate_quota
 
-  SUBJECTS = ['Primary', 'Design & Technology', 'English', 'Science']
+  SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
 
   has_one :main_page
   has_one :philosophy_page
   has_one :experience_page
   
   has_many :subject_areas
-  after_create :create_pages
+  after_save :create_pages
 
   def publish
     self.published = true
@@ -36,12 +36,9 @@ class Profile < ActiveRecord::Base
     
   private
     def create_pages
-      main_page = self.build_main_page
-      main_page.save!
-      philosophy_page = self.build_philosophy_page
-      philosophy_page.save!
-      experience_page = self.build_experience_page
-      experience_page.save!
+      !self.main_page       and self.create_main_page
+      !self.philosophy_page and self.create_philosophy_page
+      !self.experience_page and self.create_experience_page
     end
     
 end

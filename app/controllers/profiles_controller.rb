@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
 
-  before_filter :authenticate, :common_setup
-  before_filter :correct_user, :except => [:new, :create]
+  before_filter :authenticate, :except => [:show] 
+  before_filter :common_setup
+  before_filter :correct_user, :except => [:new, :show, :create]
 
   def show
     @introduction = BlueCloth::new(@profile.main_page.introduction).to_html if @profile.main_page.introduction
