@@ -15,6 +15,7 @@ class Profile < ActiveRecord::Base
   has_one :main_page
   has_one :philosophy_page
   has_one :experience_page
+  has_one :sample_work_page
   
   has_many :subject_areas
   after_save :create_pages
@@ -39,6 +40,7 @@ class Profile < ActiveRecord::Base
       !self.main_page       and self.create_main_page
       !self.philosophy_page and self.create_philosophy_page
       !self.experience_page and self.create_experience_page
+      !self.sample_work_page and self.create_sample_work_page
     end
     
 end

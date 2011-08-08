@@ -170,12 +170,10 @@ p.side-hint {
 
 /* Headers */
 
-h1.banner, h2.banner {
+h1.banner, h2.banner, h3 {
 	color: #2086b0;
-/*	color: white;
-	background-color: #2086b0;
-	padding: 5px 15px;*/
 }
+
 
 /* Round corners */
 
@@ -351,6 +349,14 @@ div#control-bar span {
 
 /* content */
 
+div.content {
+	padding: 24px;
+	border: 1px solid #EEE;	
+  	-moz-box-shadow: 5px 5px 5px #EEE;
+  	-webkit-box-shadow: 5px 5px 5px  #EEE;
+  	box-shadow: 5px 5px 5px #EEE;
+}
+
 p.info {
 	
 }
@@ -365,7 +371,7 @@ section.nested {
 
 
 section h2 {
-	margin-bottom: 24px;
+	margin-bottom: 6px;
 }
 
 ul.clean-list {
@@ -480,12 +486,20 @@ div#flash {
 
 p.helper, div.helper {
 	background: #b8cfae url(/images/quote-left.png) no-repeat;
+	border: 1px solid #a9b5a3;
 	padding: 16px 52px;
 	font-size: larger;
-	color: #333;
+	color: #4b5149;
 	-moz-border-radius:    10px;
 	-webkit-border-radius: 10px;
 	border-radius:         10px;
+	margin-bottom: 24px;
+}
+
+p.helper form, div.helper form {
+	margin-top: 24px;
+	font-size: smaller;
+	padding: 0;
 }
 
 form.distinct {

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110614122749) do
+ActiveRecord::Schema.define(:version => 20110807200937) do
+
+  create_table "documents", :force => true do |t|
+    t.string   "caption"
+    t.text     "description"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "experience_pages", :force => true do |t|
     t.boolean  "publish_positions"
@@ -66,11 +77,25 @@ ActiveRecord::Schema.define(:version => 20110614122749) do
     t.string   "main_subject"
   end
 
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "qualifications", :force => true do |t|
     t.string   "location"
     t.date     "date_from"
     t.date     "date_to"
     t.integer  "experience_page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sample_work_pages", :force => true do |t|
+    t.boolean  "published"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

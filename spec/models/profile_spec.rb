@@ -65,5 +65,8 @@ describe Profile do
     it "should have an experience page" do
       @profile.experience_page.should be_a(ExperiencePage)
     end
+    it "should have a sample work page" do
+      @profile.sample_work_page.should be_a(SampleWorkPage)
+    end
   end
 end

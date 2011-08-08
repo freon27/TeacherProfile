@@ -15,6 +15,9 @@
 	  <li <% if params[:controller] == 'experience_pages' %>class="sidebar-selected round-left"<% end %>>
 	    <%= link_to 'Experience', edit_experience_page_path(@profile.experience_page.id) %>
 	  </li>
+	  <li <% if params[:controller] == 'sample_work_pages' %>class="sidebar-selected round-left"<% end %>>
+	    <%= link_to 'Sample Work', edit_sample_work_page_path(@profile.sample_work_page.id) %>
+	  </li>
 	<% end %>
 	</ul>
 </nav>

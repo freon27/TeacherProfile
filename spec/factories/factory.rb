@@ -75,3 +75,13 @@ Factory.define :completed_profile, :parent => :profile do |prof|
     prof.philosophy_page Factory(:philosophy_page, :profile => p)
   end
 end
+
+Factory.define :project do |proj|
+  proj.name           'Blood and Teeth'
+  proj.description    'This was my first project and was about blood and teeth'
+end
+
+Factory.define :sample_work_page do |swp|
+  swp.published       true
+  swp.association     :profile
+end

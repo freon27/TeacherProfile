@@ -63,5 +63,6 @@ group :test do
   gem 'spork'
   gem 'launchy'
 	gem 'pickle'
+	gem 'simplecov'
 end
 
