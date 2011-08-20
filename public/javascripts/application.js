@@ -4,4 +4,9 @@ $(document).ready(function(){ $('input.ui-date-picker').datepicker({ changeYear:
 
 $(document).ready(function() {
 	$('select').selectbox({debug: true});
+	$('#flash_notice').delay(2000).fadeTo("slow", 0.00, function(){ //fade
+        $(this).slideUp("slow", function() { //slide up
+            $(this).remove(); //then remove from the DOM
+        });
+    });
 });

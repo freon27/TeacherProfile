@@ -236,3 +236,9 @@ When /^I select "([^"]*)" as the (.+) "([^"]*)" date$/ do |date, model, selector
   select(date.strftime("%B"), :from => "#{model}[#{selector}(2i)]")
   select(date.day.to_s, :from => "#{model}[#{selector}(3i)]")
 end
+
+
+Then /^the "([^\"]*)" field should( not)? equal "([^\"]*)"$/ do |field, negate, value|
+  expectation = negate ? :should_not : :should
+  field_labeled(field).value.send(expectation) == value
+end

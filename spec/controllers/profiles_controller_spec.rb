@@ -84,9 +84,10 @@ describe ProfilesController do
       end  
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
+        it "should raise a record not found exception" do
+          expect { 
           get :edit, :id => @another_profile
-          response.should redirect_to(sign_in_path)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end  
       
@@ -103,9 +104,10 @@ describe ProfilesController do
       end
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
+        it "should raise a record not found exception" do
+          expect { 
           put 'update', :id => @another_profile
-          response.should redirect_to(sign_in_path)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -119,9 +121,10 @@ describe ProfilesController do
       end
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
+        it "should raise a record not found exception" do
+          expect { 
           put 'publish', :id => @another_profile
-          response.should redirect_to(sign_in_path)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -135,9 +138,10 @@ describe ProfilesController do
       end
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
+        it "should raise a record not found exception" do
+          expect { 
           put 'publish', :id => @another_profile
-          response.should redirect_to(sign_in_path)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -151,10 +155,11 @@ describe ProfilesController do
       end
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
+        it "should raise a record not found exception" do
           @another_profile = Factory(:profile)
+          expect { 
           delete 'destroy', :id => @another_profile
-          response.should redirect_to(sign_in_path)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end

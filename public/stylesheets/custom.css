@@ -1,16 +1,21 @@
 
 
 body {
- 	background: white url(/images/background_tile.png);
+/* 	background: white url(/images/background_tile.png);*/
 	overflow: scroll;
 	line-height: 24px;
 /*	background: #d0dce1;*/
-	background-color: #333;
+	background-color: #f1f6f5 !important;
+}
+
+div#logo {
+	background: white url(/images/logo-fade.png) repeat-x bottom;
 }
 
 div.container {
 	margin-bottom: 20px;	
 	background-color: white;
+	border: 1px solid #CCC;
 }
 
 

@@ -22,8 +22,7 @@ end
 
 Factory.define :subject_area do |sa|
   sa.name          'Design & Technology'
-  sa.published     false
-  sa.association   :profile
+  sa.association   :sample_work_page
 end
 
 Factory.define :position do |pos|

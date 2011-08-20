@@ -6,6 +6,9 @@ Teacherprofile::Application.routes.draw do
     resources :positions
     resources :qualifications
   end
+  
+  resources :subject_areas
+  
   resources :sample_work_pages, :only => [:show, :edit, :update] do
     resources :subject_areas
   end

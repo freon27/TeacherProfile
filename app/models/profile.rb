@@ -17,7 +17,8 @@ class Profile < ActiveRecord::Base
   has_one :experience_page
   has_one :sample_work_page
   
-  has_many :subject_areas
+  has_many :subject_areas, :through => :sample_work_page
+  
   after_save :create_pages
 
   def publish

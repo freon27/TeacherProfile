@@ -18,6 +18,11 @@ describe SampleWorkPagesController do
           get 'edit', :id => @swp.id
           assigns(:sample_work_page).should == @swp
         end
+        it "should assign the associated subject areas as @subject_areas" do
+          @populated_sa = Factory(:subject_area)
+          get 'edit', :id => @populated_sa.sample_work_page.id
+          assigns(:subject_areas).should == @populated_sa.sample_work_page.subject_areas
+        end
         it "should assign @side_bar_name with value 'profiles/page_links'" do
           get 'edit', :id => @swp.id
           assigns(:side_bar_name).should == 'profiles/page_links'

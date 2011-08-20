@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110807200937) do
+ActiveRecord::Schema.define(:version => 20110810192439) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -101,9 +101,8 @@ ActiveRecord::Schema.define(:version => 20110807200937) do
   end
 
   create_table "subject_areas", :force => true do |t|
-    t.integer  "profile_id"
+    t.integer  "sample_work_page_id"
     t.string   "name"
-    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

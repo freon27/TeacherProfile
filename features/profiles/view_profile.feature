@@ -1,3 +1,4 @@
+@wip
 Feature: View Profile
 
 	In order to set up my profile

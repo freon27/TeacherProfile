@@ -1,9 +1,5 @@
 class SubjectArea < ActiveRecord::Base
-  
-  validates :name, :presence => true
-  validates :profile, :presence => true
-  validates_inclusion_of :published, :in => [true, false]
-  
-  belongs_to  :profile
-  
+  validates_presence_of :name
+  validates_presence_of :sample_work_page_id
+  belongs_to :sample_work_page
 end

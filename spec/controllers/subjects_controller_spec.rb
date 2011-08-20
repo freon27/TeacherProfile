@@ -51,6 +51,13 @@ describe SubjectsController do
         end
       end
       
+      describe "DELETE 'destroy'" do
+        it "should redirect to the sign in page" do
+          delete 'destroy', :id => @subject.id, :qualification_id => @another_qualification.id
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
     end
     
     describe "if user owns profile" do
@@ -85,25 +92,33 @@ describe SubjectsController do
           
 
       describe "POST 'create'" do
-        
-        before(:each) do
-          new_subj = Factory(:subject)
-          @valid_attributes = new_subj.attributes
-          @valid_attributes.delete('qualification_id')
-        end
-        
-        it "should create a new record" do        
-          lambda {
+        describe "with valid params" do
+          before(:each) do
+            new_subj = Factory(:subject)
+            @valid_attributes = new_subj.attributes
+            @valid_attributes.delete('qualification_id')
+          end
+          it "should create a new record" do        
+            lambda {
+              post 'create', :qualification_id => @subject.qualification.id, :subject => @valid_attributes
+            }.should change(Subject, :count).by(1)
+          end
+          it "should create redirect to the experience page edit action" do
             post 'create', :qualification_id => @subject.qualification.id, :subject => @valid_attributes
-          }.should change(Subject, :count).by(1)
+            response.should redirect_to(edit_experience_page_path(@subject.qualification.experience_page))
+          end
         end
-        
-        it "should create redirect to the experience page edit action" do
-
-          post 'create', :qualification_id => @subject.qualification.id, :subject => @valid_attributes
-          response.should redirect_to(edit_experience_page_path(@subject.qualification.experience_page))
+        describe "with invalid params" do
+          it "should no create a new record" do        
+            lambda {
+              post 'create', :qualification_id => @subject.qualification.id, :subject => {}
+            }.should_not change(Subject, :count).by(1)
+          end
+          it "should render the new page" do
+            post 'create', :qualification_id => @subject.qualification.id, :subject => {}
+            response.should render_template(:new)
+          end
         end
-        
       end
       
       describe "GET 'edit'" do
@@ -131,14 +146,27 @@ describe SubjectsController do
 
       describe "PUT 'update'" do
         
-        it "should redirect to the edit page" do
-          put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => 'New Text' }
-          response.should redirect_to(edit_experience_page_path(@subject.qualification.experience_page))
+        describe "with valid params" do  
+          it "should redirect to the edit page" do
+            put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => 'New Text' }
+            response.should redirect_to(edit_experience_page_path(@subject.qualification.experience_page))
+          end
+          it "should update the page attributes" do
+            put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => 'New Text' }
+            @subject.reload.name.should == 'New Text'
+          end
         end
         
-        it "should update the page attributes" do
-          put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => 'New Text' }
-          @subject.reload.name.should == 'New Text'
+        describe "with invalid params" do  
+          it "should render the edit page" do
+            put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => '' }
+            response.should render_template(:edit)
+          end
+          it "should update the page attributes" do
+            original_name = @subject.name
+            put 'update', :id => @subject.id, :qualification_id => @subject.qualification.id, :subject => { :name => '' }
+            @subject.reload.name.should == original_name
+          end
         end
         
         it "should assign the requested subject as @subject" do
@@ -196,5 +224,6 @@ describe SubjectsController do
         response.should redirect_to(sign_in_path)
       end
     end
+    
   end
 end

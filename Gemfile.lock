@@ -36,6 +36,7 @@ GEM
     autotest-notification (2.3.1)
       autotest (~> 4.3)
     builder (2.1.2)
+    cancan (1.6.5)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -172,6 +173,7 @@ DEPENDENCIES
   BlueCloth
   ZenTest
   autotest-notification
+  cancan
   capybara
   clearance (~> 0.10.3.2)
   cucumber-rails

@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :profiles
-  include Clearance::User
+  has_many :sample_work_pages, :through => :profiles
   
+  include Clearance::User
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,15}$/
 
@@ -12,4 +14,6 @@ class User < ActiveRecord::Base
                           
   validates :password,    :format => { :with => password_regex },
                           :unless => Proc.new { |user| user.password.blank? }
+
+
 end
