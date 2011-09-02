@@ -25,8 +25,8 @@
 			<div id="logo">
 				<%= image_tag("logo.png", :alt => "Teacher Profile", :id => 'logo-image', :class => "round") %>
 			</div>
-			<nav>
-				
+			<nav id="navbar">
+				<%= render :partial => '/profiles/control_bar', :locals => { :profile => @profile } if @profile && @profile.id %>	
 				<ul>
 		    <% if signed_in? -%>
 		      <li class="impact"><%= link_to "Dashboard", dashboard_user_path(current_user) %></li>
@@ -37,7 +37,6 @@
 		    <% end -%>
 				</ul>
 			</nav>
-			<%= render :partial => '/profiles/control_bar', :locals => { :profile => @profile } if @profile && @profile.id %>
 		</header>
 		<div id="main-body" class="span-24 last">
 			<%= render :partial => @side_bar_name  if @side_bar_name %>
@@ -47,10 +46,11 @@
 			      <div id="flash_<%= key %>"><%=h value %></div>
 			    <% end %>
 			  </div> 
-				  <%= yield %>
-			
+				<section class="push-1 span-16 last">
+					<%= yield %>
+				</section>
 			</div>
-			<div style="background-color: black" id="footer" class="span-24 last">
+			<div id="footer" class="span-24 last">
 				<p>Got a problem?  Email us on blah for help.</p>
 			</div>
 		</div>

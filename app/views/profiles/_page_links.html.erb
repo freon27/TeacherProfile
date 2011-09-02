@@ -1,22 +1,22 @@
-<nav class="span-6 last" id="profile-sidebar">
+<nav class="span-5 last" id="profile-sidebar">
 	<% if @profile.id %>
-	<h3><%= @profile.name %></h3>
+	<h2 class="profile-name"><%= @profile.name %></h2>
 	
 	<ul>
   	<li <% if params[:controller] == 'profiles' %>class="sidebar-selected round-left"<% end %>>
 	    <%= link_to 'Profile Details', edit_profile_path(@profile.id) %>
 	  </li>
 	  <li <% if params[:controller] == 'main_pages' %>class="sidebar-selected round-left"<% end %>>
-	    <%= link_to 'Introduction', edit_main_page_path(@profile.main_page.id) %>
+	    <%= link_to 'Introduction', edit_main_page_path(@profile.main_page_id) %>
 	  </li>
 	  <li <% if params[:controller] == 'philosophy_pages' %>class="sidebar-selected round-left"<% end %>>
-	    <%= link_to 'Teaching Philosophy', edit_philosophy_page_path(@profile.philosophy_page.id) %>
+	    <%= link_to 'Teaching Philosophy', edit_philosophy_page_path(@profile.philosophy_page_id) %>
 	  </li>
 	  <li <% if params[:controller] == 'experience_pages' %>class="sidebar-selected round-left"<% end %>>
-	    <%= link_to 'Experience', edit_experience_page_path(@profile.experience_page.id) %>
+	    <%= link_to 'Experience', edit_experience_page_path(@profile.experience_page_id) %>
 	  </li>
 	  <li <% if params[:controller] == 'sample_work_pages' %>class="sidebar-selected round-left"<% end %>>
-	    <%= link_to 'Sample Work', edit_sample_work_page_path(@profile.sample_work_page.id) %>
+	    <%= link_to 'Sample Work', edit_sample_work_page_path(@profile.sample_work_page_id) %>
 	  </li>
 	<% end %>
 	</ul>

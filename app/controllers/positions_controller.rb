@@ -16,6 +16,7 @@ class PositionsController < ApplicationController
   
   def create
     @position = @experience_page.positions.build(params[:position])
+    @position.user = current_user
     if @position.save
       redirect_to( edit_experience_page_path(@experience_page), :notice => 'Created.')
     else

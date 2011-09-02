@@ -54,5 +54,17 @@ Feature: Sample Work Page
 		Then I should see "Saved"
 		And the "Name" field should equal "Resistant Materials"
 		
-		
+	Scenario: Editing subject area
+		When I follow "Sample Work"
+		Then I should see "Sample Work"
+		When I follow "Add a subject area"
+		And I fill in "Name" with "Systems and Control"
+		And I press "Create"
+		When I follow "Edit"
+		And I fill in "Name" with "Resistant Materials"
+		And I press "Update"
+		Then I should see "Saved"
+		And the "Name" field should equal "Resistant Materials"
+	
+
 			

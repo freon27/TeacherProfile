@@ -12,14 +12,14 @@ class Profile < ActiveRecord::Base
 
   SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
 
-  has_one :main_page
-  has_one :philosophy_page
-  has_one :experience_page
-  has_one :sample_work_page
+  belongs_to :main_page
+  belongs_to :philosophy_page
+  belongs_to :experience_page
+  belongs_to :sample_work_page
   
   has_many :subject_areas, :through => :sample_work_page
   
-  after_save :create_pages
+  before_validation :create_pages, :on => :create
 
   def publish
     self.published = true
@@ -38,10 +38,10 @@ class Profile < ActiveRecord::Base
     
   private
     def create_pages
-      !self.main_page       and self.create_main_page
-      !self.philosophy_page and self.create_philosophy_page
-      !self.experience_page and self.create_experience_page
-      !self.sample_work_page and self.create_sample_work_page
+      self.main_page or self.create_main_page
+      self.experience_page or self.create_experience_page
+      self.philosophy_page or self.create_philosophy_page
+      self.sample_work_page or self.create_sample_work_page
     end
     
 end

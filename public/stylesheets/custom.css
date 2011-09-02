@@ -1,23 +1,53 @@
-
+/* Body */
 
 body {
-/* 	background: white url(/images/background_tile.png);*/
+ 	background: white url(/images/header_background.png) repeat-x;
 	overflow: scroll;
 	line-height: 24px;
-/*	background: #d0dce1;*/
-	background-color: #f1f6f5 !important;
+	color: #999;
+}
+
+
+/* Header */
+
+header {	
+	margin-bottom: 50px;
 }
 
 div#logo {
-	background: white url(/images/logo-fade.png) repeat-x bottom;
+ 	background: transparent url(/images/header_background.png) repeat-x;
+	height: 135px;
 }
 
-div.container {
-	margin-bottom: 20px;	
-	background-color: white;
-	border: 1px solid #CCC;
+/* Footer */
+
+div#footer {
+	margin-top: 100px;
+	text-align: center;
+	border-top: 1px solid #CCC;
+	background: transparent url(/images/footer_fade.png) repeat-x;
 }
 
+/* Global Elements */
+
+h1, h2, h3 {
+	color: #2086b0;
+}
+
+body a {
+	color: #999;
+}
+
+h2 {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* Tables */
+
+table {
+	color: #2086b0;
+}
 
 table tr:hover {
 	background-color: #d7e9f1;
@@ -29,16 +59,6 @@ table#profiles td.name {
 
 table#profiles td a {
 	font-weight: normal;
-}
-
-section, header {
-	background-color: white;	
-}
-
-div#footer {
-	margin-top: 100px;
-	color: white;
-	text-align: center;
 }
 
 
@@ -93,7 +113,7 @@ input[type=text], input[type=password], input[type=email], input[type=checkbox],
 input[type=text], input[type=password], input[type=email], input[type=checkbox], textarea, .customStyleSelectBox {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
-  border-radius:         5px;	
+  border-radius:         5px;
   border: 1px solid #BBB;
   font-size: larger;
   padding: 0 1em 0 1em;
@@ -173,11 +193,7 @@ p.side-hint {
 	color: gray;
 }
 
-/* Headers */
 
-h1.banner, h2.banner, h3 {
-	color: #2086b0;
-}
 
 
 /* Round corners */
@@ -220,13 +236,14 @@ h1.banner, h2.banner, h3 {
 
 
 header.main nav, div#control-bar{
-  background: #DDD url(/images/navbar.png) repeat-x;
-  background-color: #9CB0BF;
+/*  background: #DDD url(/images/navbar.png) repeat-x;*/
+  background-color: transparent;
   padding: 0 0.7em;
   white-space: nowrap;
   height: 2em;
-  border-bottom: 1px solid black;
-  text-shadow: black 0.1em 0.1em 0.2em;
+/*	background: white url(/images/logo-fade.png) repeat-x bottom;*/
+/*  border-bottom:  1px solid black;*/
+/*  text-shadow: black 0.1em 0.1em 0.2em;*/
   text-decoration: none;
   font-size: larger;
 }
@@ -237,8 +254,13 @@ span#status {
 }
 
 header.main nav {
-  text-align: right;
-  border-top: 1px solid black;
+  	text-align: right;
+  	color: white;
+/*  border-top: 1px solid black;*/
+}
+
+header.main nav a {
+	color: white;
 }
 
 nav ul {
@@ -255,7 +277,7 @@ header nav ul li {
 
 header.main nav ul li {
   margin: 1px 0;
-  border-left: 1px solid #757575;	
+/*  border-left: 1px solid #757575;	*/
 }
 
 header nav ul li.impact a {
@@ -263,7 +285,7 @@ header nav ul li.impact a {
 }
 
 header.main a {
-  color: white; /*#d0d0d0;*/
+/*  color: white; /*#d0d0d0;*/*/
   text-decoration: none;
 }
 
@@ -276,36 +298,40 @@ header nav ul li a:hover {
 
 nav#profile-sidebar {
 	height: 100% !important;
-	background: black url(/images/side-top.png) repeat-x;
-	color: white;
-	padding-bottom:100px;
+/*	background: black url(/images/side-top.png) repeat-x;*/
+/*	background-color: #f1f1f1;*/
+/*	color: white;*/
+/*	padding-bottom:100px;
+	padding-top: 60px;*/
 	-moz-border-radius:    0 0 7px 0;
 	-webkit-border-radius: 0 0 7px 0;
 	border-radius:         0 0 7px 0;
-}
-
-nav#profile-sidebar ul {
-	padding-top: 50px;
-	list-style: none;
 	text-align: right;
 }
 
+nav#profile-sidebar ul {
+	list-style: none;
+	text-align: right;
+	border-top: 1px solid #CCC;
+}
+
 nav#profile-sidebar ul li {
-	padding: 10px 10px 10px 0px;
+	padding: 10px 0 10px 0;
 	margin-left: 20px;
 }	
 
 nav#profile-sidebar ul li a {
-	color: white;
-	text-shadow: black 0.1em 0.1em 0.2em;
+/*	color: white;*/
+/*	text-shadow: black 0.1em 0.1em 0.2em;*/
 	text-decoration: none;
 	font-weight: bold;
 	display: block;
+	color: #6a8aa2;
 }
 
 nav#profile-sidebar p {
 /*	font-style: italic;*/
-	padding: 0 12px 0 12px;
+/*	padding: 0 12px 0 12px;*/
 }
 
 .sidebar-selected {
@@ -315,37 +341,30 @@ nav#profile-sidebar p {
 .sidebar-selected a {
 	color: black !important;
 	font-size: larger;
-	text-shadow: none !important;
+/*	text-shadow: none !important;*/
 }
 
 #profile-sidebar h3 {
-	text-align: center;
-	color: white !important;
+/*	color: white !important;*/
 	padding-top: 10px;
 }
 
-#profile-sidebar h3.published {
-	background: url(/images/published_light_on.png) no-repeat right;
-}
-
-#profile-sidebar h3.unpublished {
-	background: none url(/images/published_light_off.png) no-repeat right;
-}
-
 #profile-sidebar a {
-	color: white;
+/*	color: white;*/
 }
 
 
 /* control bar */
 
-div#control-bar {
-	background-color: #444;
-	color: white;
+nav#navbar {
+	background-color: transparent;
+/*	color: white;*/
+	margin-bottom: 36px;
+	
 }
 
 div#control-bar a {
-	color: white;
+/*	color: white;*/
 }
 
 div#control-bar span {
@@ -354,29 +373,8 @@ div#control-bar span {
 
 /* content */
 
-div.content {
-	padding: 24px;
-	border: 1px solid #EEE;	
-  	-moz-box-shadow: 5px 5px 5px #EEE;
-  	-webkit-box-shadow: 5px 5px 5px  #EEE;
-  	box-shadow: 5px 5px 5px #EEE;
-}
-
-p.info {
-	
-}
-
-section {
-	margin-top: 30px !important;	
-}
-
-section.nested {
-	margin: 0 0 50px 0;
-}
-
-
-section h2 {
-	margin-bottom: 6px;
+div.content form{
+	margin-bottom: 24px;
 }
 
 ul.clean-list {
@@ -414,11 +412,6 @@ table.experience-table td {
 	/*background-color: #e4edf4;*/
 }
 
-table.experience-table, table.experience-table tr:first-child td:first-child {
-  -moz-border-radius:    7px 0 0 0;
-  -webkit-border-radius: 7px 0 0 0;
-  border-radius:         7px 0 0 0;
-}
 
 td.centered, th.centered {
 	text-align: center;
@@ -485,15 +478,17 @@ div.subject {
 }
 
 div#flash {
-	margin-top: 20px;
-	margin-bottom: 10px;
+/*	margin-top: 20px;
+	margin-bottom: 10px;*/
+	float: left;
+	position: absolute;
 }
 
 p.helper, div.helper {
-	background: #b8cfae url(/images/quote-left.png) no-repeat;
-	border: 1px solid #a9b5a3;
-	padding: 16px 52px;
-	font-size: larger;
+/*	background: #b8cfae url(/images/quote-left.png) no-repeat;*/
+/*	border: 1px solid #a9b5a3;
+	padding: 16px 52px;*/
+/*	font-size: larger;*/
 	color: #4b5149;
 	-moz-border-radius:    10px;
 	-webkit-border-radius: 10px;
@@ -514,4 +509,15 @@ form.distinct {
 	padding: 12px;
 }
 
-	
+
+h2.profile-name {
+	color: #980056;
+}
+
+div.document-area{
+	border-top: 1px solid #AAA;
+/*	background-color: #f6fafb;*/
+/*	background: transparent url(/images/document-background.png);*/
+	padding: 6px 0;
+	margin-bottom: 24px;
+}

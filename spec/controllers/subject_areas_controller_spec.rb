@@ -31,11 +31,10 @@ describe SubjectAreasController do
           @valid_attributes.delete('sample_work_page_id')
         end
         describe "with valid params" do
-          it "should create a new subject area" do
+          it "should create a new project area" do
             lambda {
               post 'create', :sample_work_page_id => @sa.sample_work_page_id, :subject_area => @valid_attributes
             }.should change(SubjectArea, :count).by(1)
-            
           end
           it "should redirect to the sample work page edit page" do
             post 'create', :sample_work_page_id => @sa.sample_work_page_id, :subject_area => @valid_attributes
@@ -61,6 +60,10 @@ describe SubjectAreasController do
           get 'edit', :sample_work_page_id => @sa.sample_work_page_id, :id => @sa.id
           assigns(:subject_area).should == @sa
         end
+        it "should assign the subject area's projects as @projects" do
+            get 'edit', :sample_work_page_id => @sa.sample_work_page_id, :id => @sa.id
+            assigns(:projects).should == []
+          end
         it "should assign @side_bar_name with value 'profiles/page_links'" do
           get 'edit', :sample_work_page_id => @sa.sample_work_page_id, :id => @sa.id
           assigns(:side_bar_name).should == 'profiles/page_links'

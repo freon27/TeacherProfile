@@ -8,6 +8,7 @@ class SubjectsController < ApplicationController
   
   def create
     @subject = @qualification.subjects.build(params[:subject])
+    @subject.user = current_user
     if @subject.save
       redirect_to( edit_experience_page_path(@subject.qualification.experience_page), :notice => 'Created.')
     else

@@ -17,5 +17,9 @@ describe Subject do
       @subject.qualification = nil
       @subject.should_not be_valid          
     end
+    it "should not be valid without a user" do
+      @subject.user = nil
+      @subject.should_not be_valid          
+    end    
   end
 end

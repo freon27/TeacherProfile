@@ -7,7 +7,7 @@ describe SubjectsController do
   
   describe "for signed in users" do
     before(:each) do
-      sign_in_as(@subject.qualification.experience_page.profile.user)
+      sign_in_as(@subject.user)
     end
     
     describe "if user does not own profile" do

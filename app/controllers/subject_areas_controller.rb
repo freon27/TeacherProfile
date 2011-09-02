@@ -12,6 +12,7 @@ class SubjectAreasController < ApplicationController
   def create
     @sample_work_page = get_sample_work_page(params[:sample_work_page_id])
     @subject_area = @sample_work_page.subject_areas.build(params[:subject_area])
+    @subject_area.user = current_user
     if @subject_area.save
       redirect_to( edit_sample_work_page_path(@sample_work_page), :notice => 'Created.')
     else
@@ -22,6 +23,7 @@ class SubjectAreasController < ApplicationController
   def edit
     @sample_work_page = get_sample_work_page(params[:sample_work_page_id])
     @subject_area = get_subject_area(@sample_work_page, params[:id])
+    @projects = @subject_area.projects
     @profile = @sample_work_page.profile
     @side_bar_name = get_sidebar
   end

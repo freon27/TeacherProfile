@@ -3,6 +3,8 @@ class Position < ActiveRecord::Base
   validates_presence_of :location
   validates_presence_of :date_from
   validate :date_from_validation
+  validates_presence_of :user
+  belongs_to :user
   
   private
     def date_from_validation

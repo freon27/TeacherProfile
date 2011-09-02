@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810192439) do
+ActiveRecord::Schema.define(:version => 20110828112603) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.datetime "document_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "experience_pages", :force => true do |t|
     t.boolean  "publish_positions"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "profile_id"
     t.boolean  "publish_qualifications"
   end
 
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
   end
 
   create_table "main_pages", :force => true do |t|
-    t.integer  "profile_id"
     t.text     "introduction"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,7 +52,17 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.text     "philosophy"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "profile_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "caption"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.date     "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "positions", :force => true do |t|
@@ -65,16 +74,21 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "experience_page_id"
+    t.integer  "user_id"
   end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
-    t.boolean  "published",    :default => false
+    t.boolean  "published",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "url_suffix"
     t.string   "main_subject"
+    t.integer  "main_page_id"
+    t.integer  "philosophy_page_id"
+    t.integer  "experience_page_id"
+    t.integer  "sample_work_page_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -82,6 +96,8 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "subject_area_id"
+    t.integer  "user_id"
   end
 
   create_table "qualifications", :force => true do |t|
@@ -91,11 +107,11 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.integer  "experience_page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "sample_work_pages", :force => true do |t|
     t.boolean  "published"
-    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -105,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "subjects", :force => true do |t|
@@ -114,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20110810192439) do
     t.datetime "updated_at"
     t.string   "grade"
     t.string   "level"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

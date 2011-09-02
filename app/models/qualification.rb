@@ -1,10 +1,15 @@
 class Qualification < ActiveRecord::Base
 
+  belongs_to :user
   belongs_to :experience_page
   has_many :subjects
+  
+  
   validates_presence_of :location
   validates_presence_of :date_from
+  validates_presence_of :user
   validate :date_validation
+  
   
   private
     def date_validation

@@ -13,10 +13,6 @@ describe PhilosophyPage do
       @pp.published = false
       @pp.should be_valid
     end
-    it "should not be valid without an associated profile" do
-      @pp.profile = nil
-      @pp.should_not be_valid
-    end
     it "should not be valid without a published attribute" do
       @pp.published = nil
       @pp.should_not be_valid

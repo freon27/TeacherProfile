@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   has_many :profiles
   has_many :sample_work_pages, :through => :profiles
+  has_many :subject_areas
+  has_many :positions
+  has_many :qualifications
+  has_many :projects 
+  has_many :documents
+  has_many :subjects
   
   include Clearance::User
 

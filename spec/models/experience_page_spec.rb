@@ -5,10 +5,6 @@ describe ExperiencePage do
     @ep = Factory(:experience_page)
   end
   describe "creation" do
-    it "should not be valid without an associated profile" do
-      @ep.profile = nil
-      @ep.should_not be_valid
-    end
     it "should not be valid without a publish_positions attribute" do
       @ep.publish_positions = nil
       @ep.should_not be_valid

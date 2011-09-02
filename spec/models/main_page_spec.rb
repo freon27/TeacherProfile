@@ -13,10 +13,6 @@ describe MainPage do
       @mp.published = false
       @mp.should be_valid
     end
-    it "should not be valid without an associated profile" do
-      @mp.profile = nil
-      @mp.should_not be_valid
-    end
     it "should not be valid without a published attribute" do
       @mp.published = nil
       @mp.should_not be_valid

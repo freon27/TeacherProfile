@@ -14,6 +14,7 @@ class QualificationsController < ApplicationController
   def create
     @experience_page = ExperiencePage.find(params[:experience_page_id])
     @qualification = @experience_page.qualifications.build(params[:qualification])
+    @qualification.user = current_user
     if @qualification.save
       redirect_to( edit_experience_page_path(@experience_page), :notice => 'Created.')
     else

@@ -5,19 +5,23 @@ describe Project do
     @project = Factory(:project)
   end
   it "should not be valid without a name" do
-    @project.name = ''
+    @project.name = nil
+    @project.should_not be_valid
+  end
+  it "should not be valid without a user" do
+    @project.user = nil
     @project.should_not be_valid
   end
   it "should not be valid without a description" do
-    @project.description = ''
+    @project.description = nil
     @project.should_not be_valid
   end
   describe "methods" do
     it "should have a documents method" do
       @project.respond_to?(:documents).should == true
     end
-    it "should have a profile method" do
-      @project.respond_to?(:profile).should == true
+    it "should have a subject_area method" do
+      @project.respond_to?(:subject_area).should == true
     end
   end
 end

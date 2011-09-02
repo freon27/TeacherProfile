@@ -19,6 +19,9 @@ describe Position do
       @position.date_from = Date.today + 1
       @position.should_not be_valid
     end
-    
+    it "should not be valid without a user" do
+      @position.user = nil
+      @position.should_not be_valid
+    end
   end
 end

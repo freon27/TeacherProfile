@@ -1,0 +1,17 @@
+<section class="push-1 span-15 last round-top">
+	<h2 class=" banner round-top">Edit Project</h2>
+	<div class="content round-bottom">
+		<%= semantic_form_for([@subject_area, @project]) do |form| %>
+		  <%= render :partial => 'form', :object => form %>
+		  <%= form.submit 'Update' %>
+		<% end %>
+		<h2>Gallery</h2>
+		<div class="document-area">
+			<p>No images uploaded.</p>
+		</div>
+		<h2>Supporting Documents</h2>
+		<div class="document-area">
+			<p>No supporting documents uploaded.</p>
+		</div>
+	</div>
+</section>

@@ -1,26 +1,24 @@
 
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Profiles</h2>
-	<div class="content round-bottom">
-	
-	<% if @profiles.length == 0 %>
-	  <p>Lets create your first teaching profile!</p>
-	<% end %>
+<h2 class=" banner round-top">Profiles</h2>
+<div class="content round-bottom">
 
-	<table id="profiles">
-	<% @profiles.each do | profile | %>
-	  <tr>
-	    <td class="name"><%= profile.name %></td>
-	    <td><%= link_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
-			<td><%= link_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?', :class => 'ss_sprite ss_delete' %></td>
-			<td>View profile</td>
-			<td>PDF</td>
-	  </tr>
-	<% end %>
-	</table>
+<% if @profiles.length == 0 %>
+  <p>Lets create your first teaching profile!</p>
+<% end %>
 
-	<% if @profiles.length < Profile::LIMIT %>
-	<%= link_to 'Create profile', new_profile_path, :method => 'get', :class => 'ss_sprite ss_add' %>
-	<% end %>
-	</div>
-</section>
+<table id="profiles">
+<% @profiles.each do | profile | %>
+  <tr>
+    <td class="name"><%= profile.name %></td>
+    <td><%= link_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
+		<td><%= link_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?', :class => 'ss_sprite ss_delete' %></td>
+		<td><%= link_to 'View Profile', { :controller => 'profiles', :action => 'show', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_zoom' %></td>
+		<td>PDF</td>
+  </tr>
+<% end %>
+</table>
+
+<% if @profiles.length < Profile::LIMIT %>
+<%= link_to 'Create profile', new_profile_path, :method => 'get', :class => 'ss_sprite ss_add' %>
+<% end %>
+</div>

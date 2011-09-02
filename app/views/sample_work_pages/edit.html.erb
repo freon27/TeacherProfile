@@ -13,7 +13,7 @@
 			<tr>
 				<td><%= sa.name %></td>
 				<td><%= link_to 'Edit', edit_sample_work_page_subject_area_path(@sample_work_page.id, sa.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
-				<td><%= link_to 'Delete', sample_work_page_subject_area_path(@sample_work_page.id, sa.id), :confirm => "Delete this position?", :method => 'delete', :class => 'ss_sprite ss_delete' %></td>
+				<td><%= link_to 'Delete', sample_work_page_subject_area_path(@sample_work_page.id, sa.id), :confirm => "Delete this subject area?", :method => 'delete', :class => 'ss_sprite ss_delete' %></td>
 			</tr>
 		<% end %>
 		</table>

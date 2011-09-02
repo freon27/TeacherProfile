@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe User do
+  before(:each) do
+    @user = Factory(:user)
+  end
   describe "creation" do
-    before(:each) do
-      @user = Factory(:user)
-    end
     it "should not be valid without a first name" do
       @user.first_name = nil
       @user.should_not be_valid
@@ -52,6 +52,26 @@ describe User do
       @user.password = 'Oneone'
       @user.password_confirmation = @user.password
       @user.should_not be_valid
+    end
+  end
+  describe "methods" do
+    it "should have a positions method" do
+      @user.should respond_to(:positions)
+    end
+    it "should have a qualifications method" do
+      @user.should respond_to(:qualifications)
+    end
+    it "should have a subject_areas method" do
+      @user.should respond_to(:subject_areas)
+    end
+    it "should have a projects method" do
+      @user.should respond_to(:projects)
+    end
+    it "should have a documents method" do
+      @user.should respond_to(:documents)
+    end
+    it "should have a subjects method" do
+      @user.should respond_to(:subjects)
     end
   end
 end
