@@ -2,9 +2,11 @@ class ExperiencePage < ActiveRecord::Base
   has_one :profile
   has_many :positions
   has_many :qualifications
+  belongs_to :user
   
   validates_inclusion_of :publish_positions, :in => [true, false]
   validates_inclusion_of :publish_qualifications, :in => [true, false]
+  validates_presence_of :user
   after_initialize :default_values
   
   private

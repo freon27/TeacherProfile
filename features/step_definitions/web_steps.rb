@@ -242,3 +242,7 @@ Then /^the "([^\"]*)" field should( not)? equal "([^\"]*)"$/ do |field, negate, 
   expectation = negate ? :should_not : :should
   field_labeled(field).value.send(expectation) == value
 end
+
+When /^I follow image link "([^"]*)"$/ do |img_alt|
+    find(:xpath, "//img[@alt = '#{img_alt}']/parent::a").click()
+end

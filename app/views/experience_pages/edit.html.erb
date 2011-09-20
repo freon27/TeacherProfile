@@ -2,18 +2,16 @@
 	<h2 class=" banner round-top">Positions / Experience</h2>
 	<div class="content last">
 		<div class="helper">
-			This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.
-			<%= semantic_form_for @experience_page, :html => { :class => 'distinct round' } do |form| %>
-				<%= form.inputs do %>
-					<%= form.input :publish_positions, :label => 'Include your work experience in your profile?' %>
-					<%= form.submit :value => 'Apply change' %>
-				<% end %>
-			<% end %>
-
+			<p>
+				This is where you can list your previous experience in the workplace.  You should list your relevant jobs and placements.
+			</p>
 		</div>
 
-
-
+		<% if @experience_page.publish_positions? %>
+		<p>Your work history is currently currently included in your profile. <%= button_to 'Exclude it', experience_page_path(@experience_page.id, :experience_page => { :publish_positions => false }), :method => :put  %>
+		<% else %>
+		<p>Your work history is currently not currently included in your profile.  <%= button_to 'Include it', experience_page_path(@experience_page.id, :experience_page => { :publish_positions => true }), :method => :put  %>
+		<% end %>
 
 			<% if @positions.length == 0 %>
 			<p><em>You don't currently have any previous experience listed.  Why not add a position now?</em></p>
@@ -39,27 +37,28 @@
 			<% end %>
 
 			<%= link_to 'Add Position', new_experience_page_position_path(@experience_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
-		</section>
-		<section class="push-1 span-15 last round-top">
+			</div>
 			<h2 class=" banner round-top">Qualifications</h2>
 			<div class="content">
 
 
-				<div class="helper">This is where you can list the qualifications you currently hold or are working towards.
-			
-				<%= semantic_form_for @experience_page do |form| %>
-					<%= form.inputs do %>
-						<%= form.input :publish_qualifications, :label => 'Include your qualifications in your profile?' %>
-						<%= form.submit :value => 'Apply change' %>
-					<% end %>
-				<% end %>
+				<div class="helper">
+					<p>
+						This is where you can list the qualifications you currently hold or are working towards.
+					</p>
 				</div>
 
+				<% if @experience_page.publish_qualifications? %>
+				<p>Your work history is currently currently included in your profile. <%= button_to 'Exclude it', experience_page_path(@experience_page.id, :experience_page => { :publish_qualifications => false }), :method => :put  %>
+				<% else %>
+				<p>Your work history is currently not currently included in your profile.  <%= button_to 'Include it', experience_page_path(@experience_page.id, :experience_page => { :publish_qualifications => true }), :method => :put  %>
+				<% end %>
+				
+				
 			<% if @qualifications.length == 0 %>
 			<p>You have not currently listed any places you've studied.  Why not add some now?</p>
 			<%= link_to 'Add a new place', new_experience_page_qualification_path(@experience_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
 			<% else %>
-			<h3>Places you've studied</h3>
 			
 			<%= link_to 'Add a new place', new_experience_page_qualification_path(@experience_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
 			

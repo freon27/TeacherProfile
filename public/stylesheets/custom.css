@@ -16,7 +16,10 @@ header {
 
 div#logo {
  	background: transparent url(/images/header_background.png) repeat-x;
-	height: 135px;
+}
+
+div.logo {
+	height: 135px;	
 }
 
 /* Footer */
@@ -49,9 +52,6 @@ table {
 	color: #2086b0;
 }
 
-table tr:hover {
-	background-color: #d7e9f1;
-}
 
 table#profiles td.name {
 	font-weight: bold;
@@ -179,6 +179,10 @@ textarea {
 
 textarea#wmd-input {
 	margin-bottom: 0;
+}
+
+div#wmd-preview {
+	color: #999;
 }
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, select:focus, textarea:focus {
@@ -373,6 +377,10 @@ div#control-bar span {
 
 /* content */
 
+div.content {
+	margin-bottom: 52px;
+}
+
 div.content form{
 	margin-bottom: 24px;
 }
@@ -485,22 +493,40 @@ div#flash {
 }
 
 p.helper, div.helper {
-/*	background: #b8cfae url(/images/quote-left.png) no-repeat;*/
-/*	border: 1px solid #a9b5a3;
-	padding: 16px 52px;*/
+/*	border: 1px dotted gray;*/
+	background: #edf290  url(/images/post-it.png) repeat-x;
+	border-top: 1px solid #EEE;
+	border-left: 1px solid #EEE;
+/*	padding: 16px 52px;*/
 /*	font-size: larger;*/
-	color: #4b5149;
-	-moz-border-radius:    10px;
-	-webkit-border-radius: 10px;
-	border-radius:         10px;
+/*	color: #4b5149;*/
+	-moz-border-radius:    10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius:         10px 10px 10px 10px;
+	-moz-box-shadow: 3px 3px 4px #999;
+	-webkit-box-shadow: 3px 3px 4px #999;
+	box-shadow: 3px 3px 4px #999;
 	margin-bottom: 24px;
+	padding: 24px 12px 0 12px;
+	color: #333;
+	width: 75%;
+/*	font-family: 'Georgia', 'Times New', serif;*/
+}
+
+div.helper p {
+	background: transparent  url(/images/quote-left.png) no-repeat;
+	padding-left: 62px;
+	padding-bottom: 36px !important;
+	margin-left: 6px;
+/*	padding-top: 12px;*/
 }
 
 p.helper form, div.helper form {
 	margin-top: 24px;
 	font-size: smaller;
-	padding: 0;
+
 }
+
 
 form.distinct {
 /*	background: white url(/images/form_background.png) repeat-x;*/
@@ -514,10 +540,133 @@ h2.profile-name {
 	color: #980056;
 }
 
+div.document-area h2 {
+	border-bottom: 1px solid #AAA;
+}
+
 div.document-area{
-	border-top: 1px solid #AAA;
 /*	background-color: #f6fafb;*/
 /*	background: transparent url(/images/document-background.png);*/
 	padding: 6px 0;
 	margin-bottom: 24px;
+	float: left;
+	clear: both;
+	width: 100%;
 }
+
+div.document-area nav {
+	float: left;
+	clear: both;
+}
+
+
+.gallery li {
+	float: left;
+	display: inline;
+	list-style: none;
+	margin: 3px 3px 0 3px;
+}
+
+
+li.file {
+	margin-bottom: 12px;
+}
+
+div.pdf {
+    background:transparent url(/images/Reader-48.gif) top left no-repeat;
+}
+
+div.word {
+    background:transparent url(/images/Word-48.gif) top left no-repeat;
+}
+
+div.text {
+    background:transparent url(/images/Reader-48.gif) top left no-repeat;
+}
+
+div.mp3 {
+    background:transparent url(/images/mp3-48.png) top left no-repeat;	
+}
+
+div.excel {
+    background:transparent url(/images/Excel-48.gif) top left no-repeat;
+	
+}
+
+div.file-box {
+	padding-left: 60px;
+	margin-bottom: 12px;	
+}
+
+ul.document-list {
+	list-style: none;
+}
+
+div.file-box a {
+	color: #2086b0;
+}
+
+
+nav.user-bar {
+  text-align: right;
+  background: #DDD url(/images/navbar.png) repeat-x;
+  white-space: nowrap;
+  height: 2em;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav.user-bar a {
+  color: white; /*#d0d0d0;*/
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-decoration: none;
+  font-size: larger;
+  margin-right: 24px;
+}
+
+#display-logo h1, #display-logo h2, #display-logo h3, #display-logo h4 {
+	margin-bottom: 6px;
+}
+
+.side-header {
+	text-align: right;
+}
+
+.experience-list {
+	list-style: none;
+}
+
+#profile-sidebar {
+	text-align: right;
+}
+
+ul.experience-list {
+	padding: 0;
+}
+
+ul.experience-list li {
+	margin: 36px 0 !important;
+}
+
+div.position-details h4 {
+	margin: 4px 0 0 0;
+}
+
+div.position-details p {
+	margin: 0;
+}
+
+p.position-type, li.subject-area {
+	color: #2086b0;
+}
+
+div#profile-sidebar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+

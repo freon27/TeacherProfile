@@ -23,5 +23,8 @@ describe PhilosophyPage do
       @pp.published = true
       @pp.published?.should be_true
     end
+    it "should have a user method" do
+      @pp.should respond_to(:user)
+    end
   end
 end

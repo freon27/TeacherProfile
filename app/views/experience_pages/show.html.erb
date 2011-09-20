@@ -2,17 +2,18 @@
 
 <section>
 	<% if @experience_page.publish_positions? %>
-		<h2 class="side-header span-7 last">Work Experience</h2>
+		<h2>In the Workplace</h2>
 		<div style="clear:both"></div>
-		<ul class="plain-list experience-list">
+		<ul class="experience-list">
 		<% for position in @experience_page.positions %>
 			<li>
 				<div class="span-7 position-details">
 					<h4><%= position.location %></h4>
-					<p><%= position.date_from and position.date_from.strftime("%B %Y") %> - <%= position.date_to and position.date_to.strftime("%B %Y") or 'Present' %></p>
-					<p><%= position.position_type %></p>
+
+					<p class="position-date"><%= position.date_from and position.date_from.strftime("%B %Y") %> - <%= position.date_to and position.date_to.strftime("%B %Y") or 'Present' %></p>
+					<p class="position-type"><em><%= position.position_type %></em></p>
 				</div>
-			  <div class="span-14 push-1 last">
+			  <div class="position-description span-14 last">
 					 <p><%= position.description %></p>
 			  </div>
 			<div style="clear: both;"></div>
@@ -22,12 +23,12 @@
 	<% end %>
 
 	<% if @experience_page.publish_qualifications? %>
-	  <h2 class="side-header span-7 last">Qualifications</h2>
+	  <h2>Qualifications</h2>
 		<div style="clear:both"></div>
-		<ul class="experience-list plain-list">
+		<ul class="experience-list">
 			<% for qualification in @experience_page.qualifications %>
 			<li>
-			<div class="span-6 push-1 position-details">
+			<div class="span-6 position-details">
 				<h4><%= qualification.location %></h4>
 				<p><%= qualification.date_from and qualification.date_from.strftime("%B %Y") %> - <%= qualification.date_to and qualification.date_to.strftime("%B %Y") or 'Present' %></p>
 			</div>
@@ -41,7 +42,7 @@
 				<% end %>
 			</table>
 								<div style="clear: both;"></div>
-				</li>
+			</li>
 			<% end %>
 		</ul>
 	<% end %>

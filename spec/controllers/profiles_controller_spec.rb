@@ -14,6 +14,21 @@ describe ProfilesController do
       sign_in_as(@user)
     end
     
+    describe "GET show" do
+      it "should assign the profile as @profile" do
+        get :show, :id => @example_profile.id
+        assigns(:profile).should == @example_profile
+      end
+      pending "should assign the introduction as @introduction" do
+        get :show, :id => @example_profile.id
+        assigns(:introduction).should == @example_profile
+      end
+      it "should assign the page title as @page_name" do
+        get :show, :id => @example_profile.id
+        assigns(:page_name).should == 'About Me'
+      end
+    end
+    
     describe "GET new" do
       it "assigns a new profile as @profile" do
         get :new

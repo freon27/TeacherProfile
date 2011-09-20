@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 
   has_many :documents
+  has_many :photos
   belongs_to :subject_area
   belongs_to :user
   

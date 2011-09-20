@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
   def edit
     @subject_area = get_subject_area(params[:subject_area_id])
     @project = get_project(@subject_area, params[:id])
+    @photos = @project.photos
+    @documents = @project.documents
     @side_bar_name = get_sidebar
     @profile = get_profile(@subject_area)    
   end
@@ -31,6 +33,8 @@ class ProjectsController < ApplicationController
     @subject_area = get_subject_area(params[:subject_area_id])
     @project = get_project(@subject_area, params[:id])
     @side_bar_name = get_sidebar
+    @photos = @project.photos
+    @documents = @project.documents
     @profile = get_profile(@subject_area)
     if @project.update_attributes(params[:project])
       redirect_to edit_subject_area_project_path(@subject_area.id, @project.id), :notice => 'Saved.'
@@ -45,7 +49,7 @@ class ProjectsController < ApplicationController
     @side_bar_name = get_sidebar
     @profile = get_profile(@subject_area)
     @project.destroy
-    redirect_to edit_sample_work_page_subject_area_path(@subject_area.sample_work_page.id, @subject_area.id)
+    redirect_to edit_sample_work_page_subject_area_path(@subject_area.sample_work_page.id, @subject_area.id), :notice => 'Deleted'
   end
   
   private

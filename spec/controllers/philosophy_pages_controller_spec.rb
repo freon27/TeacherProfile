@@ -50,7 +50,12 @@ describe PhilosophyPagesController do
         it "should assign the requested page as @philosophy_page" do
           get 'show', :id => @pp.id
           assigns(:philosophy_page).should == @pp
-        end  
+        end
+        
+        it "should assign the page name as @page_name" do
+          get 'show', :id => @pp.id
+          assigns(:page_name).should == 'My Teaching Philosophy'
+        end
       end
     
       describe "GET 'edit'" do

@@ -11,27 +11,20 @@ describe ExperiencePagesController do
       before(:each) do
         sign_in_as(Factory(:user))
       end 
-      describe "GET 'show'" do
-        it "should redirect to the sign in page" do
-          get 'show', :id => @ep.id
-          response.should redirect_to(sign_in_path)
-        end
-      end
-    
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do
-          get 'edit', :id => @ep.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'edit', :id => @ep.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
-      
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do
-          put 'update', :id => @ep.id, :experience_page => { :publish_qualifications => true }
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            put 'update', :id => @ep.id, :experience_page => { :publish_qualifications => true }
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
-      
     end
     
     describe "if user is owner" do
@@ -43,10 +36,13 @@ describe ExperiencePagesController do
           get 'show', :id => @ep.id
           response.should be_success
         end
-        
         it "should assign the requested page as @experience_page" do
           get 'show', :id => @ep.id
           assigns(:experience_page).should == @ep
+        end
+        it "should assign the page name as @page_name" do
+          get 'show', :id => @ep.id
+          assigns(:page_name).should == 'Experience'
         end
       end
     
@@ -91,12 +87,6 @@ describe ExperiencePagesController do
     end
   end
   describe "for non-signed in users" do
-      describe "GET 'show'" do
-        it "should redirect to the sign in page" do
-          get 'show', :id => @ep.id
-          response.should redirect_to(sign_in_path)
-        end
-      end
     
       describe "GET 'edit'" do
         it "should redirect to the sign in page" do

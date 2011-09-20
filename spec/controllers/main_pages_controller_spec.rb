@@ -12,23 +12,24 @@ describe MainPagesController do
         sign_in_as(Factory(:user))
       end 
       describe "GET 'show'" do
-        it "should redirect to the sign in page" do
+        it "should be successful" do        
           get 'show', :id => @mp.id
-          response.should redirect_to(sign_in_path)
+          response.should be_success
         end
       end
     
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do
-          get 'edit', :id => @mp.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do        
+          expect { 
+            get 'edit', :id => @mp.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
-    
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do
-          put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do        
+          expect { 
+            put 'update', :id => @mp.id, :main_page => { :introduction => 'New Text' }
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end

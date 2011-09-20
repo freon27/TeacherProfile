@@ -40,16 +40,24 @@ describe ProjectsController do
       end
       describe "GET 'edit'" do
         it "should assigned the subject area as @subject_area" do
-          get 'edit', :subject_area_id => @subject_area.id, :id => @subject_area
+          get 'edit', :subject_area_id => @subject_area.id, :id => @project.id
           assigns(:subject_area).should == @subject_area
         end
         it "should assigned the project as @project" do
-          get 'edit', :subject_area_id => @subject_area.id, :id => @subject_area
+          get 'edit', :subject_area_id => @subject_area.id, :id => @project.id
           assigns(:project).should == @project
         end
         it "should assign @side_bar_name with value 'profiles/page_links'" do
-          get 'edit', :subject_area_id => @subject_area.id, :id => @subject_area
+          get 'edit', :subject_area_id => @subject_area.id, :id => @project.id
           assigns(:side_bar_name).should == 'profiles/page_links'
+        end
+        it "should assign the associated photos as @photos" do
+          get 'edit', :subject_area_id => @subject_area.id, :id => @project.id
+          assigns(:photos).should == @project.photos
+        end
+        it "should assign the associated documents as @documentss" do
+          get 'edit', :subject_area_id => @subject_area.id, :id => @project.id
+          assigns(:documents).should == @project.documents
         end
       end
       describe "PUT 'update" do
@@ -62,6 +70,11 @@ describe ProjectsController do
             put 'update', :subject_area_id => @subject_area.id, :id => @project.id, :project => { :name => 'new name' }
             assigns(:project).name.should == 'new name'
           end
+          it "should assign the associated photos as @photos" do
+            put 'update', :subject_area_id => @subject_area.id, :id => @project.id, :project => { :name => 'new name' }
+            assigns(:photos).should == @project.photos
+          end
+          
         end
         describe "with invalid params" do
           it "should render the edit page" do
@@ -95,28 +108,28 @@ describe ProjectsController do
         end
       end
       describe "POST 'create'" do
-        it "should redirect to the sign in page" do
+        it "should raise a not found exception" do
           expect { 
             post 'create', :subject_area_id => @another_subject_area.id, :id => @project.id, :project => @project.attributes
           }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do        
+        it "should raise a not found exception" do        
           expect { 
             get 'edit', :subject_area_id => @another_subject_area.id, :id => @project
           }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do        
+        it "should raise a not found exception" do        
           expect { 
             put 'update', :subject_area_id => @another_subject_area.id, :id => @project.id, :project => @project.attributes
           }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       describe "DELETE 'destroy'" do
-        it "should redirect to the sign in page" do        
+        it "should raise a not found exception" do        
           expect { 
             delete 'destroy', :subject_area_id => @another_subject_area.id, :id => @project.id
           }.should raise_error(ActiveRecord::RecordNotFound)

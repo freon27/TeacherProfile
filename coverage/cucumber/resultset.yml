@@ -96,6 +96,9 @@ Cucumber Features:
     - 
     - 1
     - 
+    - 
+    - 
+    - 
     /Users/nickpeters/Programming/teacherprofile/config/initializers/backtrace_silencers.rb: 
     - 
     - 
@@ -207,6 +210,8 @@ Cucumber Features:
     - 
     - 
     - 1
+    /Users/nickpeters/Programming/teacherprofile/config/initializers/paperclip.rb: 
+    - 1
     /Users/nickpeters/Programming/teacherprofile/config/initializers/secret_token.rb: 
     - 
     - 
@@ -236,16 +241,27 @@ Cucumber Features:
     - 
     - 1
     - 1
-    - 5
+    - 248
     - 
     - 0
     - 
-    - 5
+    - 248
     - 
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/helpers/application_helper.rb: 
     - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/helpers/documents_helper.rb: 
     - 1
@@ -254,6 +270,9 @@ Cucumber Features:
     - 1
     - 
     /Users/nickpeters/Programming/teacherprofile/app/helpers/main_pages_helper.rb: 
+    - 1
+    - 
+    /Users/nickpeters/Programming/teacherprofile/app/helpers/photos_helper.rb: 
     - 1
     - 
     /Users/nickpeters/Programming/teacherprofile/app/helpers/projects_helper.rb: 
@@ -268,7 +287,7 @@ Cucumber Features:
     /Users/nickpeters/Programming/teacherprofile/app/helpers/sessions_helper.rb: 
     - 1
     - 1
-    - 1
+    - 65
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/helpers/subject_areas_helper.rb: 
@@ -282,6 +301,62 @@ Cucumber Features:
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/documents_controller.rb: 
     - 1
+    - 1
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 1
+    - 1
+    - 2
+    - 
+    - 
+    - 1
+    - 2
+    - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/experience_pages_controller.rb: 
     - 1
@@ -289,30 +364,37 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 
-    - 
-    - 1
+    - 0
     - 0
     - 0
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 1
-    - 0
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
     - 
     - 
     - 1
     - 0
     - 0
     - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 1
+    - 15
+    - 
+    - 
+    - 1
+    - 15
     - 
     - 
     - 
@@ -323,28 +405,37 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
     - 0
     - 0
-    - 
     - 0
-    - 
     - 
     - 
     - 1
     - 1
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 1
     - 0
     - 0
     - 0
+    - 
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/passwords_controller.rb: 
@@ -353,67 +444,72 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 0
+    - 5
     - 
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
+    - 5
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
+    - 5
+    - 
+    - 
+    - 5
+    - 
+    - 3
+    - 3
+    - 3
+    - 
+    - 2
     - 
     - 
     - 
     - 1
-    - 
-    - 0
+    - 10
     - 0
     - 0
     - 
     - 
     - 
     - 1
+    - 
+    - 10
     - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 3
     - 
     - 
     - 1
     - 1
-    - 0
+    - 20
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/philosophy_pages_controller.rb: 
     - 1
     - 
     - 1
-    - 
     - 1
-    - 0
-    - 0
-    - 
-    - 
     - 1
-    - 0
     - 
     - 
     - 1
     - 0
     - 0
     - 0
+    - 0
+    - 
+    - 
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
     - 
     - 0
     - 
@@ -421,14 +517,73 @@ Cucumber Features:
     - 
     - 1
     - 1
-    - 0
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    /Users/nickpeters/Programming/teacherprofile/app/controllers/photos_controller.rb: 
+    - 1
+    - 1
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
     - 0
+    - 
+    - 
+    - 
+    - 1
+    - 2
+    - 2
+    - 2
+    - 2
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
     - 0
-    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
+    - 5
+    - 
+    - 
+    - 1
+    - 6
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/positions_controller.rb: 
@@ -445,48 +600,48 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
+    - 3
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
+    - 3
+    - 3
+    - 3
+    - 2
     - 
     - 1
     - 
     - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
     - 
     - 1
-    - 0
-    - 0
     - 
     - 
     - 1
     - 1
+    - 1
+    - 
     - 0
+    - 
+    - 
     - 
     - 1
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1
+    - 9
+    - 
+    - 1
+    - 3
+    - 
+    - 
+    - 1
+    - 9
+    - 9
+    - 9
+    - 9
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/profiles_controller.rb: 
@@ -499,39 +654,37 @@ Cucumber Features:
     - 0
     - 0
     - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
     - 0
     - 
     - 0
-    - 
-    - 
-    - 
-    - 1
     - 0
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
     - 
     - 0
     - 
     - 
     - 
     - 1
+    - 19
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
     - 0
-    - 0
-    - 0
-    - 0
+    - 
     - 
     - 
     - 1
@@ -545,12 +698,19 @@ Cucumber Features:
     - 0
     - 0
     - 0
+    - 0
     - 
-    - 
-    - 1
     - 
     - 1
     - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 1
+    - 
+    - 1
+    - 22
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/projects_controller.rb: 
@@ -559,45 +719,6 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 1
-    - 1
     - 1
     - 1
     - 1
@@ -607,18 +728,61 @@ Cucumber Features:
     - 1
     - 1
     - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 9
+    - 9
+    - 9
+    - 9
+    - 9
+    - 9
+    - 
+    - 
+    - 1
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 1
+    - 
+    - 1
+    - 
     - 
     - 
     - 1
     - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
     - 
     - 
     - 1
     - 1
+    - 13
     - 
     - 
     - 1
+    - 14
+    - 
+    - 
     - 1
+    - 12
+    - 
+    - 
+    - 1
+    - 13
     - 
     - 
     - 
@@ -633,49 +797,49 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
+    - 2
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 1
-    - 0
-    - 0
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
     - 
     - 0
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
     - 
     - 
     - 1
     - 1
+    - 1
+    - 
     - 0
+    - 
+    - 
     - 
     - 1
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1
+    - 7
+    - 
+    - 1
+    - 3
+    - 
+    - 
+    - 1
+    - 7
+    - 7
+    - 7
+    - 7
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/sample_work_pages_controller.rb: 
@@ -684,10 +848,28 @@ Cucumber Features:
     - 1
     - 
     - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
     - 1
+    - 24
+    - 24
+    - 24
+    - 24
+    - 
+    - 
     - 1
-    - 1
-    - 1
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/sessions_controller.rb: 
@@ -695,12 +877,12 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 1
+    - 31
     - 
     - 
     - 1
-    - 2
-    - 2
+    - 117
+    - 117
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/subject_areas_controller.rb: 
@@ -709,58 +891,58 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 10
+    - 10
+    - 10
+    - 10
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
+    - 10
+    - 10
+    - 10
+    - 10
+    - 8
     - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
     - 2
-    - 2
-    - 2
-    - 2
-    - 2
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
+    - 12
+    - 12
+    - 12
+    - 12
+    - 12
     - 
     - 
     - 1
+    - 3
+    - 3
+    - 3
+    - 3
+    - 
+    - 0
+    - 
+    - 
+    - 
     - 1
+    - 2
+    - 2
     - 2
     - 
     - 
     - 1
-    - 2
+    - 1
+    - 22
     - 
     - 
     - 1
-    - 2
+    - 37
+    - 
+    - 
+    - 1
+    - 15
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/subjects_controller.rb: 
@@ -769,31 +951,31 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 0
+    - 1
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
     - 1
-    - 0
-    - 0
-    - 
-    - 
     - 1
+    - 1
+    - 1
+    - 
+    - 0
+    - 
     - 
     - 
     - 1
     - 0
     - 0
     - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
     - 0
     - 
     - 
@@ -801,14 +983,14 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 0
+    - 2
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
+    - 2
+    - 2
+    - 2
+    - 2
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/controllers/users_controller.rb: 
@@ -835,44 +1017,44 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 1
-    - 1
+    - 34
+    - 34
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
+    - 2
+    - 2
+    - 2
     - 1
-    - 0
     - 
-    - 0
-    - 0
-    - 0
+    - 2
+    - 1
     - 
     - 
     - 
     - 
     - 1
-    - 1
+    - 0
+    - 
+    - 0
+    - 0
     - 0
     - 
     - 
-    - 1
-    - 1
     - 
     - 
     - 1
     - 1
     - 1
+    - 
+    - 
+    - 1
+    - 40
+    - 
+    - 
+    - 1
+    - 44
+    - 44
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/ability.rb: 
@@ -912,6 +1094,13 @@ Cucumber Features:
     - 1
     - 1
     - 1
+    - 
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 1
     - 1
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/experience_page.rb: 
@@ -919,15 +1108,17 @@ Cucumber Features:
     - 1
     - 1
     - 1
-    - 
-    - 1
-    - 1
     - 1
     - 
     - 1
     - 1
     - 1
     - 1
+    - 
+    - 1
+    - 1
+    - 92
+    - 92
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/feedback.rb: 
@@ -938,19 +1129,24 @@ Cucumber Features:
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/main_page.rb: 
     - 1
-    - 2
     - 1
+    - 1
+    - 
+    - 31
     - 1
     - 1
     - 
     - 1
+    - 
     - 1
     - 1
+    - 29
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/philosophy_page.rb: 
     - 1
-    - 2
+    - 31
+    - 1
     - 1
     - 1
     - 1
@@ -958,10 +1154,21 @@ Cucumber Features:
     - 
     - 1
     - 1
-    - 1
+    - 31
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/photo.rb: 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 1
     - 1
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/position.rb: 
@@ -975,7 +1182,7 @@ Cucumber Features:
     - 
     - 1
     - 1
-    - 0
+    - 4
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/profile.rb: 
@@ -1011,24 +1218,25 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 1
-    - 1
+    - 29
+    - 29
     - 0
     - 
     - 
     - 
     - 1
     - 1
-    - 1
-    - 1
-    - 1
-    - 1
+    - 28
+    - 28
+    - 28
+    - 28
     - 
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/project.rb: 
     - 1
     - 
+    - 1
     - 1
     - 1
     - 1
@@ -1050,11 +1258,12 @@ Cucumber Features:
     - 1
     - 1
     - 
+    - 1
     - 
     - 1
     - 1
-    - 0
-    - 0
+    - 3
+    - 3
     - 0
     - 
     - 
@@ -1064,6 +1273,14 @@ Cucumber Features:
     - 1
     - 1
     - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 1
+    - 121
+    - 
     - 
     /Users/nickpeters/Programming/teacherprofile/app/models/subject.rb: 
     - 1
@@ -1098,33 +1315,36 @@ Cucumber Features:
     - 1
     - 1
     - 1
-    - 
-    - 1
-    - 
-    - 1
-    - 1
-    - 
     - 1
     - 1
     - 1
     - 
+    - 1
     - 
     - 1
     - 1
+    - 
+    - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 52
     - 
     - 
     - 
     /Users/nickpeters/Programming/teacherprofile/spec/factories/clearance.rb: 
     - 1
-    - 1
+    - 4
     - 
     - 
     - 1
-    - 2
-    - 2
-    - 2
-    - 2
-    - 2
+    - 36
+    - 36
+    - 5
+    - 6
+    - 25
     - 
     - 
     - 1
@@ -1143,9 +1363,10 @@ Cucumber Features:
     - 1
     - 1
     - 1
-    - 2
+    - 28
     - 
     - 
+    - 1
     - 1
     - 1
     - 1
@@ -1166,37 +1387,11 @@ Cucumber Features:
     - 1
     - 1
     - 1
-    - 0
-    - 
-    - 
-    - 
-    - 1
     - 1
     - 0
     - 
     - 
     - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 
-    - 
-    - 
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
     - 1
     - 1
     - 0
@@ -1207,9 +1402,20 @@ Cucumber Features:
     - 1
     - 1
     - 1
+    - 4
     - 
     - 
     - 
+    - 1
+    - 1
+    - 1
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - 1
+    - 1
     - 1
     - 1
     - 1
@@ -1217,6 +1423,13 @@ Cucumber Features:
     - 1
     - 1
     - 0
+    - 
+    - 
+    - 
+    - 1
+    - 1
+    - 1
+    - 1
     - 
     - 
     - 
@@ -1232,6 +1445,16 @@ Cucumber Features:
     - 
     - 1
     - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 1
     - 0
     - 0
     - 0
@@ -1244,12 +1467,22 @@ Cucumber Features:
     - 1
     - 1
     - 1
-    - 1
+    - 4
     - 
     - 
     - 
     - 
     - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0
+    - 
+    - 
+    - 
     - 1
     - 1
     - 1
@@ -1275,6 +1508,11 @@ Cucumber Features:
     - 
     - 1
     - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 1
     - 
     - 
     - 1
@@ -1360,6 +1598,9 @@ Cucumber Features:
     - 
     - 1
     - 1
+    - 1
+    - 
+    - 
     - 1
     - 
     - 
@@ -1397,27 +1638,10 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 2
+    - 94
     - 
     - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
-    - 1
-    - 
-    - 
-    - 
+    - 18
     - 
     - 
     - 
@@ -1425,10 +1649,27 @@ Cucumber Features:
     - 0
     - 
     - 
-    - 1
-    - 1
-    - 1
-    - 1
+    - 0
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 14
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 5
+    - 
+    - 
+    - 57
+    - 57
+    - 57
+    - 57
     - 0
     - 
     - 0
@@ -1473,74 +1714,49 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
+    - 1
     - 
     - 
     - 
     - 
     - 1
-    - 0
+    - 2
     - 
     - 
     - 1
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 
+    - 11
     - 
     - 
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 
-    - 
     - 1
-    - 0
-    - 0
+    - 1
+    - 1
     - 
     - 
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
+    - 8
+    - 8
     - 
     - 
-    - 0
+    - 1
+    - 6
+    - 6
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - 
     - 
     - 
     - 1
     - 0
-    - 
     - 0
     - 
     - 
@@ -1552,10 +1768,35 @@ Cucumber Features:
     - 
     - 
     - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 
+    - 
+    - 1
+    - 3
+    - 
+    - 3
+    - 
+    - 
+    - 1
     - 0
     - 0
-    - 0
-    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 29
+    - 29
+    - 29
+    - 29
     - 
     - 
     - 1
@@ -1571,24 +1812,24 @@ Cucumber Features:
     - 
     - 
     - 
-    - 0
+    - 2
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
+    - 2
+    - 2
+    - 2
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 0
+    - 3
+    - 3
+    - 3
     - 
     - 
     - 1
-    - 0
-    - 0
+    - 2
+    - 2
     - 
     /Users/nickpeters/Programming/teacherprofile/features/step_definitions/email_steps.rb: 
     - 
@@ -1599,7 +1840,7 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 1
+    - 39
     - 
     - 
     - 
@@ -1659,7 +1900,7 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 3
+    - 48
     - 
     - 
     - 
@@ -1669,7 +1910,7 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 0
+    - 2
     - 
     - 
     - 
@@ -1772,11 +2013,11 @@ Cucumber Features:
     - 
     - 
     - 1
-    - 1
-    - 1
-    - 1
-    - 1
-    - 1
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
     - 
     - 
     - 1
@@ -1803,235 +2044,239 @@ Cucumber Features:
     - 
     - 1
     - 1
+    - 443
+    - 
+    - 
+    - 1
+    - 
+    - 1
+    - 28
+    - 
+    - 
+    - 1
+    - 66
+    - 
+    - 
+    - 1
+    - 0
+    - 
+    - 
+    - 1
+    - 1
+    - 
+    - 
+    - 1
+    - 77
+    - 77
+    - 
+    - 
+    - 
+    - 1
+    - 72
+    - 72
+    - 
+    - 
+    - 
+    - 1
+    - 139
+    - 139
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 2
+    - 2
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 1
+    - 121
+    - 121
+    - 121
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 7
+    - 7
     - 7
     - 
+    - 0
     - 
-    - 1
     - 
-    - 1
-    - 1
     - 
     - 
     - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
     - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 0
+    - 0
+    - 
+    - 0
+    - 
     - 
     - 
     - 1
     - 0
     - 
     - 
+    - 
+    - 
+    - 
+    - 
     - 1
+    - 0
+    - 0
+    - 0
     - 0
     - 
     - 
-    - 1
-    - 1
-    - 1
     - 
+    - 1
+    - 4
+    - 4
     - 
     - 
     - 1
     - 2
-    - 2
     - 
-    - 
-    - 
-    - 1
-    - 2
-    - 2
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 1
-    - 2
-    - 2
-    - 2
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 
-    - 1
-    - 0
-    - 0
-    - 
-  :created_at: 2011-09-02 22:38:25.145175 +01:00
+  :created_at: 2011-09-20 14:53:14.422647 +01:00

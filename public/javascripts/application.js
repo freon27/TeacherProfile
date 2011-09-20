@@ -9,4 +9,5 @@ $(document).ready(function() {
             $(this).remove(); //then remove from the DOM
         });
     });
+	$('.gallery a').lightBox(); 	
 });

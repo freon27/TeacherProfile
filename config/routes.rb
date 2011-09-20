@@ -11,6 +11,11 @@ Teacherprofile::Application.routes.draw do
     resources :projects
   end
   
+  resources :projects do
+    resources :photos
+    resources :documents
+  end
+  
   resources :sample_work_pages, :only => [:show, :edit, :update] do
     resources :subject_areas
   end
@@ -100,4 +105,7 @@ Teacherprofile::Application.routes.draw do
   match '/sign_up'  => 'users#new', :as => 'sign_up'
   match 'sign_out' => 'sessions#destroy', :via => :delete, :as => 'sign_out'
   # See how all your routes lay out with "rake routes
+  
+  match '/profiles/public/*profile_url' => 'profiles#show'
+  
 end

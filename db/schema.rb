@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828112603) do
+ActiveRecord::Schema.define(:version => 20110915172010) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "experience_pages", :force => true do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "publish_qualifications"
+    t.integer  "user_id"
   end
 
   create_table "feedbacks", :force => true do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published"
+    t.integer  "user_id"
   end
 
   create_table "philosophy_pages", :force => true do |t|
@@ -52,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.text     "philosophy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "photos", :force => true do |t|
@@ -59,10 +63,11 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
-    t.date     "photo_updated_at"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "positions", :force => true do |t|
@@ -114,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110828112603) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "subject_areas", :force => true do |t|

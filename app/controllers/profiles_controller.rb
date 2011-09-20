@@ -1,11 +1,16 @@
 class ProfilesController < ApplicationController
 
   before_filter :authenticate, :except => [:show] 
-  before_filter :common_setup
+  before_filter :common_setup, :except => [:show]
 
   def show
-    @profile = Profile.find(params[:id])
+    if params[:profile_url]
+      @profile = Profile.find_by_url_suffix(params[:profile_url])
+    else 
+      @profile = Profile.find(params[:id])
+    end
     @introduction = BlueCloth::new(@profile.main_page.introduction).to_html if @profile.main_page.introduction
+    @page_name = 'About Me'
   end 
   
   def new

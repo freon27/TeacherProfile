@@ -10,8 +10,9 @@ end
 Factory.define :main_page do |mp|
   mp.introduction   'Welcome to my profile page.'
   mp.published      true
+  mp.association    :user
   mp.after_create do |s|
-      profile = Factory(:profile, :main_page_id => s.id)
+      profile = Factory(:profile, :main_page_id => s.id, :user => s.user)
   end
 end
 
@@ -26,8 +27,9 @@ end
 Factory.define :experience_page do |ep|
   ep.publish_positions      true
   ep.publish_qualifications false
+  ep.association           :user
   ep.after_create do |s|
-      Factory(:profile, :experience_page_id => s.id)
+      Factory(:profile, :experience_page_id => s.id, :user => s.user)
   end
 end
 
@@ -39,8 +41,9 @@ end
 
 Factory.define :sample_work_page do |swp|
   swp.published     true
+  swp.association   :user
   swp.after_create do |s|
-      profile = Factory(:profile, :sample_work_page_id => s.id)
+      profile = Factory(:profile, :sample_work_page_id => s.id, :user => s.user)
   end
 end
 
@@ -114,9 +117,19 @@ Factory.define :document do |doc|
   include ActionDispatch::TestProcess
   doc.caption         'This is what my file is'
   doc.description     'Here iss where I can give you little more information about my file'
-  doc.document        fixture_file_upload(Rails.root + 'spec/files/test.doc', 'application/ms-word')
+  doc.document        fixture_file_upload(Rails.root + 'spec/files/test.doc', 'application/msword')
   doc.association     :project
   doc.after_build do |d|
     d.user = d.project.user
+  end
+end
+
+Factory.define :photo do |photo|
+  include ActionDispatch::TestProcess
+  photo.caption         'This is what my file is'
+  photo.photo           fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
+  photo.association     :project
+  photo.after_build do |p|
+    p.user = p.project.user
   end
 end

@@ -73,5 +73,17 @@ describe User do
     it "should have a subjects method" do
       @user.should respond_to(:subjects)
     end
+    it "should have an main_pages method" do
+      @user.should respond_to(:main_pages)
+    end
+    it "should have an experience_pages method" do
+      @user.should respond_to(:experience_pages)
+    end
+    it "should have an philosophy_pages method" do
+      @user.should respond_to(:philosophy_pages)
+    end
+    it "should have an sample_work_pages method" do
+      @user.should respond_to(:sample_work_pages)
+    end
   end
 end

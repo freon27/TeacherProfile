@@ -1,4 +1,3 @@
-@wip
 Feature: Subject Area 
 
   As a profile owner
@@ -11,7 +10,7 @@ Feature: Subject Area
    And I go to the sign in page
    And I sign in as "email@person.com/Password1"
 	 And I am on the profile edit page
-  
+	  
 	Scenario: Creating a subject area with valid data
     When I follow "Sample Work"
 		Then I should see "Sample Work"

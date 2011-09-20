@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :profiles
-  has_many :sample_work_pages, :through => :profiles
+  has_many :main_pages
+  has_many :experience_pages
+  has_many :philosophy_pages
+  has_many :sample_work_pages
   has_many :subject_areas
   has_many :positions
   has_many :qualifications

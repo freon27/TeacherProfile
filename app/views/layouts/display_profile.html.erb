@@ -7,55 +7,71 @@
 		<%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 		<%= stylesheet_link_tag 'blueprint/plugins/sprites/sprite.css',  :media => 'screen' %>
 		<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-		<%= stylesheet_link_tag 'display', :media => 'screen' %>
+		<%= stylesheet_link_tag 'custom', :media => 'screen' %>
 		<%= stylesheet_link_tag 'jquery-ui-1.8.11.custom', :media => 'screen' %>
+		<%= stylesheet_link_tag 'jquery.lightbox-0.5', :media => 'screen' %>
+		<%= javascript_include_tag 'jquery.lightbox-0.5' %>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
 	</head>
 	<body>
-		<% if signed_in? %>
+		<% if 0 == 1 && signed_in? %>
 		<nav class="user-bar">
 			<ul class="plain-list">
-				<li><%= link_to('Hide this bar') %></li>
 				<li><strong><%= link_to('Edit this profile', :action => 'edit') %></strong></li>
 			</ul>
 		</nav>
 		<% end %>
-		<div class="container shadow  ">
-			<header>
-				<div class="span-24 head-info last">
-					<div class="prepend-1 span-23 head-overlay last">
-						<h1><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></h1>
-						<% if @profile.main_subject %>
-						<h3><%= @profile.main_subject %> Teacher</h3>
-						<% end %>
-						<h4><%=  @profile.user.email %></h4>
-						<nav>
-							<ul class="push-8 last plain-list">
-								<% if @profile.experience_page.publish_positions? ||  @profile.experience_page.publish_qualifications?  %>
-								<li>
-									<%= link_to_unless_current('Experience', @profile.experience_page) {|link| content_tag 'span', link, :class => 'selected'} %>
-								</li>
-								<% end %>
-								<% if @profile.philosophy_page.published? %>
-								<li>
-									<%= link_to_unless_current('Teaching Philosophy', @profile.philosophy_page) {|link| content_tag 'span', link, :class => 'selected'} %>
-								</li>
-								<% end%>
-								<li>
-									<%= link_to_unless_current('Introduction', @profile) {|link| content_tag 'span', link, :class => 'selected'} %>
-								</li>
-							</ul>
-							<div style="clear:both"></div>
-						</nav>
+		<div class="container">
+			
+			<header class="main span-32 last">
+				<div class="logo" id="display-logo">
+					<h1><strong><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></strong></h1>
+					<% if @profile.main_subject %>
+					<h3 id="teaching-subject"><%= @profile.main_subject %> Teacher</h3>
+					<% end %>
+					<h4><%=  @profile.user.email %></h4>
 				</div>
-			</header>
-
-			<div style="clear:both"></div>
-		<%= yield %>
+				<nav id="navbar">
+					<ul>
+						<li>
+							<%= link_to_unless_current('Introduction', @profile) {|link| content_tag 'span', link, :class => 'selected'} %>
+						</li>					
+						<% if @profile.philosophy_page.published? %>
+						<li>
+							<%= link_to_unless_current('Teaching Philosophy', @profile.philosophy_page) {|link| content_tag 'span', link, :class => 'selected'} %>
+						</li>
+						<% end%>
+						<% if @profile.experience_page.publish_positions? ||  @profile.experience_page.publish_qualifications?  %>
+						<li>
+							<%= link_to_unless_current('Experience', @profile.experience_page) {|link| content_tag 'span', link, :class => 'selected'} %>
+						</li>
+						<% end %>
+						<% if @profile.sample_work_page.published?  %>
+						<li>
+							<%= link_to_unless_current('Sample Work', @profile.sample_work_page) {|link| content_tag 'span', link, :class => 'selected'} %>
+						</li>
+						<% end %>
+					</ul>
+				</nav>
+			</header>		
+		<div id="main-body" class="span-24 last">
+			
+			<div class="span-5" id="profile-sidebar">
+				<% if @page_name %><h2><%= @page_name %></h2><% end %>
+				<%= render :partial => @side_bar_name  if @side_bar_name %>
+			</div>
+			<div id="central-body" class="span-18 last">
+				<section class="push-1 span-16 last">
+					<%= yield %>
+				</section>
+			</div>
+			<div id="footer" class="span-24 last">
+				<p>Got a problem?  Email us on freon27@gmail.com for help.</p>
+			</div>
 		</div>
-		<div style="clear:both"></div>
+		</div>
   </body>
 </html>

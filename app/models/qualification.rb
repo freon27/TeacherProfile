@@ -10,6 +10,7 @@ class Qualification < ActiveRecord::Base
   validates_presence_of :user
   validate :date_validation
   
+  default_scope order('date_to DESC')
   
   private
     def date_validation

@@ -5,13 +5,40 @@
 		  <%= render :partial => 'form', :object => form %>
 		  <%= form.submit 'Update' %>
 		<% end %>
+		<div class="document-area">
 		<h2>Gallery</h2>
-		<div class="document-area">
+			<% if @photos.empty? %>
 			<p>No images uploaded.</p>
+			<% else %>
+				<ul id="photo-list" class="gallery">
+				<% for photo in @photos %>
+			 		<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), edit_project_photo_path(@project.id, photo.id))  %></li>
+				<% end %>
+				</ul>
+			<% end %>
+			<nav>
+				 <%= link_to 'Upload Image', new_project_photo_path(@project.id), :method => 'get', :class => 'ss_sprite ss_add' %>
+			</nav>
 		</div>
-		<h2>Supporting Documents</h2>
 		<div class="document-area">
-			<p>No supporting documents uploaded.</p>
+			<h2>Supporting Documents</h2>
+			<% if @documents.empty? %>
+			<p>No documents uploaded.</p>
+			<% else %>
+			<ul class="document-list">
+			<% for document in @documents %>
+		 		<li>
+					<div class="file-box <%= content_type_to_string(document.document.content_type) %>">
+					<%=  link_to(document.caption, edit_project_document_path(@project.id, document.id))  %>
+					<p><em><%= document.description %></em></p>
+					</div>
+				</li>
+			<% end %>
+			</ul>
+			<% end %>
+			<nav>
+				 <%= link_to 'Upload Document', new_project_document_path(@project.id), :method => 'get', :class => 'ss_sprite ss_add' %>
+			</nav>
 		</div>
 	</div>
 </section>

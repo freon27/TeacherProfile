@@ -38,10 +38,10 @@ class Profile < ActiveRecord::Base
     
   private
     def create_pages
-      self.main_page or self.create_main_page
-      self.experience_page or self.create_experience_page
-      self.philosophy_page or self.create_philosophy_page
-      self.sample_work_page or self.create_sample_work_page
+      self.main_page or self.create_main_page(:user_id => self.user_id)
+      self.experience_page or self.create_experience_page(:user_id => self.user_id)
+      self.philosophy_page or self.create_philosophy_page(:user_id => self.user_id)
+      self.sample_work_page or self.create_sample_work_page(:user_id => self.user_id)
     end
     
 end

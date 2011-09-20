@@ -22,7 +22,7 @@
 <body>
   <div class="container">
 		<header class="main span-32 last">
-			<div id="logo">
+			<div  class="logo" id="logo">
 				<%= image_tag("logo.png", :alt => "Teacher Profile", :id => 'logo-image', :class => "round") %>
 			</div>
 			<nav id="navbar">
@@ -45,13 +45,13 @@
 			    <% flash.each do |key, value| -%>
 			      <div id="flash_<%= key %>"><%=h value %></div>
 			    <% end %>
-			  </div> 
-				<section class="push-1 span-16 last">
+			  </div> 	
+				<section class="push-2 span-16 last">
 					<%= yield %>
 				</section>
 			</div>
 			<div id="footer" class="span-24 last">
-				<p>Got a problem?  Email us on blah for help.</p>
+				<p>Got a problem?  Email us on freon27@gmail.com for help.</p>
 			</div>
 		</div>
 	</div>

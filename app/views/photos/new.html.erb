@@ -1,0 +1,9 @@
+<section class="push-1 span-15 last round-top">
+	<h2 class=" banner round-top">Upload Image</h2>
+	<div class="content round-bottom">
+		<%= semantic_form_for([@project, @photo], :html => { :multipart => true }) do |form| %>
+		  <%= render :partial => 'form', :object => form %>
+		  <%= form.submit 'Upload', :class => 'button positive' %>
+		<% end %>
+	</div>
+</section>

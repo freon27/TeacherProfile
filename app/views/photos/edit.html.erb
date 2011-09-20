@@ -1,0 +1,15 @@
+<section class="push-1 span-15 last round-top">
+	<h2 class=" banner round-top">Edit Image Details</h2>
+	<div class="content round-bottom">
+		<%= semantic_form_for([@project, @photo]) do |form| %>
+			<%= image_tag(@photo.photo.url(:medium)) %>
+		  <%= form.inputs do %>
+			  <%= form.input :caption %>
+			<% end %>
+			
+		  <%= form.submit 'Update', :class => 'button positive' %>
+		<% end %>
+			<%= button_to 'Delete', project_photo_path(@project.id, @photo.id), :method => :delete, :confirm => 'Do you really want to delete this photo?' %>
+			<%= link_to 'Back', :back %>
+	</div>
+</section>

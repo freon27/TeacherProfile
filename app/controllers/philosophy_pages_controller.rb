@@ -1,10 +1,15 @@
 class PhilosophyPagesController < ApplicationController
 
-  before_filter :authenticate, :common_setup, :correct_user
+  before_filter :authenticate, :except => [:show]
+  before_filter :correct_user
+  before_filter :common_setup, :except => [:show]
+
 
   def show
     @philosophy_page = PhilosophyPage.find(params[:id])
     @philosophy = BlueCloth::new(@philosophy_page.philosophy).to_html
+    @page_name = 'My Teaching Philosophy'
+    @profile = @philosophy_page.profile
   end
   
   def edit

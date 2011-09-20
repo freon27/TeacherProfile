@@ -1,12 +1,14 @@
 
-<section class="push-1 span-15 last round-top">
 	<h2 class=" banner round-top">Edit Philosophy Page</h2>
 	<div class="content">
-		<p class="helper">This is where you should explain your teaching philosophy.</p>
+		<div class="helper">
+			<p>
+				This is where you should explain your teaching philosophy.  Try to tell potential employers what type of teacher you are, the values you hold and the things you think are important.
+			</p>
+		</div>
 		<%= semantic_form_for @philosophy_page do |form| %>
 		  <%= render :partial => 'form', :object => form %>
 		  <%= form.submit 'Save' %>
 		<% end %>
 		
 	</div>
-</section>

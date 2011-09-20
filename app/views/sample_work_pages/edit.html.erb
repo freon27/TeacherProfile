@@ -1,7 +1,11 @@
-<section class="push-1 span-15 last round-top">
+
 	<h2 class=" banner round-top">Edit Sample Work Page</h2>
 	<div class="content round-bottom">
-		<p class="helper">This is where you can provide examples of the work you've produced.</p>
+		<div class="helper">
+			<p>
+				This is where you can provide examples of the work you've produced or show off sample lessons.
+			</p>
+		</div>
 		<% if @subject_areas.length > 0 %>
 		<table class="subject-area">
 			<tr>
@@ -21,5 +25,9 @@
 		<p><em>You currently don't have any subject areas listed.  Why not create one now?</em></p>
 		<% end %>
 		<%= link_to 'Add a subject area', new_sample_work_page_subject_area_path(@sample_work_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
+		<% if @sample_work_page.published? %>
+		<p>This page is currently currently included in your profile. <%= button_to 'Exclude it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => false }), :method => :put  %>
+		<% else %>
+		<p>This page is currently not currently included in your profile. <%= button_to 'Include it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => true }), :method => :put  %>
+		<% end %>
 	</div>
-</section>
