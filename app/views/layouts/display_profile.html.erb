@@ -18,7 +18,6 @@
 	</head>
 	<body>
 		<% if signed_in? %>
-
 			<% if @subscribed == false %>
 				<div class="user-info helper">
 					<p class="warning">You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
@@ -53,9 +52,11 @@
 						<li>
 							<%= link_to_unless_current('Sample Work', @profile.sample_work_page) {|link| content_tag 'span', link, :class => 'selected'} %>
 						</li>
+						<% if signed_in? %>
 						<li>
 							<strong><%= link_to 'Edit this profile', {:action => 'edit'}, :class => 'btn' %></strong>
 						</li>
+						<% end %>
 						<% end %>
 					</ul>
 				</nav>

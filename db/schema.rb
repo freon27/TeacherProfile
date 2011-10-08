@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111006163914) do
+ActiveRecord::Schema.define(:version => 20111008105949) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20111006163914) do
     t.string   "salt",                  :limit => 128
     t.string   "confirmation_token",    :limit => 128
     t.string   "remember_token",        :limit => 128
-    t.datetime "subscribed_until",                     :default => '2011-10-06 17:24:30', :null => false
+    t.datetime "subscribed_until",                     :default => '2011-10-08 11:04:39', :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
