@@ -1,12 +1,17 @@
 class SubjectsController < ApplicationController
   
-  before_filter :authenticate, :common_setup, :correct_user?
+  before_filter :authenticate
   
   def new
+    @qualification = get_qualification(params[:qualification_id])
+    @experience_page = @qualification.experience_page
+    @profile = @experience_page.profile
     @subject = Subject.new
+    @side_bar_name = get_sidebar_name
   end
   
   def create
+    @qualification = get_qualification(params[:qualification_id])
     @subject = @qualification.subjects.build(params[:subject])
     @subject.user = current_user
     if @subject.save
@@ -17,14 +22,23 @@ class SubjectsController < ApplicationController
   end
   
   def destroy
+    @qualification = get_qualification(params[:qualification_id])
+    @subject = get_subject(params[:id])
     @subject.destroy
-    redirect_to(edit_experience_page_path(@subject.qualification.experience_page))
+    redirect_to(edit_experience_page_path(@qualification.experience_page))
   end
   
   def edit
+    @qualification = get_qualification(params[:qualification_id])
+    @experience_page = @qualification.experience_page
+    @profile = @experience_page.profile
+    @subject = get_subject(params[:id])
+    @side_bar_name = get_sidebar_name
   end
   
   def update
+    @qualification = get_qualification(params[:qualification_id])
+    @subject = get_subject(params[:id])
     if @subject.update_attributes(params[:subject])
       redirect_to( edit_experience_page_path(@subject.qualification.experience_page), :notice => 'Saved.')
     else
@@ -34,14 +48,20 @@ class SubjectsController < ApplicationController
   
   private
    
-    def correct_user?
-      redirect_to(sign_in_path) unless current_user?(Qualification.find(params[:qualification_id]).experience_page.profile.user)
+    def get_subject(id)
+      current_user.subjects.find(id)
+    end
+    
+    def get_qualification(id)
+      current_user.qualifications.find(id)
+    end
+    
+    def get_sidebar_name
+      'profiles/page_links'
     end
     
     def common_setup 
-      @subject = Subject.find(params[:id]) if params[:id]
-      @qualification = Qualification.find(params[:qualification_id]) if params[:qualification_id]
-      @side_bar_name = 'profiles/page_links'
-      @profile = @qualification.experience_page.profile    
+      @side_bar_name = 
+      @profile = @qualification.experience_page.profile
     end
 end

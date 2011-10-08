@@ -19,8 +19,9 @@ end
 Factory.define :philosophy_page do |phil|
   phil.philosophy   'This is my philosophy'
   phil.published    true
+  phil.association    :user
   phil.after_create do |s|
-      profile = Factory(:profile, :philosophy_page_id => s.id)
+      profile = Factory(:profile, :philosophy_page_id => s.id, :user => s.user)
   end
 end
 

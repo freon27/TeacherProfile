@@ -3,5 +3,8 @@
     <%= form.input :name, :label => 'Subject' %>
     <%= form.input :level %>
     <%= form.input :grade %>
-    <%= form.submit %>
+	  <nav class="action-bar">
+			<%= form.submit %>
+			<%= link_to 'Cancel', edit_experience_page_url(@experience_page) %>
+		</nav>
 <% end %>

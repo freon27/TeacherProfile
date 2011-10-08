@@ -6,9 +6,16 @@
 				This is where you can provide examples of the work you've produced or show off sample lessons.
 			</p>
 		</div>
+		<div class="publication-form">
+		<% if @sample_work_page.published? %>
+			<p>This page is currently currently included in your profile. <%= button_to 'Exclude it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => false }), :method => :put, :class => 'btn'  %>
+			<% else %>
+			<p>This page is currently not currently included in your profile. <%= button_to 'Include it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => true }), :method => :put, :class => 'btn'   %>
+			<% end %>
+		</div>
 		<% if @subject_areas.length > 0 %>
 		<table class="subject-area">
-			<tr>
+			<tr class="header-row">
 				<th>Subject area</th>
 				<th></th>
 				<th></th>
@@ -21,13 +28,12 @@
 			</tr>
 		<% end %>
 		</table>
+		<nav class="table-base">
+		<%= link_to 'Add a subject area', new_sample_work_page_subject_area_path(@sample_work_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>			
+		</nav>
 		<% else %>
 		<p><em>You currently don't have any subject areas listed.  Why not create one now?</em></p>
-		<% end %>
 		<%= link_to 'Add a subject area', new_sample_work_page_subject_area_path(@sample_work_page.id), :method => 'get', :class => 'ss_sprite ss_add' %>
-		<% if @sample_work_page.published? %>
-		<p>This page is currently currently included in your profile. <%= button_to 'Exclude it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => false }), :method => :put  %>
-		<% else %>
-		<p>This page is currently not currently included in your profile. <%= button_to 'Include it', sample_work_page_path(@sample_work_page.id, :sample_work_page => { :published => true }), :method => :put  %>
 		<% end %>
+
 	</div>

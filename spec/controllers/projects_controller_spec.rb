@@ -4,12 +4,31 @@ describe ProjectsController do
   before(:each) do
     @project = Factory(:project)
     @subject_area = @project.subject_area
+    @sample_work_page = @subject_area.sample_work_page
   end
   describe "for signed in users" do
     before(:each) do
       sign_in_as(@subject_area.sample_work_page.profile.user)
     end
     describe "if they own the profile" do
+      describe "GET 'show'" do
+        it "should be successful" do
+          get 'show', :subject_area_id => @subject_area.id, :id => @project.id
+          response.should be_success
+        end
+        it "should assign the requested page as @sample_work_page" do
+          get 'show', :subject_area_id => @subject_area.id, :id => @project.id
+          assigns(:sample_work_page).should == @sample_work_page
+        end
+        it "should assign the associated subject areas as @subject_areas" do
+          get 'show', :subject_area_id => @subject_area.id, :id => @project.id
+          assigns(:subject_areas).should == @sample_work_page.subject_areas
+        end
+        it "should assign the 'sample_work_pages/subject_area_list' as @side_bar_name'" do
+          get 'show', :subject_area_id => @subject_area.id, :id => @project.id
+          assigns(:side_bar_name).should == 'sample_work_pages/subject_area_list'
+        end
+      end
       describe "GET new" do
         it "should assign the subject area as @subject_area" do
           get :new, :subject_area_id => @subject_area.id

@@ -8,6 +8,6 @@
 
 		<%= semantic_form_for @profile do |form| %>
 		  <%= render :partial => '/profiles/form', :object => form %>
-		  <%= form.submit 'Save', :class => 'button positive' %>
+		  <nav class="action-bar"><%= form.submit 'Save', :class => 'button positive' %></nav>
 		<% end %>
   </div>

@@ -4,8 +4,9 @@ class SampleWorkPagesController < ApplicationController
   
   def show
     @sample_work_page = SampleWorkPage.find(params[:id])
-    @subject_areas = @sample_work_page.subject_areas(:include => :projects)
-    @display_project = @subject_areas.first.projects.first
+    @subject_areas = @sample_work_page.subject_areas# TODO add this? .includes(:projects)
+    @display_subject_area = @subject_areas.first
+    @display_project = @display_subject_area.projects.first
     @profile = @sample_work_page.profile
     @side_bar_name = 'subject_area_list'
     @page_name = 'Sample Work'

@@ -7,7 +7,7 @@
 		</div>
 		<%= semantic_form_for @main_page do |form| %>
 		  <%= render :partial => 'form', :object => form %>
-		  <%= form.submit 'Save' %>
+		  <nav class="action-bar"><%= form.submit 'Save' %></nav>
 		<% end %>
 	</div>
 

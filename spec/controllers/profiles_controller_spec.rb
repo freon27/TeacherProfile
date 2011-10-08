@@ -15,6 +15,7 @@ describe ProfilesController do
     end
     
     describe "GET show" do
+      
       it "should assign the profile as @profile" do
         get :show, :id => @example_profile.id
         assigns(:profile).should == @example_profile
@@ -183,9 +184,18 @@ describe ProfilesController do
   describe "for non-signed in users" do
 
     describe "GET 'show'" do
-      it "should allow access" do
-        get 'show', :id => @example_profile
-        response.should be_success
+      describe "if the profile subscription is up to date" do
+        it "should allow access" do
+          get 'show', :id => @example_profile
+          response.should be_success
+        end
+      end
+      describe "if the profile subscription is not up to date" do
+        it "should display an error page" do
+          Timecop.travel(4.weeks.from_now)
+          get 'show', :id => @example_profile
+          response.should render_template(:blocked)
+        end
       end
     end
     

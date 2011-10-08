@@ -1,9 +1,6 @@
 class PhilosophyPagesController < ApplicationController
 
   before_filter :authenticate, :except => [:show]
-  before_filter :correct_user
-  before_filter :common_setup, :except => [:show]
-
 
   def show
     @philosophy_page = PhilosophyPage.find(params[:id])
@@ -13,11 +10,15 @@ class PhilosophyPagesController < ApplicationController
   end
   
   def edit
-    @philosophy_page = PhilosophyPage.find(params[:id])
+    @philosophy_page = get_philosophy_page(params[:id])
+    @profile = @philosophy_page.profile
+    @side_bar_name = get_sidebar_name
   end
   
   def update
-    @philosophy_page = PhilosophyPage.find(params[:id])
+    @philosophy_page = get_philosophy_page(params[:id])
+    @profile = @philosophy_page.profile
+    @side_bar_name = get_sidebar_name
       if @philosophy_page.update_attributes(params[:philosophy_page])
         redirect_to( edit_philosophy_page_path(@philosophy_page), :notice => 'Saved.')
       else
@@ -26,14 +27,12 @@ class PhilosophyPagesController < ApplicationController
   end
   
   private    
-    def correct_user
-      @page = PhilosophyPage.find(params[:id])
-      redirect_to(sign_in_path) unless current_user?(@page.profile.user)
-    end
     
-    def common_setup 
-      @philosophy_page = PhilosophyPage.find(params[:id]) if params[:id]
-      @side_bar_name = 'profiles/page_links'
-      @profile = @philosophy_page.profile    
+    def get_philosophy_page(id)
+      current_user.philosophy_pages.find(id)
+    end 
+    
+    def get_sidebar_name
+      'profiles/page_links'   
     end
 end

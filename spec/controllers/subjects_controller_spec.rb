@@ -17,47 +17,45 @@ describe SubjectsController do
       end
       
       describe "GET 'new'" do
-        it "should redirect to the sign in page" do
-          get 'new', :qualification_id => @another_qualification.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'new', :qualification_id => @another_qualification.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
       describe "POST 'create'" do
-        it "should redirect to the sign in page" do
-          post 'create', :qualification_id => @another_qualification.id, :subject => @subject.attributes.delete(:id)
-          response.should redirect_to(sign_in_path)
-        end
-      end
-
-      describe "DELETE" do
-        it "should redirect to the sign in page" do
-          delete 'destroy', :id => @subject.id, :qualification_id => @another_qualification.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            post 'create', :qualification_id => @another_qualification.id, :subject => @subject.attributes.delete(:id)
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do
-          get 'edit', :id => @subject.id, :qualification_id => @another_qualification.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'edit', :id => @subject.id, :qualification_id => @another_qualification.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do
-          put 'update', :id => @subject.id, :qualification_id => @another_qualification.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            put 'update', :id => @subject.id, :qualification_id => @another_qualification.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       
       describe "DELETE 'destroy'" do
-        it "should redirect to the sign in page" do
-          delete 'destroy', :id => @subject.id, :qualification_id => @another_qualification.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            delete 'destroy', :id => @subject.id, :qualification_id => @another_qualification.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
-      
+    
     end
     
     describe "if user owns profile" do
@@ -76,6 +74,11 @@ describe SubjectsController do
         it "should assign the requested Qualificiation object as @qualification" do
           get 'new', :qualification_id => @subject.qualification.id
           assigns(:qualification).id.should == @subject.qualification.id
+        end
+
+        it "should assign the profile's experience page as @experience_page" do
+          get 'new', :qualification_id => @subject.qualification.id
+          assigns(:experience_page).should == @subject.qualification.experience_page
         end
         
         it "should assign 'profiles/page_links' as @side_bar_name" do
@@ -131,6 +134,11 @@ describe SubjectsController do
           it "should assign the requested Qualificiation object as @qualification" do
             get 'edit', :id => @subject.id, :qualification_id => @subject.qualification.id
             assigns(:qualification).id.should == @subject.qualification.id
+          end
+          
+          it "should assign the profile's experience page as @experience_page" do
+            get 'edit', :id => @subject.id, :qualification_id => @subject.qualification.id
+            assigns(:experience_page).should == @subject.qualification.experience_page
           end
           
           it "should assign 'profiles/page_links' as @side_bar_name" do

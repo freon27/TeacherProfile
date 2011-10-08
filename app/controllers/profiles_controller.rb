@@ -4,10 +4,17 @@ class ProfilesController < ApplicationController
   before_filter :common_setup, :except => [:show]
 
   def show
+    # we may be getting an ID or a user set URL to search on
     if params[:profile_url]
       @profile = Profile.find_by_url_suffix(params[:profile_url])
     else 
       @profile = Profile.find(params[:id])
+    end
+    @subscribed = @profile.user.subscribed?
+    if ! @subscribed && current_user != @profile.user
+      @owner_name = "#{@profile.user.first_name} #{@profile.user.last_name}"
+      @owner_email = @profile.user.email
+      render :blocked
     end
     @introduction = BlueCloth::new(@profile.main_page.introduction).to_html if @profile.main_page.introduction
     @page_name = 'About Me'

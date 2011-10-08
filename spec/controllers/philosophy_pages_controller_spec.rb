@@ -14,23 +14,31 @@ describe PhilosophyPagesController do
         sign_in_as(Factory(:user))
       end 
       describe "GET 'show'" do
-        it "should redirect to the sign in page" do
+        it "should be successful" do
           get 'show', :id => @pp.id
-          response.should redirect_to(sign_in_path)
+          response.should be_success
         end
       end
     
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do
-          get 'edit', :id => @pp.id
-          response.should redirect_to(sign_in_path)
+        it "should raise a record not found exception" do
+          expect { 
+            new_subj = Factory(:subject_area)
+            @valid_attributes = new_subj.attributes
+            @valid_attributes.delete('sample_work_page_id')
+            get 'edit', :id => @pp.id
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do
-          put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
-          response.should redirect_to(sign_in_path)
+        it "should raise a record not found exception" do
+          expect { 
+            new_subj = Factory(:subject_area)
+            @valid_attributes = new_subj.attributes
+            @valid_attributes.delete('sample_work_page_id')
+            put 'update', :id => @pp.id, :philosophy_page => { :philosophy => 'New Text' }
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -39,7 +47,7 @@ describe PhilosophyPagesController do
     
     describe "if user is owner" do
       before(:each) do
-        sign_in_as(@pp.profile.user)
+        sign_in_as(@pp.user)
       end      
       describe "GET 'show'" do
         it "should be successful" do
@@ -107,7 +115,7 @@ describe PhilosophyPagesController do
       describe "GET 'show'" do
         it "should redirect to the sign in page" do
           get 'show', :id => @pp.id
-          response.should redirect_to(sign_in_path)
+          response.should be_success
         end
       end
     

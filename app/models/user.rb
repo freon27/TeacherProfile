@@ -24,5 +24,14 @@ class User < ActiveRecord::Base
   validates :password,    :format => { :with => password_regex },
                           :unless => Proc.new { |user| user.password.blank? }
 
+  before_validation :set_free_subscription
 
+  def subscribed?
+    self.subscribed_until > Time.now
+  end
+
+  private
+    def set_free_subscription
+      self.subscribed_until = 1.week.from_now
+    end
 end

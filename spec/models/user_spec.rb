@@ -53,8 +53,30 @@ describe User do
       @user.password_confirmation = @user.password
       @user.should_not be_valid
     end
+    it "should default to a subscribed_until value of 1 week from the creation date" do
+      Timecop.freeze
+      @new_user = Factory(:user)
+      @new_user.subscribed_until.should == 1.week.from_now
+    end
   end
-  describe "methods" do
+  describe "subscribed? method" do
+    it "should have a subscribed? method" do
+      @user.should respond_to(:subscribed?)
+    end
+    describe "if the user is currently subscribed" do
+      it "should return true" do
+        @user.subscribed?.should be_true
+      end
+    end 
+    describe "if the user is currently subscribed" do
+      it "should return true" do
+        Timecop.travel(@user.subscribed_until + 7)       
+        @user.subscribed?.should_not be_true
+      end
+    end 
+  end
+    
+  describe "associations" do
     it "should have a positions method" do
       @user.should respond_to(:positions)
     end

@@ -17,15 +17,15 @@
 
 	</head>
 	<body>
-		<% if 0 == 1 && signed_in? %>
-		<nav class="user-bar">
-			<ul class="plain-list">
-				<li><strong><%= link_to('Edit this profile', :action => 'edit') %></strong></li>
-			</ul>
-		</nav>
+		<% if signed_in? %>
+
+			<% if @subscribed == false %>
+				<div class="user-info helper">
+					<p class="warning">You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
+				</div>
+			<% end %>
 		<% end %>
 		<div class="container">
-			
 			<header class="main span-32 last">
 				<div class="logo" id="display-logo">
 					<h1><strong><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></strong></h1>
@@ -52,6 +52,9 @@
 						<% if @profile.sample_work_page.published?  %>
 						<li>
 							<%= link_to_unless_current('Sample Work', @profile.sample_work_page) {|link| content_tag 'span', link, :class => 'selected'} %>
+						</li>
+						<li>
+							<strong><%= link_to 'Edit this profile', {:action => 'edit'}, :class => 'btn' %></strong>
 						</li>
 						<% end %>
 					</ul>

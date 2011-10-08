@@ -4,7 +4,7 @@
 	<li>
 		<ul>
 		<% for project in subject_area.projects %>
-			<li><%= link_to project.name, subject_area_project_path(project) %></li>
+			<li><%= link_to project.name, subject_area_project_path(subject_area, project) %></li>
 		<% end %>
 		</ul>
 <% end %>
