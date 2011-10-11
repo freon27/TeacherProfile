@@ -14,9 +14,9 @@ class Qualification < ActiveRecord::Base
   
   private
     def date_validation
-      errors.add(:base, "From date must be in the past") unless date_from && date_from < Date.today
+      errors.add(:date_from, "From date must be in the past") unless date_from && date_from < Date.today
       if date_from && date_to && date_to <= date_from
-        errors.add(:base, "To date cannot be before the from date") 
+        errors.add(:date_to, "To date cannot be before the from date") 
       end
     end
 

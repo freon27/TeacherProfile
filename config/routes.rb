@@ -40,6 +40,8 @@ Teacherprofile::Application.routes.draw do
       
     member do
       get 'dashboard'
+      get 'edit_subscription'
+      put 'update_subscription'
     end
   end
 

@@ -23,8 +23,10 @@ class User < ActiveRecord::Base
                           
   validates :password,    :format => { :with => password_regex },
                           :unless => Proc.new { |user| user.password.blank? }
+  
+  validates_presence_of :subscribed_until
 
-  before_validation :set_free_subscription
+  after_create :set_free_subscription
 
   def subscribed?
     self.subscribed_until > Time.now

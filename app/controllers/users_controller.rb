@@ -2,11 +2,11 @@ class UsersController < Clearance::UsersController
 
   before_filter :common_setup
   before_filter :authenticate, :except => [:new, :create]
-  before_filter :correct_user, :only => [:edit, :update, :show, :dashboard]
+  before_filter :correct_user, :only => [:edit, :update, :show, :dashboard, :destroy]
+  before_filter :require_admin, :only => [:index, :edit_subscription, :update_subscription]
   
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -39,14 +39,26 @@ class UsersController < Clearance::UsersController
 
   def destroy
     @user.destroy
-
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
   end
   
-
+  def edit_subscription
+  end
+  
+  def update_subscription
+    puts params[:user][:subscribed_until]
+    @user.subscribed_until = params[:user][:subscribed_until]
+    if @user.save!
+      redirect_to(users_path)
+    else
+      render :edit_subscription
+    end
+  end
+  
+  
   private
     def url_after_create
       url_for :controller => 'users', :id => current_user.id, :action => 'dashboard'
@@ -59,5 +71,12 @@ class UsersController < Clearance::UsersController
     def common_setup
       @user = User.find(params[:id]) if params[:id]
       @side_bar_name = 'users/page_links'
-    end 
+    end
+    
+    def require_admin
+      if !current_user.admin?
+        redirect_to(sign_in_path)
+        return
+      end
+    end
 end

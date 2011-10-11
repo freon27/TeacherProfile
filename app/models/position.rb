@@ -8,6 +8,6 @@ class Position < ActiveRecord::Base
   
   private
     def date_from_validation
-      errors.add(:base, "From date must be in the past") unless date_from && date_from < Date.today
+      errors.add(:date_from, "From date must be in the past") unless date_from && date_from < Date.today
     end
 end

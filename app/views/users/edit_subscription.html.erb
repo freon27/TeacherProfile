@@ -1,0 +1,12 @@
+
+<section class="push-1 span-15 last round-top">
+	<h2 class=" banner round-top">Editing Subscription</h2>
+	<div class="content round-bottom">
+		<%= semantic_form_for @user, :url => update_subscription_user_path, :action => :put do |form| %>
+		  <%= form.inputs do %>
+			  <%= form.input :subscribed_until, :as => :date_picker %>
+			<% end %>
+		  <%= form.submit 'Save' %>
+		<% end %>
+  </div>
+</section>

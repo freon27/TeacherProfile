@@ -14,6 +14,20 @@ describe UsersController do
       end
     end
   
+    describe "GET edit_subscription" do
+      it "should deny access" do
+        get :edit_subscription,  :id => @user.id
+        response.should redirect_to(sign_in_path)
+      end
+    end
+
+    describe "GET update_subscription" do
+      it "should deny access" do
+        get :update_subscription,  :id => @user.id
+        response.should redirect_to(sign_in_path)
+      end
+    end
+    
     describe "GET show" do
       it "should deny access" do
         get :show, :id => @user.id
@@ -116,12 +130,28 @@ describe UsersController do
       sign_in_as @user
     end
     
+    describe "GET index" do
+      describe "if they are not an admin user" do
+        it "should deny access" do
+          get :index
+          response.should redirect_to(sign_in_path)
+        end
+      end
+    end
+    
     describe "if they are the correct user" do
     
-      describe "GET index" do
-        it "assigns all users as @users" do
-          get :index
-          assigns(:users).should eq([@user])
+      describe "GET edit_subscription" do
+        it "should deny access" do
+          get :edit_subscription,  :id => @user.id
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
+      describe "GET update_subscription" do
+        it "should deny access" do
+          get :update_subscription,  :id => @user.id
+          response.should redirect_to(sign_in_path)
         end
       end
     
@@ -242,6 +272,20 @@ describe UsersController do
         @another_user = Factory(:user)
       end
     
+      describe "GET edit_subscription" do
+        it "should deny access" do
+          get :edit_subscription,  :id => @user.id
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
+      describe "GET update_subscription" do
+        it "should deny access" do
+          get :update_subscription,  :id => @user.id
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
       describe "GET show" do
         it "should deny access" do
           get :show, :id => @another_user.id
@@ -263,21 +307,54 @@ describe UsersController do
         end
       end
       
+      describe "DELETE destroy" do
+        it "should deny access" do
+          delete :destroy, :id => @another_user
+          response.should redirect_to(sign_in_path)
+        end
+      end
+      
       describe "GET dashboard" do
         it "should deny access" do
           get :dashboard, :id => @another_user.id
           response.should redirect_to(sign_in_path)
         end
       end
-    
     end
     
-    pending "if they are not an admin user" do
-      
-    end
+    describe "if they are an admin user" do
+      before(:each) do
+        admin_user = Factory(:user, :admin => true)
+        sign_in_as(admin_user)
+      end
+
+      describe "GET index" do
+        it "assigns all users as @users" do
+          get :index
+          assigns(:users).should eq(User.all)
+        end
+      end
     
-    pending "if they are an admin user" do
-      
+      describe "GET edit_subscription" do
+        it "should assign the user as @user" do
+          get :edit_subscription,  :id => @user.id
+           assigns(:user).should eq(@user)
+        end
+      end
+    
+      describe "GET update_subscription" do
+        it "should update the user's subscribed until date" do
+          date = 5.weeks.from_now
+          put :update_subscription,  :id => @user.id, :user => { :subscribed_until => date }
+          @user.reload
+          puts @user.inspect
+          @user.subscribed_until.should == date
+        end
+        it "should redirect to the user index" do
+          put :update_subscription,  :id => @user.id, :user => { :subscribed_until => 5.weeks.from_now }
+          response.should redirect_to(users_path)
+        end
+      end
     end
   end
 end
