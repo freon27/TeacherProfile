@@ -49,6 +49,7 @@ Teacherprofile::Application.routes.draw do
     member do
       put 'publish'
       put 'unpublish'
+      get 'export'
     end
   end
 

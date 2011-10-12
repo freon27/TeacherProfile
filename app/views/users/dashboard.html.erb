@@ -13,7 +13,7 @@
     <td><%= link_to 'Edit', { :controller => 'profiles', :action => 'edit', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
 		<td><%= link_to 'Delete', { :controller => 'profiles', :action => 'destroy', :id => profile.id }, :method => 'delete', :confirm => 'Delete this profile?', :class => 'ss_sprite ss_delete' %></td>
 		<td><%= link_to 'View Profile', { :controller => 'profiles', :action => 'show', :id => profile.id }, :method => 'get', :class => 'ss_sprite ss_zoom' %></td>
-		<td>PDF</td>
+		<td><%= link_to 'PDF', { :controller => 'profiles', :action => 'export', :id => profile.id }, :method => 'get', :class => '' %></td>
   </tr>
 <% end %>
 </table>

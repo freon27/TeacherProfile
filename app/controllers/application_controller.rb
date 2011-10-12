@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   private
     def resolve_layout
       case action_name 
+      when 'export'
+        'export'
       when 'show'
         'display_profile'
       else 

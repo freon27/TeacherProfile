@@ -179,6 +179,22 @@ describe ProfilesController do
         end
       end
     end
+    
+    describe "GET export" do
+      describe "if they own the profile" do
+        it "should assign the profile as @profile" do
+          get 'export', :id => @example_profile
+          assigns[:profile].should == @example_profile
+        end
+      end
+      
+      describe "if they do not own the profile" do
+        it "should redirect to the sign in page" do
+          get 'export', :id => @example_profile
+          response.should redirect_to(sign_in_path)
+        end
+      end
+    end
   end
 
   describe "for non-signed in users" do
@@ -245,6 +261,13 @@ describe ProfilesController do
     describe "DELETE" do
       it "should redirect to the sign in page" do
         delete 'destroy', :id => @example_profile
+        response.should redirect_to(sign_in_path)
+      end
+    end
+    
+    describe "GET export" do
+      it "should redirect to the sign in page" do
+        get 'export', :id => @example_profile
         response.should redirect_to(sign_in_path)
       end
     end

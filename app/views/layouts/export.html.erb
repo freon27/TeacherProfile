@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Teaching Profile</title>		
+		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/screen.css', :media => 'screen' %>
+		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/print.css',  :media => 'print' %>
+		<!--[if lt IE 8]><%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/ie.css' %><![endif]-->
+		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/cv.css', :media => 'screen' %>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+	</head>
+	<body class="plain">
+		<div class="container">
+			<div id="main-body" class="span-32 last">
+				<div class="span-6 logo export-logo" id="display-logo">
+					<h1><strong><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></strong></h1>
+					<% if @profile.main_subject %>
+					<h3 id="teaching-subject"><%= @profile.main_subject %> Teacher</h3>
+					<% end %>
+					<h4><%=  @profile.user.email %></h4>
+				</div>
+				<div id="central-body" class="span-18 last">
+					<section class="push-1 span-16 last">
+						<%= yield %>
+					</section>
+				</div>
+			</div>
+		</div>
+  </body>
+</html>

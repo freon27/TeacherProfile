@@ -7,6 +7,9 @@ body {
 	color: #999;
 }
 
+body.plain {
+	background-image: none;
+}
 
 /* Header */
 
@@ -20,6 +23,10 @@ div#logo {
 
 div.logo {
 	height: 135px;	
+}
+
+div.export-logo {
+	text-align: right;
 }
 
 /* Footer */

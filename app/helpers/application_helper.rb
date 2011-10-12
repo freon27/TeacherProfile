@@ -10,4 +10,8 @@ module ApplicationHelper
     }
     mappings[content_type]
   end
+  
+  def absolutize_path path
+    File.join root_url, path
+  end
 end
