@@ -153,7 +153,7 @@ h1,h2,h3,h4 {
 }
 
 h2 {
-	margin-top: 80px;
+	margin-top: 60px;
 }
 
 h3, p.date {
@@ -166,4 +166,8 @@ table.subjects {
 
 td {
 	padding: 0;
+}
+
+h3#teaching-subject {
+	margin-bottom: 6px !important;
 }
