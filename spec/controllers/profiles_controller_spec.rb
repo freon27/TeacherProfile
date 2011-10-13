@@ -186,12 +186,16 @@ describe ProfilesController do
           get 'export', :id => @example_profile
           assigns[:profile].should == @example_profile
         end
+        
+        
       end
       
       describe "if they do not own the profile" do
-        it "should redirect to the sign in page" do
-          get 'export', :id => @example_profile
-          response.should redirect_to(sign_in_path)
+        it "should raise a record not found exception" do
+          @another_profile = Factory(:profile)
+          expect { 
+            get 'export', :id => @another_profile
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end

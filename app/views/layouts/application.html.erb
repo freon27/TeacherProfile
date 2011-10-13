@@ -38,14 +38,14 @@
 				</ul>
 			</nav>
 		</header>
+		<div id="flash">
+	    <% flash.each do |key, value| -%>
+	      <div id="flash_<%= key %>"><%=h value %></div>
+	    <% end %>
+	  </div>
 		<div id="main-body" class="span-24 last">
 			<%= render :partial => @side_bar_name  if @side_bar_name %>
-			<div id="central-body" class="span-18 last">
-				<div id="flash" class="push-1 span-15">
-			    <% flash.each do |key, value| -%>
-			      <div id="flash_<%= key %>"><%=h value %></div>
-			    <% end %>
-			  </div> 	
+			<div id="central-body" class="span-18 last">	
 				<section class="push-2 span-16 last">
 					<%= yield %>
 				</section>

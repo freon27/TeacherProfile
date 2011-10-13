@@ -5,7 +5,10 @@ body {
 	overflow: scroll;
 	line-height: 24px;
 	color: #999;
+	margin-top: 42px;
 }
+
+div#container {}
 
 body.plain {
 	background-image: none;
@@ -21,9 +24,9 @@ div#logo {
  	background: transparent url(/images/header_background.png) repeat-x;
 }
 
-div.logo {
-	height: 135px;	
-}
+/*div.logo {
+	height: 100px;	
+}*/
 
 div.export-logo {
 	text-align: right;
@@ -374,6 +377,7 @@ nav#profile-sidebar p {
 nav#navbar {
 	background-color: transparent;
 /*	color: white;*/
+	margin-top: 12px;
 	margin-bottom: 36px;
 	
 }
@@ -502,11 +506,12 @@ div.subject {
 }
 
 div#flash {
-/*	margin-top: 20px;
-	margin-bottom: 10px;*/
-	float: left;
 	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
 }
+
 
 div.helper {
 /*	border: 1px dotted gray;*/
