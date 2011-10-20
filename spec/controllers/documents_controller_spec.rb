@@ -28,8 +28,11 @@ describe DocumentsController do
       describe "POST create" do
         describe "with valid params" do
           before(:each) do
-            @valid_attributes = Factory(:document).attributes
-            @valid_attributes.delete('project')
+              @valid_attributes = {
+                caption: 'test',
+                description: 'this is a sample description',
+                document: fixture_file_upload(Rails.root + 'spec/files/test.doc', 'application/msword')
+              }
           end
           it "should create a new project area" do
             lambda {

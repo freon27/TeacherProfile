@@ -1,6 +1,6 @@
 class Feedback < ActiveRecord::Base
   
-  attr_accessbile :name, :position, :feedback
+  attr_accessible :name, :position, :feedback
   
   validates_presence_of :name
   validates_presence_of :position

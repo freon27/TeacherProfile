@@ -28,8 +28,10 @@ describe PhotosController do
       describe "POST create" do
         describe "with valid params" do
           before(:each) do
-            @valid_attributes = Factory(:photo).attributes
-            @valid_attributes.delete('project')
+            @valid_attributes = {
+              caption: 'test',
+              photo: fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
+            }
           end
           it "should create a new project area" do
             lambda {

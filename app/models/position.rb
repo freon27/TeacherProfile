@@ -1,6 +1,6 @@
 class Position < ActiveRecord::Base
   
-  attr_accessible :location, :date_from, :date_to
+  attr_accessible :location, :date_from, :date_to, :description
   
   belongs_to :experience_page
   validates_presence_of :location
