@@ -49,7 +49,6 @@ class UsersController < Clearance::UsersController
   end
   
   def update_subscription
-    puts params[:user][:subscribed_until]
     @user.subscribed_until = params[:user][:subscribed_until]
     if @user.save!
       redirect_to(users_path)

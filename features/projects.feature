@@ -5,9 +5,8 @@ Feature: Projects
   I want to be able to display display the projects I've done for a subject area
   
 	Scenario: Creating a new project
-  	Given a user exists with email: "email@person.com", password: "Password1"	
-	 	And profile exists with name: "Profile A", user: the first user
-  	And I sign in as "email@person.com/Password1"
+		Given a profile exists
+		And I am signed in as the owner of the profile
 	 	And I am on the profile edit page
     When I follow "Sample Work"
 		Then I should see "Sample Work"

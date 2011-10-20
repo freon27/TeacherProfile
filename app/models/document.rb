@@ -1,4 +1,7 @@
 class Document < ActiveRecord::Base
+  
+  attr_accessible :document, :caption, :description
+  
   has_attached_file :document
   belongs_to :project
   belongs_to :user

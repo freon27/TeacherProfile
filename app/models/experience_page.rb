@@ -1,4 +1,7 @@
 class ExperiencePage < ActiveRecord::Base
+  
+  attr_accessible :publish_positions, :publish_qualifications
+  
   has_one :profile
   has_many :positions
   has_many :qualifications

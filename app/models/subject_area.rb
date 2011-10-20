@@ -1,5 +1,7 @@
 class SubjectArea < ActiveRecord::Base
   
+  attr_accessible :name
+  
   belongs_to :user
   belongs_to :sample_work_page
   has_many :projects

@@ -1,6 +1,8 @@
 class Profile < ActiveRecord::Base
   
-  LIMIT = 3
+  MAX_PROFILES_LIMIT = 3
+  
+  attr_accessible :name, :published, :url_suffix
   
   belongs_to :user
   validates_inclusion_of :published, :in => [true, false]
@@ -31,17 +33,28 @@ class Profile < ActiveRecord::Base
 
   def validate_quota
     return unless self.user
-    if self.user.profiles(:reload).count >= LIMIT
-      errors.add(:base, "You cannot have more than #{ LIMIT } profiles")
+    if self.user.profiles(:reload).count >= MAX_PROFILES_LIMIT
+      errors.add(:base, "You cannot have more than #{ MAX_PROFILES_LIMIT } profiles")
     end
   end
     
   private
     def create_pages
-      self.main_page or self.create_main_page(:user_id => self.user_id)
-      self.experience_page or self.create_experience_page(:user_id => self.user_id)
-      self.philosophy_page or self.create_philosophy_page(:user_id => self.user_id)
-      self.sample_work_page or self.create_sample_work_page(:user_id => self.user_id)
+      self.main_page or self.create_main_page
+      self.main_page.user = self.user
+      self.main_page.save!
+      
+      self.experience_page or self.create_experience_page
+      self.experience_page.user = self.user
+      self.experience_page.save!
+      
+      self.philosophy_page or self.create_philosophy_page
+      self.philosophy_page.user = self.user
+      self.philosophy_page.save!
+      
+      self.sample_work_page or self.create_sample_work_page
+      self.sample_work_page.user = self.user
+      self.sample_work_page.save!
     end
     
 end

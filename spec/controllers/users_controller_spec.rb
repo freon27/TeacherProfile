@@ -347,7 +347,6 @@ describe UsersController do
           date = 5.weeks.from_now
           put :update_subscription,  :id => @user.id, :user => { :subscribed_until => date }
           @user.reload
-          puts @user.inspect
           @user.subscribed_until.should == date
         end
         it "should redirect to the user index" do

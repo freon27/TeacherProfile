@@ -1,4 +1,7 @@
 class MainPage < ActiveRecord::Base
+  
+  attr_accessible :published, :introduction
+  
   has_one :profile
   belongs_to :user
   

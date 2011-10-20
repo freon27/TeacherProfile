@@ -1,4 +1,7 @@
 class Subject < ActiveRecord::Base
+  
+  attr_accessible :name, :grade, :level
+  
   belongs_to :qualification
   belongs_to :user
   

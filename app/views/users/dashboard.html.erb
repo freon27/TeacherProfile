@@ -17,7 +17,7 @@
   </tr>
 <% end %>
 </table>
-<% if @profiles.length < Profile::LIMIT %>
+<% if @profiles.length < Profile::MAX_PROFILES_LIMIT %>
 <nav class="table-base">
 	<%= link_to 'Create profile', new_profile_path, :method => 'get', :class => 'ss_sprite ss_add' %>
 </nav>

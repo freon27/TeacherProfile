@@ -1,5 +1,7 @@
 class Qualification < ActiveRecord::Base
 
+  attr_accessible :location, :date_from, :date_to
+
   belongs_to :user
   belongs_to :experience_page
   has_many :subjects

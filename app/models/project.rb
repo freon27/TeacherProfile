@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  
+  attr_accessible :name, :description
 
   has_many :documents
   has_many :photos

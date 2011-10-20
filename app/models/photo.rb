@@ -1,4 +1,7 @@
 class Photo < ActiveRecord::Base
+  
+   attr_accessible :photo, :caption
+  
    has_attached_file :photo, :styles => { :medium => "600x600>", :thumb => "100x100#"}, :convert_options => { :all => "-auto-orient" }
    belongs_to :project
    belongs_to :user

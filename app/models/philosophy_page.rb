@@ -1,4 +1,7 @@
 class PhilosophyPage < ActiveRecord::Base
+  
+  attr_accessible :published, :philosophy
+  
   validates_presence_of :philosophy, :if => lambda { |mp| mp.published == true }
   validates_inclusion_of :published, :in => [true, false]
   has_one :profile
