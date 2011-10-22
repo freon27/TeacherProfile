@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111008114906) do
+ActiveRecord::Schema.define(:version => 20111022093952) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "project_id"
   end
 
+  add_index "documents", ["project_id"], :name => "index_documents_on_project_id"
+  add_index "documents", ["user_id"], :name => "index_documents_on_user_id"
+
   create_table "experience_pages", :force => true do |t|
     t.boolean  "publish_positions"
     t.datetime "created_at"
@@ -32,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.boolean  "publish_qualifications"
     t.integer  "user_id"
   end
+
+  add_index "experience_pages", ["user_id"], :name => "index_experience_pages_on_user_id"
 
   create_table "feedbacks", :force => true do |t|
     t.integer  "position_id"
@@ -50,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "user_id"
   end
 
+  add_index "main_pages", ["user_id"], :name => "index_main_pages_on_user_id"
+
   create_table "philosophy_pages", :force => true do |t|
     t.boolean  "published"
     t.text     "philosophy"
@@ -57,6 +64,8 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "philosophy_pages", ["user_id"], :name => "index_philosophy_pages_on_user_id"
 
   create_table "photos", :force => true do |t|
     t.string   "caption"
@@ -70,6 +79,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "project_id"
   end
 
+  add_index "photos", ["project_id"], :name => "index_photos_on_project_id"
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
+
   create_table "positions", :force => true do |t|
     t.string   "location"
     t.string   "position_type"
@@ -81,6 +93,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "experience_page_id"
     t.integer  "user_id"
   end
+
+  add_index "positions", ["experience_page_id"], :name => "index_positions_on_experience_page_id"
+  add_index "positions", ["user_id"], :name => "index_positions_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -96,6 +111,13 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "sample_work_page_id"
   end
 
+  add_index "profiles", ["experience_page_id"], :name => "index_profiles_on_experience_page_id"
+  add_index "profiles", ["main_page_id"], :name => "index_profiles_on_main_page_id"
+  add_index "profiles", ["philosophy_page_id"], :name => "index_profiles_on_philosophy_page_id"
+  add_index "profiles", ["sample_work_page_id"], :name => "index_profiles_on_sample_work_page_id"
+  add_index "profiles", ["url_suffix"], :name => "index_profiles_on_url_suffix"
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -104,6 +126,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "subject_area_id"
     t.integer  "user_id"
   end
+
+  add_index "projects", ["subject_area_id"], :name => "index_projects_on_subject_area_id"
+  add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
 
   create_table "qualifications", :force => true do |t|
     t.string   "location"
@@ -115,12 +140,17 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.integer  "user_id"
   end
 
+  add_index "qualifications", ["experience_page_id"], :name => "index_qualifications_on_experience_page_id"
+  add_index "qualifications", ["user_id"], :name => "index_qualifications_on_user_id"
+
   create_table "sample_work_pages", :force => true do |t|
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "sample_work_pages", ["user_id"], :name => "index_sample_work_pages_on_user_id"
 
   create_table "subject_areas", :force => true do |t|
     t.integer  "sample_work_page_id"
@@ -129,6 +159,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "subject_areas", ["sample_work_page_id"], :name => "index_subject_areas_on_sample_work_page_id"
+  add_index "subject_areas", ["user_id"], :name => "index_subject_areas_on_user_id"
 
   create_table "subjects", :force => true do |t|
     t.string   "name"
@@ -139,6 +172,9 @@ ActiveRecord::Schema.define(:version => 20111008114906) do
     t.string   "level"
     t.integer  "user_id"
   end
+
+  add_index "subjects", ["qualification_id"], :name => "index_subjects_on_qualification_id"
+  add_index "subjects", ["user_id"], :name => "index_subjects_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
