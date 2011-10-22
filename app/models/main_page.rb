@@ -11,6 +11,10 @@ class MainPage < ActiveRecord::Base
   
   after_initialize :set_default_values
   
+  def html_introduction
+    self.introduction ? BlueCloth::new(self.introduction).to_html : ''
+  end
+  
   private
     def set_default_values
       self.published ||= false

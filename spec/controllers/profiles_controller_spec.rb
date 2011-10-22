@@ -20,9 +20,10 @@ describe ProfilesController do
         get :show, :id => @example_profile.id
         assigns(:profile).should == @example_profile
       end
-      pending "should assign the introduction as @introduction" do
+      
+      it "should assign the html version of the introduction as @introduction" do
         get :show, :id => @example_profile.id
-        assigns(:introduction).should == @example_profile
+        assigns(:introduction).should == @example_profile.main_page.html_introduction
       end
       it "should assign the page title as @page_name" do
         get :show, :id => @example_profile.id
@@ -186,8 +187,6 @@ describe ProfilesController do
           get 'export', :id => @example_profile
           assigns[:profile].should == @example_profile
         end
-        
-        
       end
       
       describe "if they do not own the profile" do

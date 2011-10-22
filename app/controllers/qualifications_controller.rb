@@ -1,19 +1,26 @@
 class QualificationsController < ApplicationController
 
-  before_filter :authenticate, :common_setup
-  before_filter :user_owns_experience_page
-  before_filter :user_owns_qualification, :except => [:new, :create]
-  
-  def show 
+  before_filter :authenticate
+
+  def show
+    @experience_page = get_experience_page(params[:experience_page_id])
+    @qualification = get_qualification(@experience_page, params[:id])
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
   end
 
-  def new 
+  def new
+    @experience_page = get_experience_page(params[:experience_page_id])
     @qualification = Qualification.new
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
   end
   
   def create
-    @experience_page = ExperiencePage.find(params[:experience_page_id])
+    @experience_page = get_experience_page(params[:experience_page_id])
     @qualification = @experience_page.qualifications.build(params[:qualification])
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
     @qualification.user = current_user
     if @qualification.save
       redirect_to( edit_experience_page_path(@experience_page), :notice => 'Created.')
@@ -23,9 +30,17 @@ class QualificationsController < ApplicationController
   end
 
   def edit
+    @experience_page = get_experience_page(params[:experience_page_id])
+    @qualification = get_qualification(@experience_page, params[:id])
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
   end
   
   def update
+    @experience_page = get_experience_page(params[:experience_page_id])
+    @qualification = get_qualification(@experience_page, params[:id])
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
     if @qualification.update_attributes(params[:qualification])
       redirect_to( edit_experience_page_path(@qualification.experience_page), :notice => 'Saved.')
     else
@@ -34,22 +49,25 @@ class QualificationsController < ApplicationController
   end
   
   def destroy
+    @experience_page = get_experience_page(params[:experience_page_id])
+    @qualification = get_qualification(@experience_page, params[:id])
+    @side_bar_name = get_side_bar
+    @profile = @experience_page.profile
     @qualification.destroy
     redirect_to( edit_experience_page_path(@qualification.experience_page), :notice => 'Deleted.')
   end
   
   private    
-    def user_owns_experience_page
-      redirect_to(sign_in_path) unless current_user?(ExperiencePage.find(params[:experience_page_id]).profile.user)
+
+    def get_experience_page(ep_id)
+      current_user.experience_pages.find(ep_id)
     end
-    def user_owns_qualification
-      redirect_to(sign_in_path) unless current_user?(Qualification.find(params[:id]).experience_page.profile.user)
+    
+    def get_qualification(experience_page, id)
+      experience_page.qualifications.find(id)
     end
 
-    def common_setup 
-      @qualification = Qualification.find(params[:id]) if params[:id]
-      @experience_page = ExperiencePage.find(params[:experience_page_id]) if params[:experience_page_id]
-      @side_bar_name = 'profiles/page_links'
-      @profile = @experience_page.profile    
+    def get_side_bar
+      'profiles/page_links'
     end
 end

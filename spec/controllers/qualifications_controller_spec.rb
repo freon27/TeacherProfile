@@ -14,44 +14,50 @@ describe QualificationsController do
       end
       
       describe "GET 'show'" do
-        it "should redirect to the sign in page" do
-          get 'show', :id => @qual.id, :experience_page_id => @qual.experience_page
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'show', :id => @qual.id, :experience_page_id => @qual.experience_page
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
     
       describe "GET 'edit'" do
-        it "should redirect to the sign in page" do
-          get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'edit', :id => @qual.id, :experience_page_id => @qual.experience_page
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
       describe "GET 'new'" do
-        it "should redirect to the sign in page" do
-          get 'new', :experience_page_id => @qual.experience_page
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            get 'new', :experience_page_id => @qual.experience_page
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
-      pending "POST 'create'" do
-        it "should redirect to the sign in page" do
-          get 'new', :experience_page_id => @qual.experience_page, :qualification => @qual.attributes
-          response.should redirect_to(sign_in_path)
+      describe "POST 'create'" do
+        it "should raise a not found exception" do
+          expect { 
+            get 'new', :experience_page_id => @qual.experience_page, :qualification => @qual.attributes
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       
       describe "PUT 'update'" do
-        it "should redirect to the sign in page" do
-          put 'update', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            put 'update', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
       describe "DELETE" do
-        it "should redirect to the sign in page" do
-          delete 'destroy', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
-          response.should redirect_to(sign_in_path)
+        it "should raise a not found exception" do
+          expect { 
+            delete 'destroy', :experience_page_id => @qual.experience_page, :id => @qual.id, :qualification => { :location => 'New Text' }
+          }.should raise_error(ActiveRecord::RecordNotFound)
         end
       end
       

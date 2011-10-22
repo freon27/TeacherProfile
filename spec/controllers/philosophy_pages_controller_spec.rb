@@ -42,9 +42,7 @@ describe PhilosophyPagesController do
         end
       end
     end
-    
-    
-    
+       
     describe "if user is owner" do
       before(:each) do
         sign_in_as(@pp.user)
@@ -109,7 +107,6 @@ describe PhilosophyPagesController do
       end
     end
   end
-  
   
   describe "for non-signed in users" do
       describe "GET 'show'" do

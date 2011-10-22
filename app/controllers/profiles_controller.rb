@@ -16,9 +16,9 @@ class ProfilesController < ApplicationController
       @owner_email = @profile.user.email
       render :blocked
     end
-    @introduction = BlueCloth::new(@profile.main_page.introduction).to_html if @profile.main_page.introduction
+    @introduction = @profile.main_page.html_introduction
     @page_name = 'About Me'
-  end 
+  end
   
   def new
     @profile = Profile.new
