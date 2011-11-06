@@ -3,7 +3,7 @@ class SampleWorkPage < ActiveRecord::Base
   attr_accessible :published
   
   has_one :profile
-  has_many :subject_areas
+  has_many :subject_areas, :dependent => :destroy
   validates_inclusion_of :published, :in => [true, false]
   belongs_to :user
   after_initialize :default_values

@@ -3,8 +3,8 @@ class ExperiencePage < ActiveRecord::Base
   attr_accessible :publish_positions, :publish_qualifications
   
   has_one :profile
-  has_many :positions
-  has_many :qualifications
+  has_many :positions, :dependent => :destroy
+  has_many :qualifications, :dependent => :destroy
   belongs_to :user
   
   validates_inclusion_of :publish_positions, :in => [true, false]

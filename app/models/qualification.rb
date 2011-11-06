@@ -4,7 +4,7 @@ class Qualification < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :experience_page
-  has_many :subjects
+  has_many :subjects, :dependent => :destroy
   
   
   validates_presence_of :location

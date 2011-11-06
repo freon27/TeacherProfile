@@ -1,23 +1,25 @@
 class Profile < ActiveRecord::Base
   
   MAX_PROFILES_LIMIT = 3
-  
-  attr_accessible :name, :published, :url_suffix
+  SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
+    
+  attr_accessible :name, :published, :url_suffix, :main_subject
   
   belongs_to :user
   validates_inclusion_of :published, :in => [true, false]
+  validates_inclusion_of :main_subject, :in => SUBJECTS
   validates :user, :presence => true
   validates :name, :presence => true
   
   validates :url_suffix, :presence => true, :uniqueness => true
   validate  :validate_quota
 
-  SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
 
-  belongs_to :main_page
-  belongs_to :philosophy_page
-  belongs_to :experience_page
-  belongs_to :sample_work_page
+
+  belongs_to :main_page, :dependent => :destroy
+  belongs_to :philosophy_page, :dependent => :destroy
+  belongs_to :experience_page, :dependent => :destroy
+  belongs_to :sample_work_page, :dependent => :destroy  
   
   has_many :subject_areas, :through => :sample_work_page
   

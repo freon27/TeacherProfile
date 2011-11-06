@@ -2,17 +2,17 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
   
-  has_many :profiles
-  has_many :main_pages
-  has_many :experience_pages
-  has_many :philosophy_pages
-  has_many :sample_work_pages
-  has_many :subject_areas
-  has_many :positions
-  has_many :qualifications
-  has_many :projects 
-  has_many :documents
-  has_many :subjects
+  has_many :profiles, :dependent => :destroy
+  has_many :main_pages, :dependent => :destroy
+  has_many :experience_pages, :dependent => :destroy
+  has_many :philosophy_pages, :dependent => :destroy
+  has_many :sample_work_pages, :dependent => :destroy
+  has_many :subject_areas, :dependent => :destroy
+  has_many :positions, :dependent => :destroy
+  has_many :qualifications, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  has_many :documents, :dependent => :destroy
+  has_many :subjects, :dependent => :destroy
   
   include Clearance::User
 

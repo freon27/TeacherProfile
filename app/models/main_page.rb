@@ -2,7 +2,7 @@ class MainPage < ActiveRecord::Base
   
   attr_accessible :published, :introduction
   
-  has_one :profile
+  has_one :profile, :dependent => :destroy
   belongs_to :user
   
   validates_presence_of :introduction, :if => lambda { |profile| profile.published == true }

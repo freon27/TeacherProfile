@@ -4,7 +4,7 @@ class SubjectArea < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :sample_work_page
-  has_many :projects
+  has_many :projects, :dependent => :destroy
 
   validates_presence_of :user
   validates_presence_of :name
