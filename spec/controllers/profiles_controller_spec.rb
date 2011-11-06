@@ -47,7 +47,8 @@ describe ProfilesController do
         before do
           @valid_params = {
             'name'  => @example_profile.name,
-            'url_suffix' => 'testprofile'
+            'url_suffix' => 'testprofile',
+            'main_subject' => Profile::SUBJECTS.first
           }
         end
         

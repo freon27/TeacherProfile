@@ -12,7 +12,8 @@ Feature: Dashboard
     When I follow "Create profile"
     Then I should see "Create Profile"
     When I fill in "Name" with "Profile A"
-		When I fill in "Profile URL" with "profilea"
+		And I fill in "Profile URL" with "profile A"
+		And I select "Science" from "Main subject"
     And press "Create"
     Then I should see "Profile A" within "td"
     

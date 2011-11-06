@@ -3,7 +3,7 @@ Factory.define :profile do |prof|
   prof.name         'Profile A'
   prof.published    false
   prof.association  :user
-  prof.main_subject 'Design & Technology'
+  prof.main_subject Profile::SUBJECTS.first
   prof.sequence(:url_suffix) {|n| "myprofile#{n}" }
 end
 
