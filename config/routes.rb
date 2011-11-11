@@ -1,6 +1,7 @@
 Teacherprofile::Application.routes.draw do
   
   resources :main_pages, :only => [:show, :edit, :update]
+  
   resources :philosophy_pages, :only => [:show, :edit, :update]
   resources :experience_pages, :only => [:show, :edit, :update] do
     resources :positions
