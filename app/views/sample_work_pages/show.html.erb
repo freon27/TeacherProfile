@@ -4,7 +4,7 @@
 	<p><%= @display_project.description %></p>
 	<% if @display_project.photos.length > 0 %>
 	<div class="document-area">
-		<h2>Gallery</h2>
+		<h2>Gallery<span class="hint"> - please click on photos to enlarge</span></h2>
 		<ul id="photo-list" class="gallery">
 			<% for photo in @display_project.photos %>
 		 		<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), photo.photo.url(:medium)) %></li>

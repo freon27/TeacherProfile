@@ -5,7 +5,7 @@ body {
 	overflow: scroll;
 	line-height: 24px;
 	color: #999;
-	margin-top: 36px;
+	margin-top: 12px;
 }
 
 div#container {}
@@ -17,7 +17,7 @@ body.plain {
 /* Header */
 
 header {	
-	margin-bottom: 50px;
+	margin-bottom: 36px;
 }
 
 div#logo {
@@ -378,7 +378,7 @@ nav#navbar {
 	background-color: transparent;
 /*	color: white;*/
 	margin-top: 12px;
-	margin-bottom: 36px;
+	margin-bottom: 12px;
 	
 }
 
@@ -505,8 +505,8 @@ div.subject {
 	border: 1px solid #DDD;
 }
 
-div#flash {
-	position: absolute;
+div#flasha {
+	position: relative;
 	width: 100%;
 	top: 0;
 	left: 0;

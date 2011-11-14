@@ -23,7 +23,7 @@
   <div class="container">
 		<header class="main span-32 last">
 			<div  class="logo" id="logo">
-				<%= image_tag("non_vec_logo.png", :alt => "Teacher Profile", :id => 'logo-image', :class => "round") %>
+				<%= image_tag("vector_logo_book.png", :alt => "Teacher Profile", :id => 'logo-image', :class => "round") %>
 			</div>
 			<nav id="navbar">
 				<%= render :partial => '/profiles/control_bar', :locals => { :profile => @profile } if @profile && @profile.id %>	
@@ -38,12 +38,12 @@
 				</ul>
 			</nav>
 		</header>
-		<div id="flash">
-	    <% flash.each do |key, value| -%>
-	      <div id="flash_<%= key %>"><%=h value %></div>
-	    <% end %>
-	  </div>
 		<div id="main-body" class="span-24 last">
+			<div id="flash">
+		    <% flash.each do |key, value| -%>
+		      <div id="flash_<%= key %>"><%=h value %></div>
+		    <% end %>
+		  </div>
 			<%= render :partial => @side_bar_name  if @side_bar_name %>
 			<div id="central-body" class="span-18 last">	
 				<section class="push-2 span-16 last">
