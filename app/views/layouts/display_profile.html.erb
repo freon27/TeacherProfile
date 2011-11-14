@@ -56,7 +56,7 @@
 						
 						<% if signed_in? && current_user == @profile.user %>
 						<li>
-							<strong><%= link_to 'Edit this profile', {:action => 'edit'}, :class => 'btn' %></strong>
+							<%= link_to 'Edit this profile', {:action => 'edit'}, :class => 'btn' %>
 						</li>
 						<% end %>
 					</ul>

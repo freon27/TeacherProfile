@@ -8,6 +8,10 @@ body {
 	margin-top: 12px;
 }
 
+div#display-logo{
+	margin-bottom: 30px !important;
+}
+
 div#container {}
 
 body.plain {
@@ -828,6 +832,7 @@ a.ss_sprite {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 .btn {
+  font-weight: bold;
   cursor: pointer;
   display: inline-block;
   background-color: #e6e6e6;

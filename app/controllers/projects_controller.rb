@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   
   def show
     @subject_area = get_subject_area(params[:subject_area_id])
-    @project = get_project(@subject_area, params[:id])
+    @display_project = get_project(@subject_area, params[:id])
     @sample_work_page = @subject_area.sample_work_page
     @subject_areas = @sample_work_page.subject_areas
     @profile = @sample_work_page.profile
