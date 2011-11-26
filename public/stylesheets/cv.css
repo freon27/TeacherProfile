@@ -26,6 +26,7 @@ header {
 
 div#logo {
  	background: transparent url(/images/header_background.png) repeat-x;
+	clear: both;
 }
 
 div.logo {

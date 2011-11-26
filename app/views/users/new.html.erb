@@ -4,7 +4,7 @@
 	<div class="content round-bottom">
 		<%= semantic_form_for @user do |form| %>
 		  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => true } %>
-		  <%= form.submit 'Sign up' %>
+		  <%= form.submit 'Sign up', :class => 'btn' %>
 		<% end %>
   </div>
 </section>

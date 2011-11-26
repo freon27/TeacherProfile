@@ -3,7 +3,7 @@
 	<div class="content round-bottom">
 		<%= semantic_form_for([@project, @photo], :html => { :multipart => true }) do |form| %>
 		  <%= render :partial => 'form', :object => form %>
-		  <%= form.submit 'Upload', :class => 'button positive' %>
+		  <%= form.submit 'Upload', :class => 'btn positive' %>
 		<% end %>
 	</div>
 </section>

@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
   
   private
     def resolve_layout
-      case action_name 
-      when 'export'
+      if action_name == 'export'
         'export'
-      when 'show'
+      elsif action_name == 'show' && controller_name != 'pages'
         'display_profile'
       else 
         'application'

@@ -7,9 +7,9 @@
 				<%= form.input :description %>
       <% end %>
 			
-		  <%= form.submit 'Update', :class => 'button positive' %>
+		  <%= form.submit 'Update', :class => 'btn positive' %>
 		<% end %>
-			<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?' %>
+			<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn' %>
 			<%= link_to 'Back', :back %>
 	</div>
 </section>

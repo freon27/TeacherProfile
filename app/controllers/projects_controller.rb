@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
     @subject_areas = @sample_work_page.subject_areas
     @profile = @sample_work_page.profile
     @side_bar_name = 'sample_work_pages/subject_area_list'
-    @page_name = 'Sample Work'
   end
   
   def new

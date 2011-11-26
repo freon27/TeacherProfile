@@ -9,7 +9,7 @@
 		<%= semantic_form_for @philosophy_page do |form| %>
 		  <%= render :partial => 'form', :object => form %>
 		  <nav class="action-bar">
-				<%= form.submit 'Save' %>
+				<%= form.submit 'Save', :class => 'btn' %>
 			</nav>
 		<% end %>
 		

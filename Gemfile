@@ -6,22 +6,17 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-
 gem 'will_paginate', '3.0.pre2'
-
 gem "BlueCloth", :require => "bluecloth"
-
 gem "cancan"
-
 gem "paperclip"
-
+gem "high_voltage"
 gem 'pdfkit'
-
 gem 'jquery-rails', '>= 0.2.6'
-
 gem "formtastic"
-
 gem "clearance", "~> 0.10.3.2"
+gem "capistrano"
+
 
 #rance", "~> 0.10.1"
 # Use unicorn as the web server

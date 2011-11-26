@@ -9,7 +9,6 @@ class SampleWorkPagesController < ApplicationController
     @display_project = @display_subject_area.projects.first
     @profile = @sample_work_page.profile
     @side_bar_name = 'subject_area_list'
-    @page_name = 'Sample Work'
   end
   
   def edit 

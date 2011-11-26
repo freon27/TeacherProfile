@@ -1,10 +1,11 @@
 <ul>
 <% for subject_area in @subject_areas %>
-	<li class="subject-area"><%= subject_area.name %></li>
-	<li>
+	<li><h2><%= subject_area.name %></h2></li>
+	<li class="subject-area">
 		<ul>
 		<% for project in subject_area.projects %>
 			<li><%= link_to project.name, subject_area_project_path(subject_area, project) %></li>
 		<% end %>
 		</ul>
+	</li>
 <% end %>

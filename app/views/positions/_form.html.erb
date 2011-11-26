@@ -6,7 +6,7 @@
     <%= form.input :date_to, :as => :date_picker %>
     <%= form.input :description %>
     <nav class="action-bar">
-			<%= form.submit %>
+			<%= form.submit nil, :class => 'btn' %>
 			<%= link_to 'Cancel', edit_experience_page_url(@experience_page) %>
 		</nav>
 <% end %>

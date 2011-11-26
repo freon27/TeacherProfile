@@ -3,7 +3,7 @@
 	<div class="content round-bottom">
 		<%= semantic_form_for([@subject_area, @project]) do |form| %>
 		  <%= render :partial => 'form', :object => form %>
-		  <%= form.submit 'Update' %>
+		  <%= form.submit 'Update', :class => 'btn' %>
 		<% end %>
 		<div class="document-area">
 		<h2>Gallery</h2>

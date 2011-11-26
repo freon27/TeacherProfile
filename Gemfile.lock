@@ -37,6 +37,12 @@ GEM
       autotest (~> 4.3)
     builder (2.1.2)
     cancan (1.6.5)
+    capistrano (2.9.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -81,6 +87,8 @@ GEM
       i18n (~> 0.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    high_voltage (1.0.1)
+    highline (1.6.8)
     i18n (0.5.0)
     jquery-rails (0.2.7)
       rails (~> 3.0)
@@ -96,6 +104,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.2.1)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     paperclip (2.3.8)
       activerecord
@@ -174,6 +189,7 @@ DEPENDENCIES
   ZenTest
   autotest-notification
   cancan
+  capistrano
   capybara
   clearance (~> 0.10.3.2)
   cucumber-rails
@@ -181,6 +197,7 @@ DEPENDENCIES
   factory_girl_rails
   faker (= 0.3.1)
   formtastic
+  high_voltage
   jquery-rails (>= 0.2.6)
   launchy
   paperclip
