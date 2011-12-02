@@ -1,5 +1,10 @@
 require 'bundler/capistrano'
 set :scm, :git
+
+set :default_environment, {
+  'PATH' => "/opt/ruby-enterprise/bin:$PATH"
+}
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :application, "teacherprofile" # EDIT THIS TO MATCH YOUR APP NAME
 set :deploy_to, "/var/www/#{application}"
