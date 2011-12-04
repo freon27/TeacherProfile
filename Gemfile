@@ -17,7 +17,6 @@ gem "formtastic"
 gem "clearance", "~> 0.10.3.2"
 gem "capistrano"
 
-
 #rance", "~> 0.10.1"
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -63,3 +62,6 @@ group :test do
 	gem 'simplecov'
 end
 
+group :production do
+  gem "mysql2"
+end
