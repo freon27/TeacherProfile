@@ -4,4 +4,3 @@ log/*.log
 tmp/
 coverage/
 public/system/
-vendor/
