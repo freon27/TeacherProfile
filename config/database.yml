@@ -16,7 +16,7 @@ test: &test
   timeout: 5000
 
 production:
-  podapter: mysql
+  adapter: mysql
   database: rt140_teacherprofile
   username: rt140admin
   password: tritapre1 
