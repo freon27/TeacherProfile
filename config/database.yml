@@ -16,8 +16,12 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  podapter: mysql
+  database: rt140_teacherprofile
+  username: rt140admin
+  password: tritapre1 
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
   pool: 5
   timeout: 5000
 
