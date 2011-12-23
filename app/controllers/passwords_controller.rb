@@ -40,7 +40,7 @@ class PasswordsController < Clearance::PasswordsController
   def flash_success_after_update
     flash[:success] = translate(:signed_in, :default => "Password updated.")
   end
-  
+
   private
     def common_setup 
       @side_bar_name = '/users/page_links'
