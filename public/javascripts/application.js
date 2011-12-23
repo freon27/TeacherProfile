@@ -12,6 +12,45 @@ $(document).ready(function() {
 	$('.gallery a').lightBox(); 	
 });
 
+
+/*
+ * jQuery selectbox plugin
+ *
+ * Copyright (c) 2007 Sadri Sahraoui (brainfault.com)
+ * Licensed under the GPL license and MIT:
+ *   http://www.opensource.org/licenses/GPL-license.php
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * The code is inspired from Autocomplete plugin (http://www.dyve.net/jquery/?autocomplete)
+ *
+ * Revision: $Id$
+ * Version: 0.5
+ * 
+ * Changelog :
+ *  Version 0.5 
+ *  - separate css style for current selected element and hover element which solve the highlight issue 
+ *  Version 0.4
+ *  - Fix width when the select is in a hidden div   @Pawel Maziarz
+ *  - Add a unique id for generated li to avoid conflict with other selects and empty values @Pawel Maziarz
+ */
+jQuery.fn.extend({
+        selectbox: function(options) {
+                return this.each(function() {
+                        new jQuery.SelectBox(this, options);
+                });
+        }
+});
+
+
+/* pawel maziarz: work around for ie logging */
+if (!window.console) {
+        var console = {
+                log: function(msg) { 
+         }
+        }
+}
+/* */
+
 jQuery.SelectBox = function(selectobj, options) {
         
         var opt = options || {};
