@@ -1,22 +1,21 @@
 
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Sign In</h2>
-	<div class="content round-bottom">
-		<%= form_for :session, :url => session_path do |form| %>
-		  <div class="text_field">
-		    <%= form.label :email %>
-		    <%= form.text_field :email %>
-		  </div>
-		  <div class="text_field">
-		    <%= form.label :password %>
-		    <%= form.password_field :password %>
-		  </div>
-		  <div class="submit_field">
-		    <%= form.submit "Sign in", :class => 'btn' %>
-		  </div>
-		<% end %>
-		<nav>
-			<%= link_to "Forgotten your password?", new_password_path %>
-		</nav>
-	</div>
-</section>
+<h2 class=" banner round-top">Sign In</h2>
+<div class="content round-bottom">
+	<%= form_for :session, :url => session_path do |form| %>
+	  <div class="text_field">
+	    <%= form.label :email %>
+	    <%= form.text_field :email %>
+	  </div>
+	  <div class="text_field">
+	    <%= form.label :password %>
+	    <%= form.password_field :password %>
+	  </div>
+	  <div class="submit_field">
+	    <%= form.submit "Sign in", :class => 'btn' %>
+	  </div>
+	<% end %>
+	<nav>
+		<%= link_to "Forgotten your password?", new_password_path %>
+	</nav>
+</div>
+

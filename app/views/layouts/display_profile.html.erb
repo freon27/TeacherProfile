@@ -35,13 +35,10 @@
 							<%= link_to 'Account', edit_user_path(current_user) %>
 						</li>
 						<li>
-							<%= link_to 'Sign Out', sign_out_path %>
+							<%= link_to 'Sign out', sign_out_path %>
 						</li>
 					</ul>
 				</nav>
-				<% end %>
-				<% if @subscribed == false && current_user == @profile.user %>
-					<p class="warning">You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
 				<% end %>
 			</div>
 		</div>
@@ -64,6 +61,11 @@
 			</header>
 			
 			<div class="container">
+				<% if @subscribed == false && current_user == @profile.user %>
+					<div class="helper">
+						<p>You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
+					</div>
+				<% end %>
 				<%= yield %>
 			</div>
 			<div id="footer" class="span-24 last">

@@ -9,7 +9,7 @@
 	    <%= link_to 'Forgotten Password', new_password_path(current_user)  %>
 	  </li>
 	  <li <% if params[:controller] == 'users' && params[:action] == 'new' %>class="sidebar-selected round-left"<% end %>>
-	    <%= link_to 'Sign Up', sign_up_path %>
+	    <%= link_to 'Register', sign_up_path %>
 	  </li>
 	  <% else %>
 		<li <% if params[:controller] == 'users' && params[:action] == 'edit' %>class="sidebar-selected round-left"<% end %>>

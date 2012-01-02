@@ -975,3 +975,9 @@ p.publication-status {
 li.subject-area {
 	margin-bottom: 24px;
 }
+
+p.warning {
+	position: absolute;
+	width: 20%;
+	right: 0;
+}

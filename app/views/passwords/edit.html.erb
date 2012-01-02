@@ -1,28 +1,27 @@
 
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Change your password</h2>
-	<div class="content round-bottom">
 
-		<p>
-		  Choose a new password below.
-		</p>
+<h2 class=" banner round-top">Change your password</h2>
+<div class="content round-bottom">
 
-		<%= semantic_form_for(:user,
-		             :url  => user_password_path(@user, :token => @user.confirmation_token),
-		             :html => { :method => :put }) do |form| %>
-		  <%=  form.errors %>
-			<p>Passwords must be between 6 and 15 characters long.  They must contain both upper and lower case characters and at least one numerical character.</p>
-		  <div class="password_field">
-		    <%= form.label :password, "Choose password" %>
-		    <%= form.password_field :password %>
-		  </div>
-		  <div class="password_field">
-		    <%= form.label :password_confirmation, "Confirm password" %>
-		    <%= form.password_field :password_confirmation %>
-		  </div>
-		  <div class="submit_field">
-		    <%= form.submit "Save this password", :class => 'btn' %>
-		  </div>
-		<% end %>
-  </div>
-</section>
+	<p>
+	  Choose a new password below.
+	</p>
+
+	<%= semantic_form_for(:user,
+	             :url  => user_password_path(@user, :token => @user.confirmation_token),
+	             :html => { :method => :put }) do |form| %>
+	  <%=  form.errors %>
+		<p>Passwords must be between 6 and 15 characters long.  They must contain both upper and lower case characters and at least one numerical character.</p>
+	  <div class="password_field">
+	    <%= form.label :password, "Choose password" %>
+	    <%= form.password_field :password %>
+	  </div>
+	  <div class="password_field">
+	    <%= form.label :password_confirmation, "Confirm password" %>
+	    <%= form.password_field :password_confirmation %>
+	  </div>
+	  <div class="submit_field">
+	    <%= form.submit "Save this password", :class => 'btn' %>
+	  </div>
+	<% end %>
+ </div>
