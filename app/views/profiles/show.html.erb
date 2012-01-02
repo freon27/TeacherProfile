@@ -1,3 +1,51 @@
-<section class="span-14">
-	<%= raw(@introduction) %>
-</section>
+<div class="row">
+	<div class="row">
+		<section class="span-11">
+			<h2>About Me</h2>
+			<div class="block-text"><%= image_tag(@profile_presenter.photo.url(:medium)) if @profile_presenter.photo %><%= raw(@profile_presenter.introduction) %></p>
+		</section>
+		<section class="span-11 push-2 last">
+			<h2>Teaching Philosophy</h2>
+			<div class="block-text"><%= raw(@profile_presenter.philosophy) %></p>
+		</section>
+</div>
+
+<div class="row">
+	<section class="span-11">
+		<h2>Experience</h2>
+		<ul class="experience">
+			
+			<% for position in @profile_presenter.positions %>
+			<li>
+				<h3 class="location"><Chapel en le Frith High School><%= position.location %></h3>
+				<h3 class="position-type"><%= position.position_type %></h3>
+				<h4 class="date"><%= position.date_from and position.date_from.strftime("%B %Y") %> - <%= position.date_to and position.date_to.strftime("%B %Y") or 'Present' %></h4>
+				<p class="block-text">
+					<%= position.description %>
+				</p>
+			</li>
+			<% end %>
+		</ul>
+	</section>
+
+	<section class="span-11 push-2 last">
+		<h2>Qualifications</h2>
+		<ul class="qualifications">
+			<% for qualification in @profile_presenter.qualifications %>
+			<li>
+				<h3 class="location"><%= qualification.location %></h3>
+				<h4 class="date"><%= qualification.date_from and qualification.date_from.strftime("%B %Y") %> - <%= qualification.date_to and qualification.date_to.strftime("%B %Y") or 'Present' %></h4>
+				<table class="qualifications">
+					<% for subject in qualification.subjects %>
+					<tr>
+						<td class="subject"><%= subject.name %></td>
+						<td class="level"><%= subject.level %></td>
+						<td class="grade"><%= subject.grade or "-" %></td>
+					</tr>
+					<% end %>
+				</table>
+			</li>
+			<% end %>
+		</ul>
+	</section>
+</div>

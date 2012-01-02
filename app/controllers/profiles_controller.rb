@@ -16,8 +16,7 @@ class ProfilesController < ApplicationController
       @owner_email = @profile.user.email
       render :blocked
     end
-    @introduction = @profile.main_page.html_introduction
-    @page_name = 'About Me'
+    @profile_presenter = Profiles::ShowPresenter.new(@profile)
   end
   
   def new

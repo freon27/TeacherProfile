@@ -7,7 +7,8 @@
 		<%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 		<%= stylesheet_link_tag 'blueprint/plugins/sprites/sprite.css',  :media => 'screen' %>
 		<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-		<%= stylesheet_link_tag 'custom', :media => 'screen' %>
+		
+		<%= stylesheet_link_tag 'teacherprofile', :media => 'screen' %>
 		<%= stylesheet_link_tag 'jquery-ui-1.8.11.custom', :media => 'screen' %>
 		<%= stylesheet_link_tag 'jquery.lightbox-0.5', :media => 'screen' %>
 		<%= javascript_include_tag 'jquery.lightbox-0.5' %>
@@ -18,60 +19,52 @@
 	</head>
 	<body>
 		<% if signed_in? %>
-			<% if @subscribed == false && current_user == @profile.user %>
-				<div class="user-info helper">
-					<p class="warning">You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
-				</div>
-			<% end %>
-		<% end %>
-		<div class="container">
-			<header class="main span-32 last">
-				<div class="logo" id="display-logo">
-					<h1><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></h1>
-					<% if @profile.main_subject %>
-					<h3 id="teaching-subject"><%= @profile.main_subject %> Teacher</h3>
-					<% end %>
-					<h4><%=  @profile.user.email %></h4>
-				</div>
-				<nav id="navbar">
+		<div class="topbar">
+			<div class="container">
+				<nav>
+					<h4>Teaching Profile</h4>
 					<ul>
-						<li>
-							<%= link_to_unless_current('Introduction', @profile) {|link| content_tag 'span', link, :class => 'selected'} %>
-						</li>					
-						<% if @profile.philosophy_page.published? %>
-						<li>
-							<%= link_to_unless_current('Teaching Philosophy', @profile.philosophy_page) {|link| content_tag 'span', link, :class => 'selected'} %>
-						</li>
-						<% end%>
-						<% if @profile.experience_page.publish_positions? ||  @profile.experience_page.publish_qualifications?  %>
-						<li>
-							<%= link_to_unless_current('Experience', @profile.experience_page) {|link| content_tag 'span', link, :class => 'selected'} %>
-						</li>
-						<% end %>
-						<% if @profile.sample_work_page.published?  %>
-						<li>
-							<%= link_to_unless_current('Sample Work', @profile.sample_work_page) {|link| content_tag 'span', link, :class => 'selected'} %>
-						</li>
-						<% end %>
-						
 						<% if signed_in? && current_user == @profile.user %>
 						<li>
-							<%= link_to 'Edit this profile', {:action => 'edit'}, :class => 'btn' %>
+							<%= link_to 'Edit this profile', {:action => 'edit'} %>
 						</li>
-						<% end %>
+						<li>
+							<%= link_to 'Dashboard', dashboard_user_path(current_user) %>
+						</li>
+						<li>
+							<%= link_to 'Account', edit_user_path(current_user) %>
+						</li>
+						<li>
+							<%= link_to 'Sign Out', sign_out_path %>
+						</li>
 					</ul>
 				</nav>
-			</header>		
-		<div id="main-body" class="span-24 last">
-			
-			<div class="span-5" id="profile-sidebar">
-				<% if @page_name %><h2><%= @page_name %></h2><% end %>
-				<%= render :partial => @side_bar_name  if @side_bar_name %>
+				<% end %>
+				<% if @subscribed == false && current_user == @profile.user %>
+					<p class="warning">You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
+				<% end %>
 			</div>
-			<div id="central-body" class="span-18 last">
-				<section class="push-1 span-16 last">
-					<%= yield %>
-				</section>
+		</div>
+		<% end %>
+
+			<header>
+				<div class="masthead">
+					<div class="details">
+						<h1><%= "#{ @profile.user.first_name} #{ @profile.user.last_name}" %></h1>
+						<% if @profile.main_subject %>
+						<h2 class="teacher-type"><%= @profile.main_subject %> Teacher</h2>
+						<% end %>
+						<h2><a href="mailto:><%=  @profile.user.email %>">Email: <%=  @profile.user.email %></a></h2>
+					</div>
+					<nav>
+						<%= link_to_unless_current('About Me', @profile) {|link| content_tag 'span', link, :class => 'selected'} %>
+						<%= link_to_unless_current('Sample Work', @profile.sample_work_page) {|link| content_tag 'span', link, :class => 'selected'} %>
+					</nav>
+				</div>
+			</header>
+			
+			<div class="container">
+				<%= yield %>
 			</div>
 			<div id="footer" class="span-24 last">
 				<p>Got a problem?  Email us on freon27@gmail.com for help.</p>

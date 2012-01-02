@@ -4,7 +4,7 @@ class PhilosophyPagesController < ApplicationController
 
   def show
     @philosophy_page = PhilosophyPage.find(params[:id])
-    @philosophy = BlueCloth::new(@philosophy_page.philosophy).to_html
+    @philosophy = RDiscount.new(@philosophy_page.philosophy).to_html
     @page_name = 'My Teaching Philosophy'
     @profile = @philosophy_page.profile
   end

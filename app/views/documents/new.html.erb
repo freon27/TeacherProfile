@@ -1,9 +1,8 @@
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Upload Document</h2>
-	<div class="content round-bottom">
-		<%= semantic_form_for([@project, @document], :html => { :multipart => true }) do |form| %>
-		  <%= render :partial => 'form', :object => form %>
-		  <%= form.submit 'Upload', :class => 'btn positive' %>
-		<% end %>
-	</div>
-</section>
+
+<h2 class=" banner round-top">Upload Document</h2>
+<div class="content round-bottom">
+	<%= semantic_form_for([@project, @document], :html => { :multipart => true }) do |form| %>
+	  <%= render :partial => 'form', :object => form %>
+	  <%= form.submit 'Upload', :class => 'btn positive' %>
+	<% end %>
+</div>

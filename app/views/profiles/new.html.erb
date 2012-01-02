@@ -1,12 +1,12 @@
 
-
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Create Profile</h2>
-	<div class="content round-bottom">
+<h2 class=" banner round-top">Create Profile</h2>
+<div class="content round-bottom">
 
 <%= semantic_form_for @profile do |form| %>
-  <%= render :partial => '/profiles/form', :object => form %>
-  <%= form.submit 'Create' %>
+ <%= render :partial => '/profiles/form', :object => form %>
+ <nav class="action-bar">
+	<%= form.submit 'Create', :class => 'btn' %>
+</nav>
 <% end %>
 
-</section>
+

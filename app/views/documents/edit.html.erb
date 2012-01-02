@@ -1,15 +1,14 @@
-<section class="push-1 span-15 last round-top">
-	<h2 class=" banner round-top">Edit Document Details</h2>
-	<div class="content round-bottom">
-		<%= semantic_form_for([@project, @document]) do |form| %>
-		  <%= form.inputs do %>
-			  <%= form.input :caption %>
-				<%= form.input :description %>
-      <% end %>
-			
-		  <%= form.submit 'Update', :class => 'btn positive' %>
-		<% end %>
-			<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn' %>
-			<%= link_to 'Back', :back %>
-	</div>
-</section>
+
+<h2 class=" banner round-top">Edit Document Details</h2>
+<div class="content round-bottom">
+	<%= semantic_form_for([@project, @document]) do |form| %>
+	  <%= form.inputs do %>
+		  <%= form.input :caption %>
+			<%= form.input :description %>
+     <% end %>
+		
+	  <%= form.submit 'Update', :class => 'btn positive' %>
+	<% end %>
+		<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn' %>
+		<%= link_to 'Back', :back %>
+</div>
