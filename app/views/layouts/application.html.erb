@@ -26,7 +26,7 @@
 				<h4>Teaching Profile</h4>
 				<ul>
 					<% if signed_in? %>
-					<% if @profile %>
+					<% if @profile and ! @profile.new_record? %>
 					<li>
 						<%= link_to 'View Profile', profile_path(@profile) %>
 					</li>
@@ -56,8 +56,8 @@
 		<header>
 			<div class="masthead">
 				<!-- <div class="logo">
-						<h1>Teaching Profile</h1>
-					</div> -->
+				 	<%= image_tag('tp_logo.png') %>
+				</div> -->
 			</div>
 		</header>
 		

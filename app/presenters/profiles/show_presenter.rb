@@ -1,3 +1,5 @@
+
+
 class Profiles::ShowPresenter
   
   def initialize(profile)
