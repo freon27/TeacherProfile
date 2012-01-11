@@ -10,12 +10,11 @@
 	    <%= form.label :password %>
 	    <%= form.password_field :password %>
 	  </div>
-	  <div class="submit_field">
+		<nav class="action-bar">
 	    <%= form.submit "Sign in", :class => 'btn' %>
-	  </div>
+			<%= link_to "Forgotten your password?", new_password_path %>
+		</nav>
+		
 	<% end %>
-	<nav>
-		<%= link_to "Forgotten your password?", new_password_path %>
-	</nav>
-</div>
+		</div>
 

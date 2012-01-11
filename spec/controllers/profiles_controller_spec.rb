@@ -16,19 +16,11 @@ describe ProfilesController do
     
     describe "GET show" do
       
-      it "should assign the profile as @profile" do
+      it "should assign the profile presenter as @profile_presenter" do
         get :show, :id => @example_profile.id
-        assigns(:profile).should == @example_profile
+        assigns(:profile_presenter).should be_a Profiles::ShowPresenter
       end
       
-      it "should assign the html version of the introduction as @introduction" do
-        get :show, :id => @example_profile.id
-        assigns(:introduction).should == @example_profile.main_page.html_introduction
-      end
-      it "should assign the page title as @page_name" do
-        get :show, :id => @example_profile.id
-        assigns(:page_name).should == 'About Me'
-      end
     end
     
     describe "GET new" do
@@ -215,6 +207,7 @@ describe ProfilesController do
           Timecop.travel(4.weeks.from_now)
           get 'show', :id => @example_profile
           response.should render_template(:blocked)
+          Timecop.return
         end
       end
     end

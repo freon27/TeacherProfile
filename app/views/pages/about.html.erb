@@ -1,6 +1,12 @@
 	<div class="marketing-banner">
-		<%= image_tag('tp-laptop.png', :alt => 'Fast. Simple. Effective.') %>
+		<%= image_tag('tp-laptop.png', :alt => 'Fast. Simple. Effective.') %>	
 	</div>
+	<div>
+		<%= link_to 'Register Now', sign_up_path, :class => 'register btn success' %>
+		<%= link_to 'Sign In', sign_in_path, :class => 'register btn info' %>
+		<br class="clearfix" />
+	</div>
+
 	<section>
 		<h2>What is TeachingProfile?</h2>
 		<p>TeachingProfile is a web application designed to help teachers create simple and attractive online showcase portfolios including sample lessons or projects.</p>

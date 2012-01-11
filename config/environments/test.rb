@@ -34,6 +34,6 @@ Teacherprofile::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Tell paperclip where imagemagick is installed
-  Paperclip.options[:command_path] = "/opt/local/bin"  
+  Paperclip.options[:command_path] = "/opt/local/bin"
   
 end

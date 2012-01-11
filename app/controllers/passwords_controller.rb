@@ -3,7 +3,7 @@ class PasswordsController < Clearance::PasswordsController
   before_filter :common_setup
 
   def edit
-    @user = current_user || @user = ::User.find_by_id_and_confirmation_token(
+    @user = current_user || @user = User.find_by_id_and_confirmation_token(
                    params[:user_id], params[:token])
     render :template => 'passwords/edit'
   end

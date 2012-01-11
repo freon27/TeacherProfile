@@ -10,8 +10,16 @@
 	<%= semantic_form_for(:user,
 	             :url  => user_password_path(@user, :token => @user.confirmation_token),
 	             :html => { :method => :put }) do |form| %>
-	  <%=  form.errors %>
 		<p>Passwords must be between 6 and 15 characters long.  They must contain both upper and lower case characters and at least one numerical character.</p>
+		<% if @user.errors.any? %>
+		<div id="error_explanation">
+		  <ul>
+		  <% @user.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+		<% end %>
 	  <div class="password_field">
 	    <%= form.label :password, "Choose password" %>
 	    <%= form.password_field :password %>

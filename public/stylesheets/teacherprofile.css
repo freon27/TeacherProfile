@@ -75,9 +75,13 @@ header {
 	margin-bottom: 36px;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#00699E), to(#006191));
 	background-image: -webkit-linear-gradient(#00699E, #006191);
+	background: -moz-linear-gradient(top,  #00699E,  #006191);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00699E', endColorstr='#006191');
 	padding: 12px;
 	background-color: #00699E;
 	-webkit-box-shadow: 4px 4px 4px #CCC;
+	-moz-box-shadow:    4px 4px 4px #CCC;
+  	box-shadow:         4px 4px 4px #CCC;
 	height: 150px;
 }
 
@@ -101,6 +105,13 @@ div.masthead, div.topbar div.container {
 	margin: auto;
 }
 
+div.logo {
+	height: 100%;
+/*	background-image: url(/images/tp_logo.png);*/
+	background-repeat: no-repeat;
+	background: transparent url(/images/tp_logo.png) no-repeat left/bottom;
+}
+
 div.topbar div.container {
 	height: 40px;
 	padding: 8px;
@@ -110,6 +121,8 @@ div.topbar {
 	height: 40px;
 	background-image: -webkit-linear-gradient(top, #333333, #222222);
 	background-image: -webkit-gradient(linear, left top, left bottom, #333333, #222222);
+	background: -moz-linear-gradient(top,  #333333,  #222222);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222');
 }
 
 div.topbar h4 {
@@ -151,6 +164,8 @@ header nav span.selected {
 	background-color: whiteSmoke;
 	border-radius: 15px;	
 	-webkit-box-shadow: 4px 4px 4px #005078;
+	-moz-box-shadow:    4px 4px 4px #005078;
+  	box-shadow:         4px 4px 4px #005078;
 	text-shadow: none;
 }
 
@@ -348,6 +363,7 @@ textarea {
 
 input[type=text], input[type=password], input[type=email], input[type=checkbox], .customStyleSelectBox, .file-chooser  {
   line-height: 2.5em;
+  height: 36px;
 }
 
 input[type=text], input[type=password], input[type=email], input[type=checkbox], textarea, .customStyleSelectBox, .file-chooser {
@@ -355,12 +371,13 @@ input[type=text], input[type=password], input[type=email], input[type=checkbox],
   -webkit-border-radius: 5px;
   border-radius:         5px;
   border: 1px solid #BBB;
-  font-size: larger;
+  font-size: 14px;
   padding: 0 1em 0 1em;
   margin-bottom: 12px;
   -moz-box-shadow: inset 5px 5px 5px #EEE;
   -webkit-box-shadow: inset 5px 5px 5px  #EEE;
   box-shadow: inset 5px 5px 5px #EEE;
+  
 }
 
 
@@ -441,6 +458,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, sel
     -webkit-box-shadow: 0 0 5px #7bd9d4, inset 5px 5px 5px #EEE; 
     -moz-box-shadow: 0 0 5px #7bd9d4, inset 5px 5px 5px #EEE;
 }
+
 
 p.side-hint {
 	float: right;
@@ -705,13 +723,13 @@ div#footer {
 	margin-top: 100px;
 	text-align: center;
 	border-top: 1px solid #CCC;
-	background: transparent url(/images/footer_fade.png) repeat-x;
+	background: transparent url(/images/footer_fade.png) no-repeat top center;
 }
 
 /* ++++++++++++ footer ++++++++++++ */
 
 div.publication-form, div.marketing-banner {
-	margin: 36px 0;
+	margin: 12px 0;
 	background-color: whiteSmoke;
 	padding: 12px 12px 12px 24px;
 	-moz-border-radius:    5px;
@@ -721,12 +739,30 @@ div.publication-form, div.marketing-banner {
 	color: #404040;
 }
 
+div.publication-form {
+	margin-bottom: 36px;
+}
+
+div.marketing-banner img {
+	margin-bottom: 48px;
+}
+
+a.register {
+	line-height: 2;
+	float: right;
+	font-size: 1.5em;
+	-moz-border-radius:    5px !important;
+	-webkit-border-radius: 5px !important;
+	border-radius:         5px !important;
+	margin-left: 12px;
+}
+
 div.publication-form p{
 	display: inline;
 }
 
 div.marketing-banner {
-	padding: 52px !important;
+	padding: 36px !important;
 }
 
 div.marketing-banner img {
@@ -774,6 +810,11 @@ table.experience-table td {
 
 ul.experience-list li {
 	margin: 36px 0 !important;
+}
+
+p.location {
+	font-weight: bold;
+	margin-bottom: 0;
 }
 
 

@@ -18,6 +18,7 @@ role :web, "rails-trial-140.1steasy.net" # EDIT THIS TO MATCH YOUR DOMAIN
 role :db,  "rails-trial-140.1steasy.net", :primary => true # EDIT THIS TO MATCH YOUR DOMAIN
 
 set :keep_releases, 3
+after 'deploy:restart', 'deploy:cleanup'
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 set :repository, "git@github.com:freon27/TeacherProfile.git"  # Your clone URL

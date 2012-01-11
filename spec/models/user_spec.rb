@@ -57,6 +57,7 @@ describe User do
       Timecop.freeze
       @new_user = Factory(:user)
       @new_user.subscribed_until.should == 1.week.from_now
+      Timecop.return
     end
   end
   describe "subscribed? method" do
@@ -72,6 +73,7 @@ describe User do
       it "should return true" do
         Timecop.travel(@user.subscribed_until + 7)       
         @user.subscribed?.should_not be_true
+        Timecop.return
       end
     end 
   end
