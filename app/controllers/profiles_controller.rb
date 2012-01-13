@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     if params[:profile_url]
       @profile = Profile.find_by_url_suffix(params[:profile_url])
     else 
-      @profile = Profile.find(params[:id])
+      @profile = Profile.find(params[:id], :include => [:main_page, :philosophy_page])
     end
     @subscribed = @profile.user.subscribed?
     if ! @subscribed && current_user != @profile.user
