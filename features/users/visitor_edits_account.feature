@@ -8,8 +8,8 @@ Feature: Edit Account
     Given I am signed up as "email@person.com/Password1"
     When I sign in as "email@person.com/Password1"
     Then I should be signed in
-    And I should see "Edit Account"
-    When I follow "Edit Account"
+    And I should see "Account"
+    When I follow "Account"
     Then I should see "Editing your account"
     When I fill in "First name" with "Test"
     And I fill in "Last name" with "User"
@@ -21,8 +21,8 @@ Feature: Edit Account
     Given I am signed up as "email@person.com/Password1"
     When I sign in as "email@person.com/Password1"
     Then I should be signed in
-    And I should see "Edit Account"
-    When I follow "Edit Account"
+    And I should see "Account"
+    When I follow "Account"
     Then I should see "Editing your account"
     When I fill in "First name" with ""
     And I fill in "Last name" with ""

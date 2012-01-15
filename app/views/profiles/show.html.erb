@@ -2,7 +2,7 @@
 	<div class="row">
 		<section class="span-11">
 			<h2>About Me</h2>
-			<div class="block-text"><%= image_tag(@profile_presenter.photo.url(:medium)) if @profile_presenter.photo %><%= raw(@profile_presenter.introduction) %></p>
+			<div class="block-text"><%= image_tag(@profile.photo.url(:medium)) if @profile.photo.url(:medium) %><%= raw(@profile_presenter.introduction) %></p>
 		</section>
 		<section class="span-11 push-2 last">
 			<h2>Teaching Philosophy</h2>

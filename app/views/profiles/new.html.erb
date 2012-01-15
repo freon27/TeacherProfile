@@ -2,7 +2,7 @@
 <h2 class=" banner round-top">Create Profile</h2>
 <div class="content round-bottom">
 
-<%= semantic_form_for @profile do |form| %>
+<%= semantic_form_for @profile, :html => { :multipart => true }  do |form| %>
  <%= render :partial => '/profiles/form', :object => form %>
  <nav class="action-bar">
 	<%= form.submit 'Create', :class => 'btn' %>

@@ -1,5 +1,7 @@
 
 Factory.define :profile do |prof|
+  include ActionDispatch::TestProcess
+  prof.photo         fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
   prof.name         'Profile A'
   prof.published    false
   prof.association  :user

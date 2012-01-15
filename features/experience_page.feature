@@ -12,7 +12,7 @@ Feature: Experience Page
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     When I follow "Edit"
-    Then I should see "Experience" within "#profile-sidebar"
+    Then I should see "Experience" within ".sidebar"
     When I follow "Experience"
     Then I should see "You don't currently have any previous experience listed."
     When I follow "Add Position"
@@ -28,7 +28,7 @@ Feature: Experience Page
     When I go to the sign in page
     And I sign in as "email@person.com/Password1"
     When I follow "Edit"
-    Then I should see "Experience" within "#profile-sidebar"
+    Then I should see "Experience" within ".sidebar"
     When I follow "Experience"
     Then I should see "You don't currently have any previous experience listed."
     When I follow "Add Position"
@@ -42,7 +42,7 @@ Feature: Experience Page
 		When I go to the sign in page
 	  And I sign in as "email@person.com/Password1"
 	  When I follow "Edit"
-	  Then I should see "Experience" within "#profile-sidebar"
+	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"
 	  When I follow "Add Position"
 	  And I fill in "Location" with "School A"
@@ -66,7 +66,7 @@ Feature: Experience Page
 		When I go to the sign in page
 	  And I sign in as "email@person.com/Password1"
 	  When I follow "Edit"
-	  Then I should see "Experience" within "#profile-sidebar"
+	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"	
 	  And I follow "Add a new place"
 	  And I fill in "Location" with "School B"
@@ -87,7 +87,7 @@ Feature: Experience Page
 		When I go to the sign in page
 	  And I sign in as "email@person.com/Password1"
 	  When I follow "Edit"
-	  Then I should see "Experience" within "#profile-sidebar"
+	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"	
 	  And I follow "Add a new place"
 	  And I fill in "Location" with "School B"

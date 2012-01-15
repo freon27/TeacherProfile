@@ -55,8 +55,8 @@ describe Profile do
       end
     end
   end
-  describe "associated pages" do
-    it "should create an associated a main page" do
+  describe "associations" do
+    it "should have main page" do
       @profile.main_page.should be_a(MainPage)
     end
     it "should have a philosophy page" do
@@ -68,5 +68,14 @@ describe Profile do
     it "should have a sample work page" do
       @profile.sample_work_page.should be_a(SampleWorkPage)
     end
+  end
+  
+  describe "attached photo" do
+    it { should have_attached_file(:photo) }
+    # it { should validate_attachment_content_type(:photo).
+    #               allowing('image/png', 'image/gif').
+    #               rejecting('text/plain', 'text/xml') }
+    # it { should validate_attachment_size(:photo).
+    #               less_than(2.megabytes) }
   end
 end

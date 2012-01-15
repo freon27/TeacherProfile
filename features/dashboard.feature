@@ -14,6 +14,7 @@ Feature: Dashboard
     When I fill in "Name" with "Profile A"
 		And I fill in "Profile URL" with "profile A"
 		And I select "Science" from "Main subject"
+		And I attach the file "spec/files/test.png" to "Photo"
     And press "Create"
     Then I should see "Profile A" within "td"
     

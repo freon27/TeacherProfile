@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111022093952) do
+ActiveRecord::Schema.define(:version => 20120113122032) do
 
   create_table "documents", :force => true do |t|
     t.string   "caption"
@@ -109,6 +110,10 @@ ActiveRecord::Schema.define(:version => 20111022093952) do
     t.integer  "philosophy_page_id"
     t.integer  "experience_page_id"
     t.integer  "sample_work_page_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.date     "photo_file_size"
+    t.integer  "photo_updated_at"
   end
 
   add_index "profiles", ["experience_page_id"], :name => "index_profiles_on_experience_page_id"
@@ -188,7 +193,7 @@ ActiveRecord::Schema.define(:version => 20111022093952) do
     t.string   "salt",                  :limit => 128
     t.string   "confirmation_token",    :limit => 128
     t.string   "remember_token",        :limit => 128
-    t.datetime "subscribed_until",                     :default => '2011-10-08 11:04:39', :null => false
+    t.datetime "subscribed_until",                     :default => '2012-01-13 12:35:56', :null => false
     t.boolean  "admin",                                :default => false
   end
 

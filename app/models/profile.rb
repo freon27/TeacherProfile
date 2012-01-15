@@ -3,7 +3,11 @@ class Profile < ActiveRecord::Base
   MAX_PROFILES_LIMIT = 3
   SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
     
-  attr_accessible :name, :published, :url_suffix, :main_subject
+  has_attached_file :photo, :styles => { :medium => "200x200>"}, :convert_options => { :all => "-auto-orient" }
+  validates_attachment_size :photo, :less_than=>2.megabytes
+  validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  
+  attr_accessible :name, :published, :url_suffix, :main_subject, :photo
   
   belongs_to :user
   validates_inclusion_of :published, :in => [true, false]
@@ -13,7 +17,6 @@ class Profile < ActiveRecord::Base
   
   validates :url_suffix, :presence => true, :uniqueness => true
   validate  :validate_quota
-
 
 
   belongs_to :main_page, :dependent => :destroy
