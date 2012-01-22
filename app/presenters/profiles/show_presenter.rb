@@ -2,6 +2,7 @@
 
 class Profiles::ShowPresenter
   
+  extend ActiveSupport::Memoizable
   attr_accessor :profile
   
   def initialize(profile)
@@ -10,19 +11,20 @@ class Profiles::ShowPresenter
   end
   
   def introduction
-    @introduction ||= @profile.main_page.introduction ? RDiscount.new(@profile.main_page.introduction).to_html : ''
+    @profile.main_page.introduction ? RDiscount.new(@profile.main_page.introduction).to_html : ''
   end
   
   def philosophy
-    @philosophy ||= @profile.philosophy_page.philosophy ? RDiscount.new(@profile.philosophy_page.philosophy).to_html : ''
+    @profile.philosophy_page.philosophy ? RDiscount.new(@profile.philosophy_page.philosophy).to_html : ''
   end
   
   def qualifications
-    @qualifications ||= @profile.experience_page.qualifications
+   @profile.experience_page.qualifications
   end
   
   def positions 
-    @positions ||= @profile.experience_page.positions
+   @profile.experience_page.positions
   end
-    
+  
+  memoize :introduction, :philosophy, :qualifications, :positions
 end

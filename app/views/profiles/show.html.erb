@@ -2,12 +2,14 @@
 	<div class="row">
 		<section class="span-11">
 			<h2>About Me</h2>
-			<div class="block-text"><%= image_tag(@profile.photo.url(:medium)) if @profile.photo.url(:medium) %><%= raw(@profile_presenter.introduction) %></p>
+			<div class="block-text"><%= image_tag(@profile.photo.url(:medium)) if @profile.photo.url(:medium) %><%= truncate_html( raw(@profile_presenter.introduction), :length => 800, :omission => '... ' + link_to('read more', main_page_path(@profile.main_page), :remote => true, :class => 'modal')) %>
+			</div>
 		</section>
 		<section class="span-11 push-2 last">
 			<h2>Teaching Philosophy</h2>
 			<div class="block-text">
-				<%= raw(@profile_presenter.philosophy) %>
+				<%= truncate_html(raw(@profile_presenter.philosophy), :omission => '... ' + link_to('read more', philosophy_page_path(@profile.philosophy_page), :remote => true, :class => 'modal' )) %>
+			</div>
 		</section>
 </div>
 

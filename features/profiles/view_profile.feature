@@ -1,4 +1,4 @@
-@wip
+
 Feature: View Profile
 
 	In order to set up my profile
@@ -12,7 +12,7 @@ Feature: View Profile
 	And I sign in as "test@test.com/Password1"
 	And I am on the completed profile's page
 	Then I should see "First Last"
-	And I should see "Design & Technology Teacher"
+	And I should see "Primary Teacher"
 	And I should see "Edit this profile"
 	
 	Scenario: Viewing a profile without being logged in
@@ -20,7 +20,7 @@ Feature: View Profile
 	Then I should be signed out
 	And I am on the completed profile's page
 	Then I should see "First Last"
-	And I should see "Design & Technology Teacher"
+	And I should see "Primary Teacher"
 	And I should not see "Edit this profile"
-	
+
 	

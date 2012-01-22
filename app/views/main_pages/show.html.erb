@@ -1,3 +1,4 @@
-
-<h2>About Me</h2>
-<p class="block-text"><%= image_tag(@photo.photo.url(:medium)) if @photo %><%= @introduction %></p>
+<section class="span-24">
+	<h2>About Me</h2>
+	<p class="block-text"><%= raw(@profile_presenter.introduction) %></p>
+</section>

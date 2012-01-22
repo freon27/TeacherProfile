@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
   
   private
     def resolve_layout
-      if action_name == 'export'
+      if request.xhr?
+        nil
+      elsif  
+       action_name == 'export'
         'export'
       elsif action_name == 'show' && controller_name != 'pages'
         'display_profile'
@@ -15,4 +18,6 @@ class ApplicationController < ActionController::Base
         'application'
       end
     end
+    
+  
 end

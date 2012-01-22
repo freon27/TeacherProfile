@@ -6,6 +6,7 @@ class MainPagesController < ApplicationController
   def show
     @main_page = MainPage.find(params[:id])
     @profile = @main_page.profile
+    @profile_presenter = Profiles::ShowPresenter.new(@profile)
     @side_bar_name = get_sidebar_name
   end
 

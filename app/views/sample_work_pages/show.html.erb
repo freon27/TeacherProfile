@@ -1,7 +1,7 @@
 <div class="span-5 sidebar">
 	<ul>
 	<% for subject_area in @subject_areas %>
-		<li><h2><%= subject_area.name %></h2></li>
+		<li><h3><%= subject_area.name %></h3></li>
 		<li class="subject-area">
 			<ul>
 			<% for project in subject_area.projects %>
@@ -28,7 +28,7 @@
 			</p>
 			<ul class="gallery">
 				<% for photo in @display_project.photos %>
-			 	<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), photo.photo.url(:medium)) %></li>
+			 	<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), photo.photo.url(:medium), :class => 'gallery-link') %></li>
 				<% end %>
 			</ul>
 			<br class="clearfix" />

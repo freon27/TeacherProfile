@@ -223,7 +223,6 @@ div.row {
 }
 
 table.qualifications {
-	border-bottom: 1px solid #CCC;
 	border-top: 1px solid #CCC;
 }
 
@@ -826,4 +825,7 @@ p.location {
 	margin-bottom: 0;
 }
 
-
+.document-area {
+	margin-top: 36px;
+}
+}

@@ -1,4 +1,4 @@
-<section class="push-1 span-15 last round-top">
+<section class="span-15 last round-top">
 	<h2 class=" banner round-top">Edit Project</h2>
 	<div class="content round-bottom">
 		<%= semantic_form_for([@subject_area, @project]) do |form| %>
@@ -15,6 +15,7 @@
 			 		<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), edit_project_photo_path(@project.id, photo.id))  %></li>
 				<% end %>
 				</ul>
+				<br class="clearfix" />
 			<% end %>
 			<nav>
 				 <%= link_to 'Upload Image', new_project_photo_path(@project.id), :method => 'get', :class => 'ss_sprite ss_add' %>
@@ -25,13 +26,11 @@
 			<% if @documents.empty? %>
 			<p>No documents uploaded.</p>
 			<% else %>
-			<ul class="document-list">
+			<ul class="documents">
 			<% for document in @documents %>
-		 		<li>
-					<div class="file-box <%= content_type_to_string(document.document.content_type) %>">
-					<%=  link_to(document.caption, edit_project_document_path(@project.id, document.id))  %>
+		 		<li class="<%= content_type_to_string(document.document.content_type) %>">
+					<h4><%=  link_to(document.caption, edit_project_document_path(@project.id, document.id))  %></h4>
 					<p><em><%= document.description %></em></p>
-					</div>
 				</li>
 			<% end %>
 			</ul>

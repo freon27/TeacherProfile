@@ -1,6 +1,12 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-$(document).ready(function(){ $('input.ui-date-picker').datepicker({ changeYear: true, changeMonth: true, dateFormat: 'dd/mm/yy' }) });
+$(document).ready(function(){ 
+	$('input.ui-date-picker').datepicker({ changeYear: true, changeMonth: true, dateFormat: 'dd/mm/yy' }) 
+	// $('#view-philosophy').bind('ajax:complete', function(evt, data, status, xhr){
+	// 	$('#modal').html(data.responseText);
+	// 	$('#modal').dialog('open');
+	// });
+});
 
 $(document).ready(function() {
 	$('select').selectbox({debug: true});
@@ -9,8 +15,14 @@ $(document).ready(function() {
             $(this).remove(); //then remove from the DOM
         });
     });
-	$('.gallery a').lightBox(); 	
+	$('.modal').colorbox({ 
+		scrolling: true,
+		overlayClose: true
+	});
+	$('.gallery-link').colorbox({ rel: 'gallery-link'});
 });
+
+
 
 
 /*

@@ -16,6 +16,8 @@ gem 'jquery-rails', '>= 0.2.6'
 gem "formtastic"
 gem "clearance", "~> 0.10.3.2"
 gem "capistrano"
+gem "truncate_html"
+
 
 #rance", "~> 0.10.1"
 # Use unicorn as the web server

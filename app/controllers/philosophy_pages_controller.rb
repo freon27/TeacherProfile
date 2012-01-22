@@ -7,6 +7,10 @@ class PhilosophyPagesController < ApplicationController
     @philosophy = RDiscount.new(@philosophy_page.philosophy).to_html
     @page_name = 'My Teaching Philosophy'
     @profile = @philosophy_page.profile
+    respond_to do |format| 
+      format.html
+      format.js
+    end
   end
   
   def edit
