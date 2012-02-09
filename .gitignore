@@ -7,3 +7,5 @@ public/system/
 *~
 *.swp
 .sass-cache/
+vendor/bundle
+db/test.sqlite3-journal
