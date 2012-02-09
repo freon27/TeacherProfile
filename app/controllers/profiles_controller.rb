@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-  before_filter :authenticate, :except => [:show] 
+  before_filter :authorize, :except => [:show] 
   before_filter :common_setup, :except => [:show]
 
   def show

@@ -1,7 +1,6 @@
 
 Factory.define :profile do |prof|
-  include ActionDispatch::TestProcess
-  prof.photo         fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
+  prof.photo        File.new(Rails.root + 'spec/fixtures/test.png')
   prof.name         'Profile A'
   prof.published    false
   prof.association  :user
@@ -116,10 +115,9 @@ end
 
 
 Factory.define :document do |doc|
-  include ActionDispatch::TestProcess
   doc.caption         'This is what my file is'
   doc.description     'Here iss where I can give you little more information about my file'
-  doc.document        fixture_file_upload(Rails.root + 'spec/files/test.doc', 'application/msword')
+  doc.document        File.new(Rails.root + 'spec/fixtures/test.doc')
   doc.association     :project
   doc.after_build do |d|
     d.user = d.project.user
@@ -129,7 +127,7 @@ end
 Factory.define :photo do |photo|
   include ActionDispatch::TestProcess
   photo.caption         'This is what my file is'
-  photo.photo           fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
+  photo.photo           File.new(Rails.root + 'spec/fixtures/test.png')
   photo.association     :project
   photo.after_build do |p|
     p.user = p.project.user

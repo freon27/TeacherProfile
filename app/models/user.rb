@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   
  
   
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
-  
+  attr_accessible :email, :first_name, :last_name, :password, :accepted_terms
+
   has_many :profiles, :dependent => :destroy
   has_many :main_pages, :dependent => :destroy
   has_many :experience_pages, :dependent => :destroy
@@ -17,17 +17,22 @@ class User < ActiveRecord::Base
   has_many :subjects, :dependent => :destroy
   
   include Clearance::User
-  include Clearance::User::Validations
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,15}$/
-
+  password_regex = /^.{6,15}$/
+  
+  validates_acceptance_of :accepted_terms, 
+                          :on => :create, 
+                          :allow_nil => false,
+                          :message => 'You must accept the terms and conditions'
   validates :first_name,  :presence => true
   validates :last_name,   :presence => true
   validates :email,       :format => { :with => email_regex },
-                           :uniqueness => { :case_sensitive => false }
+                          :uniqueness => { :case_sensitive => false }
+  validates_presence_of   :password, :on => :create
   validates :password,    :format => { :with => password_regex },
-                           :unless => Proc.new { |user| user.password.blank? }
+                          :on => :create                        
+                         
   
   validates_presence_of :subscribed_until
 

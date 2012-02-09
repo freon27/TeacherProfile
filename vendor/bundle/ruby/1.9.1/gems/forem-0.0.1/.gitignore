@@ -1,0 +1,8 @@
+.bundle/
+pkg/
+*.sqlite3
+*.log
+.rvmrc
+*.gem
+*.gems
+tmp

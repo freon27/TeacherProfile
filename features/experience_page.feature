@@ -10,7 +10,7 @@ Feature: Experience Page
 		
   Scenario: Creating a position with valid data
     When I go to the sign in page
-    And I sign in as "email@person.com/Password1"
+    And I sign in with "email@person.com" and "Password1"
     When I follow "Edit"
     Then I should see "Experience" within ".sidebar"
     When I follow "Experience"
@@ -26,7 +26,7 @@ Feature: Experience Page
 
   Scenario: Creating a position with invalid data
     When I go to the sign in page
-    And I sign in as "email@person.com/Password1"
+    And I sign in with "email@person.com" and "Password1"
     When I follow "Edit"
     Then I should see "Experience" within ".sidebar"
     When I follow "Experience"
@@ -40,7 +40,7 @@ Feature: Experience Page
 	
   Scenario: Editing a position
 		When I go to the sign in page
-	  And I sign in as "email@person.com/Password1"
+	  And I sign in with "email@person.com" and "Password1"
 	  When I follow "Edit"
 	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"
@@ -64,7 +64,7 @@ Feature: Experience Page
 		
   Scenario: Editing a qualification
 		When I go to the sign in page
-	  And I sign in as "email@person.com/Password1"
+	  And I sign in with "email@person.com" and "Password1"
 	  When I follow "Edit"
 	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"	
@@ -85,7 +85,7 @@ Feature: Experience Page
 		
 	Scenario: Creating a subject
 		When I go to the sign in page
-	  And I sign in as "email@person.com/Password1"
+	  And I sign in with "email@person.com" and "Password1"
 	  When I follow "Edit"
 	  Then I should see "Experience" within ".sidebar"
 	  When I follow "Experience"	

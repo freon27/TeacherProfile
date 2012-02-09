@@ -30,7 +30,7 @@ describe PhotosController do
           before(:each) do
             @valid_attributes = {
               caption: 'test',
-              photo: fixture_file_upload(Rails.root + 'spec/files/test.png', 'image/png')
+              photo: fixture_file_upload('/test.png', 'image/png')
             }
           end
           it "should create a new project area" do

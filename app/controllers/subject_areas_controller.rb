@@ -1,6 +1,6 @@
 class SubjectAreasController < ApplicationController
   
-  before_filter :authenticate
+  before_filter :authorize
   
   def new
     @sample_work_page = get_sample_work_page(params[:sample_work_page_id])

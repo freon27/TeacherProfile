@@ -3,12 +3,15 @@
   <%= form.input :last_name %>
 	<%= form.input :email %>
 <% end %>
-<% if edit_password then %>
-<%= form.inputs do %>
-  <%= form.input :password %>
-  <%= form.input :password_confirmation, :hint => 'Passwords must be between 6 and 15 characters long.  They must contain both upper and lower case characters and at least one numerical character.' %>
-<% end %>
-<% else %>
-<%= form.hidden_field :password %>
-<%= form.hidden_field :password_confirmation %>
+<% if ['new', 'create'].include? controller.action_name %>
+	<%= form.inputs do %>
+	  <%= form.input :password %>
+	<% end %>
+	<%= form.inputs do %>
+		<%= form.input :accepted_terms,
+			:as => :boolean,
+			:label => "I confirm that I have read and accept the terms and conditions",
+			:hint => link_to('View Terms & Conditions', '/pages/terms')
+		%>
+	<% end %>
 <% end %>

@@ -1,6 +1,6 @@
 class ExperiencePagesController < ApplicationController
 
-  before_filter :authenticate, :except => [:show] 
+  before_filter :authorize, :except => [:show] 
   
   def show
     @page_name = 'Experience'

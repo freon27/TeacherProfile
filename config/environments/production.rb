@@ -49,4 +49,13 @@ Teacherprofile::Application.configure do
 
   # Tell paperclip where imagemagick is installed
   Paperclip.options[:command_path] = "/usr/bin"
+  
+  # Compress JavaScript and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 end

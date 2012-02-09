@@ -31,7 +31,7 @@ describe DocumentsController do
               @valid_attributes = {
                 caption: 'test',
                 description: 'this is a sample description',
-                document: fixture_file_upload(Rails.root + 'spec/files/test.doc', 'application/msword')
+                document: fixture_file_upload('/test.doc', 'application/pdf')
               }
           end
           it "should create a new project area" do

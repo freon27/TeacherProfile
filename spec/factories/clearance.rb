@@ -6,8 +6,8 @@ Factory.define :user do |user|
   user.first_name             { "First" }
   user.last_name              { "Last" }
   user.email                  { Factory.next :email }
-  user.password               { "Password1" }
-  user.password_confirmation  { |instance| instance.password }
+  user.password               { "password" }
+  user.accepted_terms         { "1" }
 end
 
 Factory.define :user_with_profile, :parent => :user do |u|

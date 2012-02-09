@@ -13,10 +13,10 @@
 
 Given(/^I am signed in as the owner of #{capture_model}$/) do |object|
   user = model!(object).user
-  When %{I go to the sign in page}
-  And %{I fill in "Email" with "#{ user.email }"}
-  And %{I fill in "Password" with "Password1"}
-  And %{I press "Sign in"}
+  step %{I go to the sign in page}
+  step %{I fill in "Email" with "#{ user.email }"}
+  step %{I fill in "Password" with "password"}
+  step %{I press "Sign in"}
 end
 
 Then(/^tell me about the #{capture_model}$/) do |object|

@@ -5,9 +5,9 @@ Feature: Edit Account
   I want to update my details
 
   Scenario: Valid details
-    Given I am signed up as "email@person.com/Password1"
-    When I sign in as "email@person.com/Password1"
-    Then I should be signed in
+    Given I am signed up as "email@example.com"
+		When I sign in as "email@example.com"
+		Then I should be signed in
     And I should see "Account"
     When I follow "Account"
     Then I should see "Editing your account"
@@ -18,8 +18,8 @@ Feature: Edit Account
     Then I should see "Your account was saved successfully"
 
   Scenario: Invalid details
-    Given I am signed up as "email@person.com/Password1"
-    When I sign in as "email@person.com/Password1"
+	  Given I am signed up as "email@example.com"
+		When I sign in as "email@example.com"
     Then I should be signed in
     And I should see "Account"
     When I follow "Account"

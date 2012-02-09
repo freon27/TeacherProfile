@@ -81,13 +81,7 @@ describe UsersController do
       describe "with valid params" do
   
         before do
-          @valid_params = {
-            'first_name'            => @user.first_name,
-            'last_name'             => @user.last_name,
-            'email'                 => Factory.next(:email),
-            'password'              => @user.password,
-            'password_confirmation' => @user.password
-          }
+          @valid_params = Factory.attributes_for(:user)
         end
         
         it "creates a new user" do
@@ -347,7 +341,7 @@ describe UsersController do
           date = 5.weeks.from_now
           put :update_subscription,  :id => @user.id, :user => { :subscribed_until => date }
           @user.reload
-          @user.subscribed_until.should == date
+          @user.subscribed_until.to_default_s.should == date.to_default_s
         end
         it "should redirect to the user index" do
           put :update_subscription,  :id => @user.id, :user => { :subscribed_until => 5.weeks.from_now }

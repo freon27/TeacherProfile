@@ -7,8 +7,10 @@
 			<%= form.input :description %>
      <% end %>
 		
-	  <%= form.submit 'Update', :class => 'btn positive' %>
+		<nav class="action-bar">
+	  	<%= form.submit 'Update', :class => 'btn positive' %>
+			<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn' %>
+			<%= link_to 'Back', :back %>		
+		</nav>
 	<% end %>
-		<%= button_to 'Delete', project_photo_path(@project.id, @document.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn' %>
-		<%= link_to 'Back', :back %>
 </div>

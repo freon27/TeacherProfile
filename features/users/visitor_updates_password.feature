@@ -5,24 +5,12 @@ Feature: Change password
   I want to change my password
 
   Scenario: Valid details
-    Given I am signed up as "email@person.com/Password1"
-    When I sign in as "email@person.com/Password1"
+    Given I am signed up as "email@example.com"
+    When I sign in as "email@example.com"
     When I follow "Account"
     Then I should see "Change Password"
     When I follow "Change Password"
     And I fill in "Choose password" with "NewPassword1"
-    And I fill in "Confirm password" with "NewPassword1"
     And I press "Save"
     Then I should see "Password updated"
 
-  Scenario: Mismatched/invalid passwords
-    Given I am signed up as "email@person.com/Password1"
-    When I sign in as "email@person.com/Password1"
-    When I follow "Account"
-    Then I should see "Change Password"
-    When I follow "Change Password"
-    And I fill in "Choose password" with "dsfsdf"
-    And I fill in "Confirm password" with "dsksdsfsdf"
-    And I press "Save"
-    Then I should see "Password doesn't match confirmation"
-    And I should see "Password is invalid"

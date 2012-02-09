@@ -101,7 +101,7 @@ end
 
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"(?: within "([^"]*)")?$/ do |path, field, selector|
   with_scope(selector) do
-    attach_file(field, path)
+    attach_file( field, File.join(Rails.root, 'spec', 'fixtures', path ))
   end
 end
 

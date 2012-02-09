@@ -6,10 +6,11 @@
 		  <%= form.inputs do %>
 			  <%= form.input :caption %>
 			<% end %>
-			
-		  <%= form.submit 'Update', :class => 'btn positive' %>
+			<nav class="action-bar">
+		  	<%= form.submit 'Update', :class => 'btn positive' %>
 		<% end %>
-			<%= button_to 'Delete', project_photo_path(@project.id, @photo.id), :method => :delete, :confirm => 'Do you really want to delete this photo?' %>
-			<%= link_to 'Back', :back %>
+		<%= button_to 'Delete', project_photo_path(@project.id, @photo.id), :method => :delete, :confirm => 'Do you really want to delete this photo?', :class => 'btn danger' %>
+		<%= link_to 'Back', :back %>
+			</nav>
 	</div>
 </section>

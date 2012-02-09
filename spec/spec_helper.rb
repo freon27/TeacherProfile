@@ -19,7 +19,7 @@ Spork.prefork do
   # in ./support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-  Rspec.configure do |config|
+  RSpec.configure do |config|
     # == Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -62,7 +62,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda-matchers'
-require 'clearance/shoulda_macros'
+require 'clearance/testing'
 require "paperclip/matchers"
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -86,6 +86,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   
-  config.include(Clearance::Shoulda::Helpers) 
+  #config.include(Clearance::Shoulda::Helpers) 
   config.include(Paperclip::Shoulda::Matchers) 
 end

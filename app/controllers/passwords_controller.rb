@@ -12,8 +12,7 @@ class PasswordsController < Clearance::PasswordsController
     @user = current_user || ::User.find_by_id_and_confirmation_token(
                    params[:user_id], params[:token])
 
-    if @user.update_password(params[:user][:password],
-                             params[:user][:password_confirmation])
+    if @user.update_password(params[:user][:password])
       sign_in(@user) unless signed_in? 
       flash_success_after_update
       redirect_to(url_after_update)
@@ -44,5 +43,9 @@ class PasswordsController < Clearance::PasswordsController
   private
     def common_setup 
       @side_bar_name = '/users/page_links'
+    end
+    
+    def url_after_update
+      dashboard_user_path(current_user)
     end
 end

@@ -110,7 +110,7 @@ describe ProjectsController do
         end
         it "should display the edit subject area page" do
           delete 'destroy', :subject_area_id => @subject_area.id, :id => @project.id
-          response.should redirect_to edit_sample_work_page_subject_area_path(@subject_area.sample_work_page.id, @subject_area.id)
+          response.should redirect_to edit_sample_work_page_path(@subject_area.sample_work_page.id  )
         end
       end
     end

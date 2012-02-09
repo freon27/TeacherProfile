@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :authenticate
+  before_filter :authorize
   
   def new
     @project = get_project(params[:project_id])

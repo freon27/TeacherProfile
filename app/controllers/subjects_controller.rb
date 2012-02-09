@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   
-  before_filter :authenticate
+  before_filter :authorize
   
   def new
     @qualification = get_qualification(params[:qualification_id])

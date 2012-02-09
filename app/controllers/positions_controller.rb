@@ -1,6 +1,6 @@
 class PositionsController < ApplicationController
 
-  before_filter :authenticate
+  before_filter :authorize
   before_filter :common_setup
   before_filter :user_owns_experience_page
   before_filter :user_owns_position, :except => [:new, :create]

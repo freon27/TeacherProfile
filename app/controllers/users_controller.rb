@@ -1,13 +1,18 @@
 class UsersController < Clearance::UsersController
 
-  before_filter :authenticate, :except => [:new, :create]
+  before_filter :authorize, :except => [:new, :create]
   before_filter :correct_user, :only => [:edit, :update, :show, :dashboard, :destroy]
   before_filter :require_admin, :only => [:index, :edit_subscription, :update_subscription]
-  
+
   
   def new
     @user = User.new
     @side_bar_name = get_side_bar
+  end
+  
+  def create
+    @side_bar_name = get_side_bar
+    super
   end
 
   def index

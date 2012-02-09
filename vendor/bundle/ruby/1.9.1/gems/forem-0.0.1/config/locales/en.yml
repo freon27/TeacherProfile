@@ -1,0 +1,23 @@
+en:
+  forem:
+    errors:
+      not_signed_in: You must sign in first.
+    forum:
+      topics_count:
+        zero: 0 topics
+        one: 1 topic
+        many: "%{count} topics"
+      posts_count:
+        zero: 0 posts
+        one: 1 post
+        many: "%{count} posts"
+    topic:
+      created: This topic has been created.
+      new: Creating a new topic
+      not_created: This topic could not be created.
+    post:
+      buttons:
+        reply: Post Reply
+      created: Your reply has been posted.
+      new: Posting a reply
+      not_created: Your reply could not be posted.

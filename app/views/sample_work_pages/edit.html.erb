@@ -16,16 +16,22 @@
 		<% if @subject_areas.length > 0 %>
 		<table class="subject-area experience-table">
 			<tr class="header-row">
-				<th>Subject area</th>
-				<th></th>
-				<th></th>
+				<th colspan="4">Subject area</th>
 			</tr>
 		<% for sa in @subject_areas %>
 			<tr>
-				<td><%= sa.name %></td>
+				<td class="subject_area"><%= sa.name %></td>
+				<td><%= link_to 'Add Project', new_subject_area_project_path(sa.id), :method => 'get', :class => 'ss_sprite ss_add' %></td>
 				<td><%= link_to 'Edit', edit_sample_work_page_subject_area_path(@sample_work_page.id, sa.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
 				<td><%= link_to 'Delete', sample_work_page_subject_area_path(@sample_work_page.id, sa.id), :confirm => "Delete this subject area?", :method => 'delete', :class => 'ss_sprite ss_delete' %></td>
 			</tr>
+			<% for proj in sa.projects %>
+				<tr class="project" id="project-#{ proj.id }">
+					<td class="project-name" colspan="2">- <%= proj.name %></td>
+					<td><%= link_to 'Edit', edit_subject_area_project_path(sa.id, proj.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
+					<td><%= link_to 'Delete', subject_area_project_path(sa.id, proj.id), :confirm => "Delete this project?", :method => 'delete', :class => 'ss_sprite ss_delete' %></td>
+				</tr>
+			<% end %>
 		<% end %>
 		</table>
 		<nav class="table-base">

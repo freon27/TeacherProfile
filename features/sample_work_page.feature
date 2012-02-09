@@ -8,7 +8,7 @@ Feature: Sample Work Page
    Given a user exists with email: "email@person.com", password: "Password1"	
 	 And profile exists with name: "Profile A", user: the first user
    And I go to the sign in page
-   And I sign in as "email@person.com/Password1"
+   And I sign in with "email@person.com" and "Password1"
 	 And I am on the profile edit page
   
 	Scenario: Creating a subject area with valid data

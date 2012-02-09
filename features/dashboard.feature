@@ -5,16 +5,16 @@ Feature: Dashboard
   I want to be shown a dashboard view of my account
   
   Scenario: Logs in for the first time
-    Given I am signed up as "email@person.com/Password1"
+    Given I am signed up as "email@person.com"
     When I go to the sign in page
-    And I sign in as "email@person.com/Password1"
+    And I sign in with "email@person.com" and "password"
     Then I should see "Lets create your first teaching profile!"
     When I follow "Create profile"
     Then I should see "Create Profile"
     When I fill in "Name" with "Profile A"
 		And I fill in "Profile URL" with "profile A"
 		And I select "Science" from "Main subject"
-		And I attach the file "spec/files/test.png" to "Photo"
+		And I attach the file "test.png" to "Photo"
     And press "Create"
     Then I should see "Profile A" within "td"
     
@@ -26,7 +26,7 @@ Feature: Dashboard
     | Profile B  | the first user |
     | Profile C  | the first user |
     When I go to the sign in page
-    And I sign in as "email@person.com/Password1"
+    And I sign in with "email@person.com" and "Password1"
     Then I should not see a "Create" button
     
 
@@ -38,6 +38,6 @@ Feature: Dashboard
 	  | Profile B  | the first user |
 	  | Profile C  | the first user |
     When I go to the sign in page
-    And I sign in as "email@person.com/Password1"
+    And I sign in with "email@person.com" and "Password1"
     When I follow "Edit"
     Then I should see "Edit Profile"

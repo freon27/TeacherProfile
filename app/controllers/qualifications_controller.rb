@@ -1,6 +1,6 @@
 class QualificationsController < ApplicationController
 
-  before_filter :authenticate
+  before_filter :authorize
 
   def show
     @experience_page = get_experience_page(params[:experience_page_id])

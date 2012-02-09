@@ -1,6 +1,6 @@
 class SampleWorkPagesController < ApplicationController
   
-  before_filter :authenticate
+  before_filter :authorize
   
   def show
     @sample_work_page = get_sample_work_page(params[:id])
@@ -13,7 +13,7 @@ class SampleWorkPagesController < ApplicationController
   
   def edit 
     @sample_work_page = get_sample_work_page(params[:id])
-    @subject_areas = @sample_work_page.subject_areas
+    @subject_areas = @sample_work_page.subject_areas.includes(:projects)
     @side_bar_name = 'profiles/page_links'
     @profile = @sample_work_page.profile 
   end

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :authenticate
+  before_filter :authorize
   
   def show
     @subject_area = get_subject_area(params[:subject_area_id])
@@ -21,10 +21,12 @@ class ProjectsController < ApplicationController
   def create
     @subject_area = get_subject_area(params[:subject_area_id])
     @project = @subject_area.projects.build(params[:project])
+    @profile = @subject_area.sample_work_page.profile
     @project.user = current_user
     if @project.save
       redirect_to edit_subject_area_project_path(@subject_area, @project), :notice => 'Created'
     else
+      @side_bar_name = get_sidebar
       render :new
     end
   end
@@ -58,7 +60,7 @@ class ProjectsController < ApplicationController
     @side_bar_name = get_sidebar
     @profile = get_profile(@subject_area)
     @project.destroy
-    redirect_to edit_sample_work_page_subject_area_path(@subject_area.sample_work_page.id, @subject_area.id), :notice => 'Deleted'
+    redirect_to edit_sample_work_page_path(@subject_area.sample_work_page.id), :notice => 'Deleted'
   end
   
   private

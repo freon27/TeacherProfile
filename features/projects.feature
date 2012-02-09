@@ -15,8 +15,6 @@ Feature: Projects
 		Then I should see "New Subject Area"
 		When I fill in "Name" with "Systems and Control"
 		And I press "Create"
-		And I follow "Edit"
-		Then I should see "This subject area currently has no projects. Why not create one now?"
 		When I follow "Add Project"
 		And I fill in "Name" with "Project A"
 		And I fill in "Description" with "This is my example project"
@@ -30,9 +28,8 @@ Feature: Projects
 		And a project exists with subject_area: the first subject_area, name: "Project A"
 		And I am signed in as the owner of the subject area
 		And I am on the sample_work_page edit page
-		And I follow "Edit"
 		Then I should see "Project A"
-		When I follow "Edit"
+		When I follow "Edit" within "tr.project"
 		Then I should see "Edit Project"
 		When I fill in "Name" with ""
 		And I press "Update"
@@ -47,12 +44,10 @@ Feature: Projects
 		And a subject area exists with sample_work_page: the first sample_work_page
 		And a project exists with subject_area: the first subject_area, name: "Project A"
 		And I am signed in as the owner of the subject area
-		And I am on the sample_work_page edit page
-		And I follow "Edit"
+		And I am on the sample_work_page edit page	
 		Then I should see "Project A"
-		When I follow "Delete"
+		When I follow "Delete" within "tr.project"
 		Then I should see "Deleted"
-		And I should see "Edit Subject Area"
 		And I should not see "Project A"
 		
 	Scenario: Managing photos
@@ -60,15 +55,14 @@ Feature: Projects
 		And a subject area exists with sample_work_page: the first sample_work_page
 		And a project exists with subject_area: the first subject_area, name: "Project A"
 		And I am signed in as the owner of the subject area
-		And I am on the sample_work_page edit page
-		And I follow "Edit"
+		And I am on the first sample_work_page edit page
 		Then I should see "Project A"
-		When I follow "Edit"
+		When I follow "Edit" within "tr.project"
 		Then I should see "Edit Project"
 		And I should see "No images uploaded"
 		When I follow "Upload Image"
 		And I fill in "Caption" with "This is a photo"
-		And I attach the file "spec/files/test.png" to "File"
+		And I attach the file "test.png" to "File"
 		And I press "Upload"
 		Then I should see "Uploaded"
 		When I follow image link "This is a photo"
@@ -87,14 +81,13 @@ Feature: Projects
 			And a project exists with subject_area: the first subject_area, name: "Project A"
 			And I am signed in as the owner of the subject area
 			And I am on the sample_work_page edit page
-			And I follow "Edit"
 			Then I should see "Project A"
-			When I follow "Edit"
+			When I follow "Edit" within "tr.project"
 			Then I should see "Edit Project"
 			And I should see "No documents uploaded"
 			When I follow "Upload Document"
 			And I fill in "Caption" with "This is a document"
-			And I attach the file "spec/files/test.doc" to "File"
+			And I attach the file "test.doc" to "File"
 			And I press "Upload"
 			Then I should see "Uploaded"
 

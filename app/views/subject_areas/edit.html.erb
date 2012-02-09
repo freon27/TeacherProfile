@@ -4,23 +4,10 @@
 	  <%= render :partial => 'form', :object => form %>
 	  <nav class="action-bar">
 			<%= form.submit 'Update', :class => 'btn' %>
+			<%= link_to 'Back', :back %>
 		</nav>
 	<% end %>
-	<h2>Projects</h2>
-	<% if @projects.size == 0 %>
-	<p>This subject area currently has no projects. Why not create one now?</p>
-	<% else %>
-	<table id="projects-list" class="experience-table">
-	<% for project in @projects %>
-		<tr>
-			<td><%= project.name %></td>
-			<td><%= link_to 'Edit', edit_subject_area_project_path(@subject_area.id, project.id), :method => 'get', :class => 'ss_sprite ss_pencil' %></td>
-			<td><%= link_to 'Delete', subject_area_project_path(@subject_area.id, project.id), :method => 'delete', :class => 'ss_sprite ss_delete', 	:confirm => "Delete this project?" %></td>
-		</tr>
-	<% end %>
-	</table>
-	<% end %>
-	<%= link_to 'Add Project', new_subject_area_project_path(@subject_area.id), :method => 'get', :class => 'ss_sprite ss_add' %>
+
 	
 		
 </div>

@@ -9,7 +9,7 @@ Feature: View Profile
 	Scenario: Viewing a profile I own
 	Given a user exists with email: "test@test.com"
 	And a completed profile exists with user: the user
-	And I sign in as "test@test.com/Password1"
+	And I sign in with "test@test.com" and "password"
 	And I am on the completed profile's page
 	Then I should see "First Last"
 	And I should see "Primary Teacher"
@@ -22,5 +22,3 @@ Feature: View Profile
 	Then I should see "First Last"
 	And I should see "Primary Teacher"
 	And I should not see "Edit this profile"
-
-	

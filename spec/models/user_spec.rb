@@ -4,7 +4,7 @@ describe User do
   before(:each) do
     @user = Factory(:user)
   end
-  describe "creation" do
+  describe "validation" do
     it "should not be valid without a first name" do
       @user.first_name = nil
       @user.should_not be_valid
@@ -17,6 +17,10 @@ describe User do
       @user.email = nil
       @user.should_not be_valid
     end
+    describe "acceptance of T&C" do
+      subject { User.new }
+      it { subject.should validate_acceptance_of(:accepted_terms).with_message(/You must accept the terms and conditions/) }
+    end
     it "should not be valid unless the email is correctly formatted" do
       @user.email = 'notavalidemail'
       @user.should_not be_valid
@@ -26,32 +30,21 @@ describe User do
       @user2.should_not be_valid
     end
     it "should not be valid if password is blank" do
-      @user.password = nil
-      @user.should_not be_valid
-    end
-    it "should not be valid if password does not match confirmation" do
-      @user.password_confirmation = 'notthesame'
-      @user.should_not be_valid
+      @unsaved_user = Factory.build(:user)
+      @unsaved_user.password = nil
+      @unsaved_user.should_not be_valid
     end
     it "should not be valid if password is less that 6 characters" do
-      @user.password = "a" * 5
-      @user.password_confirmation = @user.password
-      @user.should_not be_valid
+      @unsaved_user = Factory.build(:user)
+      @unsaved_user.password = "a" * 5
+      @unsaved_user.password_confirmation = @user.password
+      @unsaved_user.should_not be_valid
     end
     it "should not be valid if password is longer that 15 characters" do
-      @user.password = "a" * 16
-      @user.password_confirmation = @user.password
-      @user.should_not be_valid
-    end
-    it "should not be valid if password does not contain at least 1 uppercase characters" do
-      @user.password = 'oneone'
-      @user.password_confirmation = @user.password
-      @user.should_not be_valid
-    end
-    it "should not be valid if password does not contain at least 1 numeric characters" do
-      @user.password = 'Oneone'
-      @user.password_confirmation = @user.password
-      @user.should_not be_valid
+      @unsaved_user = Factory.build(:user)
+      @unsaved_user.password = "a" * 16
+      @unsaved_user.password_confirmation = @user.password
+      @unsaved_user.should_not be_valid
     end
     it "should default to a subscribed_until value of 1 week from the creation date" do
       Timecop.freeze

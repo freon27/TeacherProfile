@@ -40,7 +40,7 @@ describe SampleWorkPagesController do
         end
         it "should assign the associated subject areas as @subject_areas" do
           get 'edit', :id => @swp.id
-          assigns(:subject_areas).should == @populated_sa.sample_work_page.subject_areas
+          assigns(:subject_areas).should == @populated_sa.sample_work_page.subject_areas.includes(:projects)
         end
         it "should assign @side_bar_name with value 'profiles/page_links'" do
           get 'edit', :id => @swp.id

@@ -2,20 +2,15 @@
 <html>
 	<head>
 		<title>Teaching Profile</title>
-	  <%= javascript_include_tag :defaults %>
-	  <%= javascript_include_tag 'jquery.colorbox-min' %>
 		<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
 		<%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 		<%= stylesheet_link_tag 'blueprint/plugins/sprites/sprite.css',  :media => 'screen' %>
 		<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-		
-		<%= stylesheet_link_tag 'teacherprofile', :media => 'screen' %>
-		<%= stylesheet_link_tag 'jquery-ui-1.8.11.custom', :media => 'screen' %>
-		<%= stylesheet_link_tag 'colorbox',  :media => 'screen' %>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-
+		<%= stylesheet_link_tag 'application', :media => 'screen' %>
+	  <%= javascript_include_tag 'application' %>
 	</head>
 	<body>
 		<% if signed_in? %>
@@ -35,7 +30,7 @@
 							<%= link_to 'Account', edit_user_path(current_user) %>
 						</li>
 						<li>
-							<%= link_to 'Sign out', sign_out_path %>
+							<%= button_to 'Sign out', sign_out_path, :method => 'delete' %>
 						</li>
 					</ul>
 				</nav>

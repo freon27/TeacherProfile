@@ -1,6 +1,6 @@
 class PhilosophyPagesController < ApplicationController
 
-  before_filter :authenticate, :except => [:show]
+  before_filter :authorize, :except => [:show]
 
   def show
     @philosophy_page = PhilosophyPage.find(params[:id])

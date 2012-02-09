@@ -2,6 +2,9 @@
 <div class="content round-bottom">
 	<%= semantic_form_for @user do |form| %>
 	  <%= render :partial => '/users/form', :locals => { :form => form, :edit_password => true } %>
-	  <%= form.submit 'Sign up', :class => 'btn' %>
+		<nav class="action-bar">
+	  	<%= form.submit 'Sign up', :class => 'btn success' %>
+			<%= link_to 'Back', :back %>
+		</nav>
 	<% end %>
  </div>
