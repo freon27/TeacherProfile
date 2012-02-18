@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Feedback do
 
   before(:each) do
-    @feedback = Factory(:feedback)
+    @feedback = Factory.build(:feedback)
   end
   
   describe "creation" do

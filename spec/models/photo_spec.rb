@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Photo do
   describe "validation" do
     before(:each) do
-      @photo = Factory(:photo)
+      @photo = Factory.build(:photo)
     end
     it "should not be valid without a user" do
       @photo.user = nil

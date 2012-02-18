@@ -19,10 +19,12 @@
 				<nav>
 					<h4>Teaching Profile</h4>
 					<ul>
-						<% if signed_in? && current_user == @profile.user %>
+						<% if signed_in?  %>
+							<% if current_user == @profile.user %>
 						<li>
 							<%= link_to 'Edit this profile', {:action => 'edit'} %>
 						</li>
+							<% end %>
 						<li>
 							<%= link_to 'Dashboard', dashboard_user_path(current_user) %>
 						</li>

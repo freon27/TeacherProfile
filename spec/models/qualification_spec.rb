@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Qualification do
   before(:each) do
-    @qualification = Factory(:qualification)
+    @qualification = Factory.build(:qualification)
   end
   describe "validation" do
     it "should not be valid without a location" do

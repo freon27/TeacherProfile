@@ -27,3 +27,6 @@ Then(/^tell me about the #{capture_model}'s profile$/) do |object|
   puts model!(object).profile.inspect
 end
 
+Then(/^tell me the time$/) do 
+  puts Time.now
+end

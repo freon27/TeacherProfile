@@ -25,11 +25,11 @@ When /^(?:|I )go to (.+)$/ do |page_name|
 end
 
 Then /^I should see a?n? "([^"]*)" button/ do |name|
-  page.should have_selector("input[type=submit][value=#{ name }]")
+  page.should have_selector("input[type=submit][value=\"#{ name }\"]")
 end
 
 Then /^I should not see a?n? "([^"]*)" button/ do |name|
-  page.should_not have_selector("input[type=submit][value=#{ name }]")
+  page.should_not have_selector("input[type=submit][value=\"#{ name }\"]")
 end
   
 When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|

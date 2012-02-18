@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SampleWorkPage do
   before(:each) do
-    @swp = Factory(:sample_work_page)
+    @swp = Factory.build(:sample_work_page)
   end
   describe "creation" do
     it "should not be valid without a published attribute" do

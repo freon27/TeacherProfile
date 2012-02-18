@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ExperiencePage do
   before(:each) do
-    @ep = Factory(:experience_page)
+    @ep = Factory.build(:experience_page)
   end
   describe "creation" do
     it "should not be valid without a publish_positions attribute" do

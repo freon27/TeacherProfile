@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PhilosophyPage do
   before(:each) do
-    @pp = Factory(:philosophy_page)
+    @pp = Factory.build(:philosophy_page)
   end
   describe "creation" do
     

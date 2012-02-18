@@ -3,11 +3,11 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :user do |user|
-  user.first_name             { "First" }
-  user.last_name              { "Last" }
+  user.first_name             "First"
+  user.last_name              "Last"
   user.email                  { Factory.next :email }
-  user.password               { "password" }
-  user.accepted_terms         { "1" }
+  user.password               "password"
+  user.accepted_terms         "1"
 end
 
 Factory.define :user_with_profile, :parent => :user do |u|

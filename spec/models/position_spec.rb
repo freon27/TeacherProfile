@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Position do
   
   before(:each) do
-    @position = Factory(:position)
+    @position = Factory.build(:position)
   end
   
   describe "creation" do

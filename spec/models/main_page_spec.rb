@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe MainPage do
   before(:each) do
-    @mp = Factory(:main_page)
+    @mp = Factory.build(:main_page)
   end
   describe "creation" do
     

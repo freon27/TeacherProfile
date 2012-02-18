@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :subscribed_until
 
-  after_create :set_free_subscription
+  before_create :set_free_subscription
 
   def subscribed?
     self.subscribed_until > Time.now

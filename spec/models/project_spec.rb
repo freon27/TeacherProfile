@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Project do
   before(:each) do
-    @project = Factory(:project)
+    @project = Factory.build(:project)
   end
   it "should not be valid without a name" do
     @project.name = nil

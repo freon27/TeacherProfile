@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SubjectArea do
   
   before(:each) do
-    @subject_area = Factory(:subject_area)
+    @subject_area = Factory.build(:subject_area)
   end
   describe "creation" do
     it "should not be valid without a name" do

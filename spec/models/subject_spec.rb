@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Subject do
   before(:each) do
-    @subject = Factory(:subject)
+    @subject = Factory.build(:subject)
   end
   describe "validation" do
     it "should not be valid without a subject name" do
