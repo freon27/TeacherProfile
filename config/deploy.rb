@@ -30,7 +30,7 @@ task :chrooted_symlinks do
     run "cd /var/www/#{application}/releases/#{release_path.split('/').last} && rm log && ln -s ../../shared/log"
     run "cd /var/www/#{application}/releases/#{release_path.split('/').last}/public && rm system && ln -s ../../../shared/system"
     run "cd /var/www/#{application}/releases/#{release_path.split('/').last}/tmp && rm pids && ln -s ../../../shared/pids"
-    run "cd /var/www/#{application}/releases/#{release_path.split('/').last} && mkdir vendor && cd vendor && ln -s ../../../shared/bundle"
+    #run "cd /var/www/#{application}/releases/#{release_path.split('/').last} && mkdir vendor && cd vendor && ln -s ../../../shared/bundle"
 end
 
 namespace :deploy do
