@@ -1,4 +1,5 @@
 Teacherprofile::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
   
   resources :main_pages, :only => [:show, :edit, :update]
   

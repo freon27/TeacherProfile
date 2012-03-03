@@ -1,8 +1,8 @@
 /*
-*= require_self
 *= require jquery-ui-1.8.11.custom.css
 *= require colorbox.css
 *= require wmd.css
+*= require_self
 */
 
 
@@ -76,7 +76,7 @@ ul {
 }
 
 header {
-	font-family: "Century Gothic", "Optima", "Apple Gothic", sans-serif;
+	
 	font-size: smaller;
 	margin-bottom: 36px;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#00699E), to(#006191));
@@ -167,7 +167,7 @@ header nav span.selected {
 	border-radius: 15px;	
 	-webkit-box-shadow: 4px 4px 4px #005078;
 	-moz-box-shadow:    4px 4px 4px #005078;
-  	box-shadow:         4px 4px 4px #005078;
+  box-shadow:         4px 4px 4px #005078;
 	text-shadow: none;
 }
 
@@ -854,3 +854,4 @@ p.location {
 #wmd-button-bar {
 	margin-bottom: 36px;
 }
+

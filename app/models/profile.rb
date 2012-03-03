@@ -3,7 +3,10 @@ class Profile < ActiveRecord::Base
   MAX_PROFILES_LIMIT = 3
   SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
     
-  has_attached_file :photo, :styles => { :medium => "200x200>"}, :convert_options => { :all => "-auto-orient" }
+  has_attached_file :photo, 
+    :styles => { :medium => "200x200>"}, 
+    :convert_options => { :all => "-auto-orient" },
+    :default_url => ''
   validates_attachment_size :photo, :less_than=>2.megabytes
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   

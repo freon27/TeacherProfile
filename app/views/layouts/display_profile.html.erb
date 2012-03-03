@@ -32,6 +32,9 @@
 							<%= link_to 'Account', edit_user_path(current_user) %>
 						</li>
 						<li>
+							<%= link_to 'Support', '/forums' %>
+						</li>
+						<li>
 							<%= button_to 'Sign out', sign_out_path, :method => 'delete' %>
 						</li>
 					</ul>
@@ -64,9 +67,9 @@
 					</div>
 				<% end %>
 				<%= yield %>
-			</div>
-			<div id="footer" class="span-24 last">
-				<p>Got a problem?  Email us on freon27@gmail.com for help.</p>
+				<div id="footer" class="span-24 last">
+					<p>Got a problem?  Email us on freon27@gmail.com for help.</p>
+				</div>
 			</div>
 		</div>
 		</div>

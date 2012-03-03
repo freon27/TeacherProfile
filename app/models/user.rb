@@ -41,6 +41,14 @@ class User < ActiveRecord::Base
   def subscribed?
     self.subscribed_until > Time.now
   end
+  
+  def to_s
+    "#{ self.first_name } #{ self.last_name }"
+  end
+  
+  def forem_admin?
+    1 #self.admin?
+  end
 
   private
     def set_free_subscription

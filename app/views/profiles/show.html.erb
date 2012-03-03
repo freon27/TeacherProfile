@@ -2,7 +2,7 @@
 	<div class="row">
 		<section class="span-11">
 			<h2>About Me</h2>
-			<div class="block-text"><%= image_tag(@profile.photo.url(:medium)) if @profile.photo.url(:medium) %><%= truncate_html( raw(@profile_presenter.introduction), :length => 800, :omission => '... ' + link_to('read more', main_page_path(@profile.main_page), :remote => true, :class => 'modal')) %>
+			<div class="block-text"><%= image_tag(@profile.photo.url(:medium)) if @profile.photo.url(:medium) != '' %><%= truncate_html( raw(@profile_presenter.introduction), :length => 800, :omission => '... ' + link_to('read more', main_page_path(@profile.main_page), :remote => true, :class => 'modal')) %>
 			</div>
 		</section>
 		<section class="span-11 push-2 last">

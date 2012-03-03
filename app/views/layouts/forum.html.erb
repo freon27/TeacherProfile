@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teaching Profile</title>
+	<%= stylesheet_link_tag 'forum', :media => 'screen' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	
+	<!-- <div class="topbar">
+			<div class="container">
+				<nav>
+					<h4>Teaching Profile</h4>
+					<ul>
+						<li>
+							<%= link_to 'Dashboard', main_app.dashboard_user_path(current_user) %>
+						</li>
+						<li>
+							<%= link_to 'Account', main_app.edit_user_path(current_user) %>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div> -->
+		<% if current_user.forem_admin? %>
+		<nav>
+			<%= link_to "Administrate", forem.admin_root_url %>
+		</nav>
+		<% end %>
+		<div id="flash">
+	    <% flash.each do |key, value| -%>
+	      <div id="flash_<%= key %>"><%=h value %></div>
+	    <% end %>
+	  </div>
+		<div id="forum">
+		<%= yield %>
+		<div>
+	</div>
+</body>
+</html>

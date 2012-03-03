@@ -18,8 +18,9 @@ gem "formtastic"
 gem "clearance", "~> 0.14.0"
 gem "capistrano"
 gem "truncate_html"
-gem "forem"
-
+gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem-theme-base', :git => "git://github.com/radar/forem-theme-base.git"
+gem 'paperclip-s3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -32,7 +33,8 @@ gem "forem"
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
+
+#gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -64,7 +66,8 @@ group :test do
 end
 
 group :production do
-  gem "mysql"
+  #gem "mysql"a
+  gem 'pg'  
 end
 
 group :assets do

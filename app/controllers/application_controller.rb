@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
+
   include Clearance::Authentication
   protect_from_forgery
   include SessionsHelper
@@ -9,8 +15,11 @@ class ApplicationController < ActionController::Base
     def resolve_layout
       if request.xhr?
         nil
-      elsif  
-       action_name == 'export'
+      elsif
+        controller_path.split('/').first == 'forem'
+        'forum'
+      elsif
+        action_name == 'export'
         'export'
       elsif action_name == 'show' && controller_name != 'pages'
         'display_profile'

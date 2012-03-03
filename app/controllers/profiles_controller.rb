@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+  class ProfilesController < ApplicationController
 
   before_filter :authorize, :except => [:show] 
   before_filter :common_setup, :except => [:show]
@@ -29,6 +29,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to(dashboard_user_path(current_user))
     else
+      @side_bar_name = 'users/dashboard_links'
       render :action => "new"
     end
   end
