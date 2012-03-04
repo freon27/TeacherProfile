@@ -2,8 +2,8 @@ class AddProfilePhoto < ActiveRecord::Migration
   def self.up
     add_column :profiles, :photo_file_name, :string
     add_column :profiles, :photo_content_type, :string
-    add_column :profiles, :photo_file_size, :date
-    add_column :profiles, :photo_updated_at, :integer
+    add_column :profiles, :photo_file_size, :integer
+    add_column :profiles, :photo_updated_at, :datetime
   end
 
   def self.down
