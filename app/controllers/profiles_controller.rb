@@ -14,7 +14,7 @@
     if ! @subscribed && current_user != @profile.user
       @owner_name = "#{@profile.user.first_name} #{@profile.user.last_name}"
       @owner_email = @profile.user.email
-      render :blocked
+      render 'shared/blocked'
     end
     @profile_presenter = Profiles::ShowPresenter.new(@profile)
   end
