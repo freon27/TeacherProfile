@@ -283,7 +283,6 @@ DEPENDENCIES
   ZenTest
   asset_sync
   autotest-notification
-  cancan
   capistrano
   capybara
   clearance (~> 0.14.0)
