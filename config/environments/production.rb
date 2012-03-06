@@ -59,7 +59,10 @@ Teacherprofile::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
   
-  config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+  config.action_controller.asset_host = Proc.new do |source, request|
+    method = request.ssl? ? "https" : "http"
+    "#{method}://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+  end 
   
   config.assets.precompile += %w( blueprint/screen.css blueprint/print.css blueprint/ie.css 
                                   blueprint/plugins/sprites/sprite.css wmd-buttons.png 
