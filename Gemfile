@@ -9,7 +9,6 @@ gem 'sqlite3', :group => [:development, :test]
 gem "will_paginate", "~> 3.0.2"
 gem "wmd-rails", "~> 0.0.3"
 gem "rdiscount", :require => 'rdiscount'
-gem "cancan"
 gem "paperclip"
 gem "high_voltage"
 gem 'pdfkit'
