@@ -95,9 +95,9 @@ describe MainPagesController do
   end
   describe "for non-signed in users" do
       describe "GET 'show'" do
-        it "should redirect to the sign in page" do
+        it "should be successful" do        
           get 'show', :id => @mp.id
-          response.should redirect_to(sign_in_path)
+          response.should be_success
         end
       end
     

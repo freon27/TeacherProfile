@@ -1,6 +1,6 @@
 class MainPagesController < ApplicationController
 
-  before_filter :authorize
+  before_filter :authorize, :except => [:show]
   
   
   def show

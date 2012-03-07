@@ -6,11 +6,11 @@ gem 'rails', '3.1.4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'rake', '0.9.2'
 gem 'sqlite3', :group => [:development, :test]
-gem "will_paginate", "~> 3.0.2"
 gem "wmd-rails", "~> 0.0.3"
 gem "rdiscount", :require => 'rdiscount'
 gem "paperclip"
 gem "high_voltage"
+gem 'kaminari'
 gem 'pdfkit'
 gem 'jquery-rails', '>= 0.2.6'
 gem "formtastic"

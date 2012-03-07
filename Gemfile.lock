@@ -6,14 +6,14 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 4331ec6d863ed87a7ead0b0ac9738ae3c46b30f1
+  revision: cd49c2926d3a7e2bf2b5b556f956584d4426a3d4
   specs:
-    forem (0.1)
+    forem (1.0.0.beta1)
       cancan
       forem-redcarpet (= 1.0.0)
-      kaminari
       rails (~> 3.1)
       simple_form
+      workflow (= 0.8.0)
 
 GEM
   remote: http://rubygems.org/
@@ -240,7 +240,7 @@ GEM
       rubyzip
     shoulda (2.11.3)
     shoulda-matchers (1.0.0)
-    simple_form (1.5.2)
+    simple_form (2.0.1)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simplecov (0.5.4)
@@ -270,9 +270,9 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
-    will_paginate (3.0.2)
     wmd-rails (0.0.3)
       rails (~> 3.1.1)
+    workflow (0.8.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -296,6 +296,7 @@ DEPENDENCIES
   formtastic
   high_voltage
   jquery-rails (>= 0.2.6)
+  kaminari
   launchy
   paperclip
   paperclip-s3
@@ -317,5 +318,4 @@ DEPENDENCIES
   truncate_html
   uglifier
   webrat (= 0.7.1)
-  will_paginate (~> 3.0.2)
   wmd-rails (~> 0.0.3)

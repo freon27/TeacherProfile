@@ -81,11 +81,10 @@ describe SampleWorkPagesController do
       before(:each) do
         @another_swp = Factory(:sample_work_page)
       end
-      describe "GET 'edit'" do
-        it "should raise a not found exception" do
-          expect { 
-            get 'show', :id => @another_swp.id
-          }.should raise_error(ActiveRecord::RecordNotFound)
+      describe "GET 'show'" do
+        it "should be successful" do
+          get 'show', :id => @swp.id
+          response.should be_success
         end
         it "should raise a not found exception" do
           expect { 
@@ -104,9 +103,9 @@ describe SampleWorkPagesController do
   end
   describe "for non-signed in users" do 
     describe "GET 'show'" do
-      it "should redirect to the sign in page" do
+      it "should be successful" do
         get 'show', :id => @swp.id
-        response.should redirect_to(sign_in_path)
+        response.should be_success
       end
     end
     describe "GET 'edit'" do
