@@ -64,4 +64,7 @@ Teacherprofile::Application.configure do
   config.assets.precompile += %w( blueprint/screen.css blueprint/print.css blueprint/ie.css 
                                   blueprint/plugins/sprites/sprite.css wmd-buttons.png 
                               )
+                              
+  config.action_mailer.default_url_options = { :host => 'teachingprofile.heroku.com' }
+                              
 end
