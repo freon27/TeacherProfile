@@ -747,7 +747,7 @@ div#footer {
 
 /* ++++++++++++ footer ++++++++++++ */
 
-div.publication-form, div.marketing-banner {
+div.publication-form, div.marketing-banner{
 	margin: 12px 0;
 	background-color: whiteSmoke;
 	padding: 12px 12px 12px 24px;
@@ -856,6 +856,10 @@ p.location {
 }
 
 img.screenshot {
-	border: 1px solid #ddd;
-	margin-bottom: 32px;
+	margin: auto;
 }
+
+ul.vertical-gallery {
+	padding: 36px 0 !important;
+}
+
