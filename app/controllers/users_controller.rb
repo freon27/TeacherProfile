@@ -13,6 +13,7 @@ class UsersController < Clearance::UsersController
   def create
     @side_bar_name = get_side_bar
     super
+    UserMailer.registration_confirmation(@user).deliver
   end
 
   def index

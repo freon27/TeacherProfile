@@ -99,6 +99,11 @@ describe UsersController do
           post :create, :user => @valid_params
           response.should redirect_to(dashboard_user_path(assigns[:user]))
         end
+        
+        it "should send a notification email" do
+          post :create, :user => @valid_params
+          ActionMailer::Base.deliveries.last.to.should == [assigns(:user).email]
+        end
       end
   
       describe "with invalid params" do

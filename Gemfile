@@ -42,6 +42,7 @@ group :development do
   gem 'rspec-rails', '2.8.1'
   gem 'faker', '0.3.1'
   gem 'webrat', '0.7.1'
+  gem 'test_notifier'
 end
 
 group :test do
