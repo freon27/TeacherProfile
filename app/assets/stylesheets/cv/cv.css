@@ -25,7 +25,7 @@ header {
 }
 
 div#logo {
- 	background: transparent url(/images/header_background.png) repeat-x;
+ 	background: transparent image-path(/header_background.png) repeat-x;
 	clear: both;
 }
 
@@ -43,7 +43,7 @@ div#footer {
 	margin-top: 100px;
 	text-align: center;
 	border-top: 1px solid #CCC;
-	background: transparent url(/images/footer_fade.png) repeat-x;
+	background: transparent image-path(/footer_fade.png) repeat-x;
 }
 
 /* Global Elements */

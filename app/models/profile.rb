@@ -1,7 +1,26 @@
 class Profile < ActiveRecord::Base
   
   MAX_PROFILES_LIMIT = 3
-  SUBJECTS = ['Primary', 'Design and Technology', 'English', 'Science']
+  SUBJECTS = [
+    'Primary',
+    'Art and Design',
+    'Citizenship',
+    'Design and Technology',
+    'English',
+    'Geography',
+    'History',
+    'ICT',
+    'Mathematics',
+    'Modern Foreign Languages',
+    'Music',
+    'PE',
+    'PSHEE',
+    'Religious Education',
+    'Science (combined)',
+    'Chemistry',
+    'Biology',
+    'Physics'
+  ]
     
   has_attached_file :photo, 
     :styles => { :medium => "200x200>"}, 

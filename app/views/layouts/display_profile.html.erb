@@ -22,7 +22,7 @@
 						<% if signed_in?  %>
 							<% if current_user == @profile.user %>
 						<li>
-							<%= link_to 'Edit this profile', {:action => 'edit'} %>
+							<%= link_to 'Edit this profile', {:action => 'edit', :id => @profile.id } %>
 						</li>
 							<% end %>
 						<li>
