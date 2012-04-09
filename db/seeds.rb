@@ -13,5 +13,5 @@ User.create!(
   :password               => ENV['admin_password'],
   :password_confirmation  => ENV['admin_password'],
   :admin                  => true,
-  :accepted_terms         => true
+  :accepted_terms         => 1
 )
