@@ -15,6 +15,12 @@ GIT
       simple_form
       workflow (= 0.8.0)
 
+GIT
+  remote: https://github.com/mileszs/wicked_pdf.git
+  revision: 24b886096d52247a7d33f61cb186f81c899ef1de
+  specs:
+    wicked_pdf (0.7.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -173,7 +179,6 @@ GEM
     paperclip-s3 (1.3.0)
       aws-sdk (~> 1.2.5)
       paperclip (~> 2.4)
-    pdfkit (0.5.2)
     pg (0.13.2)
     pickle (0.4.10)
       cucumber (>= 0.8)
@@ -303,7 +308,6 @@ DEPENDENCIES
   launchy
   paperclip
   paperclip-s3
-  pdfkit
   pg
   pickle
   rails (= 3.1.4)
@@ -322,4 +326,5 @@ DEPENDENCIES
   truncate_html
   uglifier
   webrat (= 0.7.1)
+  wicked_pdf!
   wmd-rails (~> 0.0.3)

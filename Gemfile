@@ -11,7 +11,7 @@ gem "rdiscount", :require => 'rdiscount'
 gem "paperclip"
 gem "high_voltage"
 gem 'kaminari'
-gem 'pdfkit'
+gem 'wicked_pdf', :git => "https://github.com/mileszs/wicked_pdf.git"
 gem 'jquery-rails', '>= 0.2.6'
 gem "formtastic"
 gem "clearance", "~> 0.14.0"

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Teaching Profile</title>		
-		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/screen.css', :media => 'screen' %>
-		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/print.css',  :media => 'print' %>
-		<!--[if lt IE 8]><%= stylesheet_link_tag 'http://localhost:3000/stylesheets/blueprint/ie.css' %><![endif]-->
-		<%= stylesheet_link_tag 'http://localhost:3000/stylesheets/cv.css', :media => 'screen' %>
+		<title>Teaching Profile</title>
+		<%= wicked_pdf_stylesheet_link_tag 'blueprint/screen' -%>
+		<%= wicked_pdf_stylesheet_link_tag "cv/cv" -%>
+		<!--[if lt IE 8]><%= wicked_pdf_stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 		<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<%= wicked_pdf_javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js" %>
 		<![endif]-->
-
+		
+	
 	</head>
 	<body class="plain">
 		<div class="container">

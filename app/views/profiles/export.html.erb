@@ -1,12 +1,12 @@
 <h2>About Me</h2>
-<p><%= raw(@introduction) %></p>
+<p><%= raw(@profile_presenter.introduction) %></p>
 
 <h2>Teaching Philosophy</h2>
-<p>	<%= raw(@philosophy) %></p>
+<p>	<%= raw(@profile_presenter.philosophy) %></p>
 
 <h2>Work Experience</h2>
 <ul class="experience-list">
-<% for position in @positions %>
+<% for position in @profile_presenter.positions %>
 	<li>
 		<div class="span-7 position-details">
 			<h3><%= position.location %></h3>
@@ -25,7 +25,7 @@
 <h2>Qualifications</h2>
 
 <ul class="experience-list">
-	<% for qualification in @qualifications %>
+	<% for qualification in @profile_presenter.qualifications %>
 	<li>
 	<div class="span-6 position-details">
 		<h3><%= qualification.location %></h3>

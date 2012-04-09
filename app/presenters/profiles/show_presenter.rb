@@ -19,7 +19,7 @@ class Profiles::ShowPresenter
   end
   
   def qualifications
-   @profile.experience_page.qualifications
+   @profile.experience_page.qualifications.includes(:subjects)
   end
   
   def positions 

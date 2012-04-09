@@ -69,13 +69,8 @@
   
   def export
     @profile = current_user.profiles.find(params[:id], :include => [:main_page, :experience_page, :sample_work_page])
-    @introduction = @profile.main_page.introduction
-    @philosophy = @profile.philosophy_page.philosophy
-    @positions = @profile.experience_page.positions
-    @qualifications = @profile.experience_page.qualifications(:include => [:subjects])
-    html = render_to_string(:export)
-    kit = PDFKit.new(html)
-    send_data(kit.to_pdf, :type => :pdf)
+    @profile_presenter = Profiles::ShowPresenter.new(@profile)
+    render :pdf => "cv", :layout => 'export.html'
   end
   
   private

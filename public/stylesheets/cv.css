@@ -1,0 +1,174 @@
+
+body {
+	padding-top: 24px;
+}
+
+p {
+	font-size: 150% !important;
+}
+
+
+/* Body */
+
+body {
+	line-height: 24px;
+}
+
+body.plain {
+	background-image: none;
+}
+
+/* Header */
+
+header {	
+	margin-bottom: 50px;
+}
+
+div#logo {
+ 	background: transparent image-path(/header_background.png) repeat-x;
+	clear: both;
+}
+
+div.logo {
+	height: 135px;	
+}
+
+div.export-logo {
+	text-align: right;
+}
+
+/* Footer */
+
+div#footer {
+	margin-top: 100px;
+	text-align: center;
+	border-top: 1px solid #CCC;
+	background: transparent image-path(/footer_fade.png) repeat-x;
+}
+
+/* Global Elements */
+
+
+body a {
+	color: #999;
+}
+
+h2 {
+	font-weight: bold;
+}
+
+/* Tables */
+
+ul {
+	margin: 0;
+}
+
+/* Navigation */
+
+/* content */
+
+div.content {
+	margin-bottom: 52px;
+}
+
+div.content form{
+	margin-bottom: 24px;
+}
+
+ul.clean-list {
+	list-style: none !important;
+	padding: 0;
+}
+
+li.qualification-container {
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+
+table.experience-table th {
+	font-size: 115%;
+	padding: 0.5em;
+	font-weight: bold;
+	color: #6a8aa2;
+}
+
+table.experience-table td {
+	border-top: 2px solid white;
+	padding: 0.5em;
+	vertical-align: top;
+	/*background-color: #e4edf4;*/
+}
+
+
+div.user-info {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 6px 6px 0 0;
+  width: 33% !important;
+}
+
+
+div.user-info ul {
+	list-style: none;
+}
+
+#display-logo h1, #display-logo h2, #display-logo h3, #display-logo h4 {
+	margin-bottom: 6px;
+}
+
+.side-header {
+	text-align: right;
+}
+
+.experience-list {
+	list-style: none;
+}
+
+#profile-sidebar {
+	text-align: right;
+}
+
+ul.experience-list {
+	padding: 0;
+}
+
+ul.experience-list li {
+	margin: 36px 0 !important;
+}
+
+
+p.date {
+	font-size: 120% !important;
+}
+
+tr.header-row th {
+	background: whiteSmoke;
+	color: black;
+	font-weight: normal;
+}
+
+h1,h2,h3,h4 {
+	font-weight: bold;
+}
+
+h2 {
+	margin-top: 60px;
+}
+
+h3, p.date {
+	margin-bottom: 12px !important;
+}
+
+table.subjects {
+	font-size: 150%;
+}
+
+td {
+	padding: 0;
+}
+
+h3#teaching-subject {
+	margin-bottom: 6px !important;
+}
