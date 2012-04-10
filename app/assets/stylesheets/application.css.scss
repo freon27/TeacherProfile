@@ -25,6 +25,10 @@ p {
 	font-size: larger;
 }
 
+div.main {
+	margin-top: 78px;
+}
+
 section section section {
 	margin-top: 48px;
 }
@@ -76,9 +80,8 @@ ul {
 }
 
 header {
-	
 	font-size: smaller;
-	margin-bottom: 36px;
+	margin-bottom: 48px;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#00699E), to(#006191));
 	background-image: -webkit-linear-gradient(#00699E, #006191);
 	background: -moz-linear-gradient(top,  #00699E,  #006191);
@@ -91,6 +94,10 @@ header {
 	height: 150px;
 }
 
+div.logo {
+	background-image: image-url('tp_logo.png');
+	background-position: bottom left;
+}
 
 div.details {
 	position: absolute;
