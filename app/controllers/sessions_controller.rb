@@ -5,8 +5,10 @@ class SessionsController < Clearance::SessionsController
     url_for :controller => 'users', :id => current_user, :action => 'dashboard'
   end
 
+  private
+  
   def common_setup
     logger.debug('SETUP')
     @side_bar_name = 'users/page_links'
-  end 
+  end
 end

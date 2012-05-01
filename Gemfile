@@ -20,6 +20,7 @@ gem "truncate_html"
 gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'forem-theme-base', :git => "git://github.com/radar/forem-theme-base.git"
 gem 'paperclip-s3'
+gem 'newrelic_rpm'
 # Use unicorn as the web server
 # gem 'unicorn'
 
