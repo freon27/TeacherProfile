@@ -63,6 +63,10 @@ Teacherprofile::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
   
+  # Force the site into ssl only mode
+  config.force_ssl = true
+
+  
   config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
   
   config.assets.precompile += %w( blueprint/screen.css blueprint/print.css blueprint/ie.css 
