@@ -74,5 +74,9 @@ Teacherprofile::Application.configure do
                               )
                               
   config.action_mailer.default_url_options = { :host => 'teachingprofile.herokuapp.com' }
-                              
+
+  WickedPdf.config = {
+    :exe_path => Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+  }
+                         
 end

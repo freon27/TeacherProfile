@@ -36,9 +36,5 @@ Teacherprofile::Application.configure do
   
   config.action_mailer.default_url_options = { :host => 'localhost' }
 
-  config.after_initialize do
-    WICKED_PDF[:exe_path] = "/usr/local/bin/wkhtmltopdf"
-  end
-
 end
 

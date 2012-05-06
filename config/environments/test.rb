@@ -34,9 +34,6 @@ Teacherprofile::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
-  # Tell paperclip where imagemagick is installed
-  Paperclip.options[:command_path] = "/usr/local/bin"
   
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true

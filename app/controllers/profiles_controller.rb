@@ -6,7 +6,7 @@
   def show
     # we may be getting an ID or a user set URL to search on
     if params[:profile_url]
-      @profile = Profile.find_by_url_suffix(params[:profile_url])
+      @profile = Profile.find_by_url_suffix!(params[:profile_url])
     else 
       @profile = Profile.find(params[:id], :include => [:main_page, :philosophy_page])
     end
