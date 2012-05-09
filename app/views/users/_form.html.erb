@@ -11,7 +11,13 @@
 		<%= form.input :accepted_terms,
 			:as => :boolean,
 			:label => "I confirm that I have read and accept the terms and conditions",
-			:hint => link_to('View Terms & Conditions', '/pages/terms')
+			:hint => link_to('View Terms & Conditions', 'https://s3-eu-west-1.amazonaws.com/teachingprofile-support/tp_terms_and_conditions.doc')
 		%>
+		<nav>
+				<ul>
+					<li><%= raw('<a href="https://www.iubenda.com/privacy-policy/185161" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; w.addEventListener ? w.addEventListener("load", loader, false) : w.attachEvent("onload", loader);})(window, document);</script>
+					') %></li>
+				</ul>
+		</nav>
 	<% end %>
 <% end %>
