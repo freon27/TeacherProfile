@@ -63,7 +63,7 @@
 			<div class="container">
 				<% if @subscribed == false && current_user == @profile.user %>
 					<div class="helper">
-						<p>You are not currently subscribed so other people will not be able to see your profile. Click here to subscribe now.</p>
+						<p>You are not currently subscribed so other people will not be able to see your profile.<br /><%= link_to('Subscribe now!', '/pages/subscribe', :class => 'emphasis') %></p>
 					</div>
 				<% end %>
 				<%= yield %>
