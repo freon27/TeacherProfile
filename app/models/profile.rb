@@ -26,7 +26,7 @@ class Profile < ActiveRecord::Base
     :styles => { :medium => "200x200>"}, 
     :convert_options => { :all => "-auto-orient" },
     :default_url => ''
-  validates_attachment_size :photo, :less_than=>2.megabytes
+  validates_attachment_size :photo, :less_than=>2.megabytes, :message => 'Image must be 2MB or less'
   validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   
   attr_accessible :name, :published, :url_suffix, :main_subject, :photo
