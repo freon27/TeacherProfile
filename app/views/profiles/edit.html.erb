@@ -8,7 +8,7 @@
 
 		<% if @profile.url_suffix %>
 		<p class="url-info">
-			The public link for this profile is:<br /><%= link_to('http://teachingprofile.com/profiles/public/' +  CGI.escape(@profile.url_suffix)) %>
+			The public link for this profile is:<br /><%= link_to('http://teachingprofile.com/profiles/public/' +  CGI.escape(@profile.url_suffix), 'http://teachingprofile.com/profiles/public/' +  CGI.escape(@profile.url_suffix)) %>
 		</p>
 		<% end %>
 		
