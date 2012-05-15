@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :first_name, :last_name, :password, :accepted_terms
 
-  has_many :profiles, :dependent => :destroy
+  has_many :profiles, :dependent => :destroy, :order => 'name' 
   has_many :main_pages, :dependent => :destroy
   has_many :experience_pages, :dependent => :destroy
   has_many :philosophy_pages, :dependent => :destroy
