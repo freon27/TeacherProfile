@@ -1,32 +1,61 @@
-
-<section class="span-14 ">
-	<h2><%= @display_project.name %></h2>
-	<p><%= @display_project.description %></p>
-	<% if @display_project.photos.length > 0 %>
-	<div class="document-area">
-		<h2>Gallery</h2>
-		<ul id="photo-list" class="gallery">
-			<% for photo in @display_project.photos %>
-		 		<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), photo.photo.url(:medium)) %></li>
+<div class="span-5 sidebar">
+	<ul>
+	<% for subject_area in @subject_areas %>
+		<li><h3><%= subject_area.name %></h3></li>
+		<li class="subject-area">
+			<ul>
+			<% for project in subject_area.projects %>
+				<li><%= link_to project.name, subject_area_project_path(subject_area, project) %></li>
 			<% end %>
-		</ul>
-	</div>
+			</ul>
+		</li>
 	<% end %>
+</div>
+
+<section class="span-17 push-2 last">
+	<section>
+	<% if @display_project %>
+		<h2><%= @display_project.name %></h2>
+		<p class="block-text">
+			<%= @display_project.description %>
+		</p>
 	
-	<% if @display_project.documents.length > 0 %>
-	<div class="document-area">
-		<h2>Supporting Documents</h2>
-		<ul class="document-list">
-		<% for document in @display_project.documents %>
-	 		<li>
-				<div class="file-box <%= content_type_to_string(document.document.content_type) %>">
-				<%=  link_to(document.caption, document.document.url)  %>
-				<p><em><%= document.description %></em></p>
-				</div>
-			</li>
+		<% if @display_project.photos.length > 0 %>
+		<section>
+			<h3>Gallery</h3>
+			<div class="gallery-container">
+				<p class="hint">
+					Click on the images to enlarge
+				</p>
+				<ul class="gallery">
+					<% for photo in @display_project.photos %>
+				 	<li><%=  link_to(image_tag(photo.photo.url(:thumb), :alt => photo.caption, :title => photo.caption, :class => 'photo'), photo.photo.url(:medium), :class => 'gallery-link') %></li>
+					<% end %>
+				</ul>
+				<br class="clearfix" />
+			</div>
 		<% end %>
-		</ul>
-	</div>
+		</section>
+	
+		<% if @display_project.documents.length > 0 %>
+		<section>
+			<h3>Supporting Documents</h3>
+			<ul class="documents">
+				<% for document in @display_project.documents %>
+			 		<li class="<%= content_type_to_string(document.document.content_type) %>">
+						<h4><%=  link_to(document.caption, document.document.url)  %></h4>
+						<p class="supporting"><%= document.description %></p>
+					</li>
+				<% end %>
+			</ul>
+		
+		</section>
+		<% end %>
+	<% else %>
+		<p>This profile currently has no sample work.</p>
 	<% end %>
+</section>
+
+	
 	
 </section>

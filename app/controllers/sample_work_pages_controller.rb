@@ -15,6 +15,7 @@ class SampleWorkPagesController < ApplicationController
       render 'shared/blocked'
     end
     @side_bar_name = 'subject_area_list'
+    render '/projects/show'
   end
   
   def edit 
