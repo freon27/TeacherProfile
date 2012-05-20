@@ -14,7 +14,6 @@ Feature: Navigation Bar
 	  Then I should see "Dashboard" within ".topbar"
 		And I should see "Account" within ".topbar"
 		And I should see a "Sign out" button
-		And I should see "Support" within ".topbar"
 		
 	Scenario: As a signed in user editing a profile
 	  Given a profile exists
@@ -23,7 +22,6 @@ Feature: Navigation Bar
 	  Then I should see "View profile" within ".topbar"
 	  And I should see "Dashboard" within ".topbar"
 		And I should see "Account" within ".topbar"
-		And I should see "Support" within ".topbar"
 		And I should see a "Sign out" button
 		
 	Scenario: A non-signed in user viewing a profile
@@ -43,5 +41,4 @@ Feature: Navigation Bar
 		And I am on the profile page
 		Then I should see "Dashboard" within ".topbar"
 		And I should see "Account" within ".topbar"
-		And I should see "Support" within ".topbar"
 		And I should not see "Edit this profile" within ".topbar"

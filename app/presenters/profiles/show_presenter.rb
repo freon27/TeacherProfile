@@ -19,11 +19,11 @@ class Profiles::ShowPresenter
   end
   
   def qualifications
-   @profile.experience_page.qualifications.includes(:subjects)
+    @profile.experience_page.qualifications.includes(:subjects)
   end
   
   def positions 
-   @profile.experience_page.positions
+    @profile.experience_page.positions
   end
   
   memoize :introduction, :philosophy, :qualifications, :positions

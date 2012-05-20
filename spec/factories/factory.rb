@@ -57,6 +57,12 @@ Factory.define :subject_area do |sa|
   end
 end
 
+Factory.define :subject_area_with_project, :parent => :subject_area do |sa|
+  sa.after_create do |s|
+    s.projects = [Factory(:project, :subject_area => s)]
+  end
+end
+
 Factory.define :position do |pos|
   pos.association   :experience_page
   pos.location      'School A'

@@ -20,9 +20,13 @@ describe SampleWorkPagesController do
           get 'show', :id => @swp.id
           assigns(:sample_work_page).should == @swp
         end
-        it "should assign the associated subject areas as @subject_areas" do
+        it "should assign only the associated subject areas that have projects as @subject_areas" do
+          populated_subject_area = Factory(:subject_area_with_project, :sample_work_page => @swp)
+          @swp.subject_areas = [populated_subject_area]
+          @swp.subject_areas.push(Factory(:subject_area, :sample_work_page => @swp))
+          @swp.save!
           get 'show', :id => @swp.id
-          assigns(:subject_areas).should == @swp.subject_areas
+          assigns(:subject_areas).should == [populated_subject_area]
         end
         it "should assign the 'sample_work_pages/project_list as @side_bar_name'" do
           get 'show', :id => @swp.id

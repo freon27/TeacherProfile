@@ -4,7 +4,7 @@ class SampleWorkPagesController < ApplicationController
   
   def show
     @sample_work_page = SampleWorkPage.find(params[:id])
-    @subject_areas = @sample_work_page.subject_areas
+    @subject_areas = @sample_work_page.subject_areas.joins(:projects)
     @display_subject_area = @subject_areas.first
     @display_subject_area and @display_project = @display_subject_area.projects.first
     @profile = @sample_work_page.profile

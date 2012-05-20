@@ -60,7 +60,7 @@ describe Profiles::ShowPresenter do
       end
       
       it "should return the array of qualifications associated with the profile" do
-        @presenter.qualifications.should == @profile.experience_page.qualifications
+        @presenter.qualifications.should == @profile.experience_page.qualifications.includes(:subjects)
       end
     end
     
